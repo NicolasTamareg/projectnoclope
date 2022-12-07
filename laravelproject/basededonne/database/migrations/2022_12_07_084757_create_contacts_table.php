@@ -12,10 +12,20 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
+    { 
         Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        $table->id();
+        $table->integer('numberphone');
+        $table->string('firstname');
+        $table->string('lastname');
+        $table->unsignedBigInteger('user_id');
+        $table->timestamps();
+        });
+
+    
+        Schema::table('contacts', function(Blueprint $table) {
+        $table->foreign('user_id')->references('id')->on('users');
+     
         });
     }
 
