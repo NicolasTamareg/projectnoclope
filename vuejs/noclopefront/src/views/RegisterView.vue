@@ -47,6 +47,8 @@ export default {
 
 
 <template>
+  <div class="mainContainer">
+
     <form @submit.prevent="register">
       <h1>Créer un compte</h1>
       <div class="input-container">
@@ -86,8 +88,17 @@ export default {
       </div>
       <input class="createaccount-btn" type="submit" value="S'inscrire" />
     </form>
+    <a href="/login">Déjà inscrit(e) ?</a>
+  </div>
+  
   
     <div v-if="result" class="input-container">
+     
       <RouterLink to="/login"></RouterLink>
     </div>
   </template>
+
+  <style scoped>
+
+
+</style>
