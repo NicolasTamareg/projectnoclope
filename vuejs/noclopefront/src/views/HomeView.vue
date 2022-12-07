@@ -1,4 +1,8 @@
 
 <template>
- <h1>coucou page principale</h1>
+ <h1>Page principale, Que mettre dessus ?</h1>
+
+ <a href="">Se lancer !</a>
+
+
 </template>
