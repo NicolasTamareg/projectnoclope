@@ -29,7 +29,7 @@ export default {
       };
 
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/chat-match/user",
+        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/user",
         options
       );
 
