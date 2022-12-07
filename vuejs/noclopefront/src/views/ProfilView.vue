@@ -4,8 +4,7 @@ import ProfilPage from "../components/ProfilPage.vue";
 export default {
   data() {
     return {
-      userList: {
-      },
+      userList: {},
 
       result: true,
       token: "",
@@ -21,7 +20,7 @@ export default {
   },
   methods: {
     modifierProfil() {
-      this.showModifierProfil = !this.showModifierProfil
+      this.showModifierProfil = !this.showModifierProfil;
     },
     togglePost() {
       this.showCreatePost = !this.showCreatePost;
@@ -51,20 +50,15 @@ export default {
 
 <template>
   <div class="card">
-   
     <button @click="modifierProfil" id="inputModifierProfil">
       <i class="fa-solid fa-sun"></i>
     </button>
     <ProfilPage :profile="userList" v-if="showModifierProfil" />
-    <p>{{ userList.firstname }} </p>
+    <p>{{ userList.firstname }}</p>
     <p>{{ userList.lastname }}</p>
 
     <textarea cols="" rows="" placeholder="Ecrivez votre bio ici..."></textarea>
-
   </div>
-
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

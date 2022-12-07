@@ -1,5 +1,3 @@
-
-
 <script>
 export default {
   data() {
@@ -35,14 +33,12 @@ export default {
       if (data.success === true) {
         this.token = data.token;
         localStorage.setItem("token", data.token);
-        this.$router.push('/profil')
+        this.$router.push("/profil");
       }
     },
   },
 };
 </script>
-
-
 
 <template>
   <div id="mainContainer">
@@ -71,14 +67,12 @@ export default {
         />
       </div>
       <RouterLink to="/profil">
-      <p v-if="result === true"></p>
-      <p v-else-if="result === false" class="error">
-        Adresse mail ou mot de passe est invalide.
-      </p>
-    </RouterLink>
+        <p v-if="result === true"></p>
+        <p v-else-if="result === false" class="error">
+          Adresse mail ou mot de passe est invalide.
+        </p>
+      </RouterLink>
       <input class="login-button" type="submit" value="Se connecter" />
-      
     </form>
   </div>
-  
 </template>

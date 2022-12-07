@@ -1,6 +1,5 @@
-
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterLink } from "vue-router";
 </script>
 
 <script>
@@ -8,9 +7,7 @@ export default {
   methods: {
     logout() {
       localStorage.clear();
-
     },
-
   },
 
   data() {
@@ -21,30 +18,24 @@ export default {
       // this.isConnected = !!localStorage.getItem("token");
       this.isConnected = Boolean(localStorage.getItem("token"));
     });
-  }
-}
+  },
+};
 </script>
 
-   
 <template>
   <div class="wrapper">
     <nav v-if="isConnected">
       <RouterLink to="/"></RouterLink>
 
-
       <RouterLink to="/profil">Profil</RouterLink>
       <RouterLink to="/login" @click="logout">Se déconnecter</RouterLink>
-
     </nav>
     <nav v-else>
       <RouterLink to="/">Accueil</RouterLink>
       <RouterLink to="/login">Se connecter</RouterLink>
       <RouterLink to="/register">Créer un compte</RouterLink>
-
     </nav>
   </div>
-
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

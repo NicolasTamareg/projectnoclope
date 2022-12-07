@@ -17,11 +17,11 @@ export default {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "bearer" 
+          Authorization: "bearer",
         },
         body: {
           firstname: JSON.stringify.this.profileUpdated,
-          
+
           // email: String,
           // age: Number,
           // occupation: String,
@@ -45,13 +45,15 @@ export default {
     <form @submit.prevent="profileUpdated">
       <input v-model="profileUpdated.firstname" type="firstname" />
       <input v-model="profileUpdated.lastname" type="lastname" />
- 
-      <input  :class="profileUpdated" type="submit" id="inputModifier" value="Modifier"/>
-      
+
+      <input
+        :class="profileUpdated"
+        type="submit"
+        id="inputModifier"
+        value="Modifier"
+      />
     </form>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

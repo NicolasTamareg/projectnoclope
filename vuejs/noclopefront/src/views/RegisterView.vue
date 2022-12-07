@@ -37,23 +37,24 @@ export default {
       const data = await response.json();
       this.result = data.success;
 
-      this.$router.push('/login')
+      this.$router.push("/login");
     },
   },
 };
 </script>
 
-
-
-
 <template>
   <div class="mainContainer">
-
     <form @submit.prevent="register">
       <h1>Créer un compte</h1>
       <div class="input-container">
         <label for="lastame"></label>
-        <input placeholder="Nom" id="lastnameInput" v-model="lastname" required />
+        <input
+          placeholder="Nom"
+          id="lastnameInput"
+          v-model="lastname"
+          required
+        />
       </div>
       <div class="input-container">
         <label for="firstname"></label>
@@ -90,15 +91,10 @@ export default {
     </form>
     <a href="/login">Déjà inscrit(e) ?</a>
   </div>
-  
-  
-    <div v-if="result" class="input-container">
-     
-      <RouterLink to="/login"></RouterLink>
-    </div>
-  </template>
 
-  <style scoped>
+  <div v-if="result" class="input-container">
+    <RouterLink to="/login"></RouterLink>
+  </div>
+</template>
 
-
-</style>
+<style scoped></style>
