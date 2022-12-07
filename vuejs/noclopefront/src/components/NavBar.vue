@@ -37,7 +37,7 @@ export default {
 
     </nav>
     <nav v-else>
-      <RouterLink to="/"></RouterLink>
+      <RouterLink to="/">Accueil</RouterLink>
       <RouterLink to="/login">Se connecter</RouterLink>
       <RouterLink to="/register">Créer un compte</RouterLink>
 

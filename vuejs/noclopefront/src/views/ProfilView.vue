@@ -51,14 +51,12 @@ export default {
 
 <template>
   <div class="card">
-    <p class="photoProfil">
-      <img src="src\assets\Chat_Match_1avatard.png" alt="" />
-    </p>
+   
     <button @click="modifierProfil" id="inputModifierProfil">
       <i class="fa-solid fa-sun"></i>
     </button>
     <ProfilPage :profile="userList" v-if="showModifierProfil" />
-    <p>@{{ userList.firstname }} </p>
+    <p>{{ userList.firstname }} </p>
     <p>{{ userList.lastname }}</p>
 
     <textarea cols="" rows="" placeholder="Ecrivez votre bio ici..."></textarea>
