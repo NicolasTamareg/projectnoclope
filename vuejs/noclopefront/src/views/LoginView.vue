@@ -47,7 +47,7 @@ export default {
 <template>
   <div id="mainContainer">
     <div class="h2-style">
-      <h2>Nous sommes heureux de vous revoir</h2>
+      <h2>Nous sommes heureux de vous revoir !</h2>
     </div>
     <!-- Formulaire de login -->
     <form @submit.prevent="login" class="form-style">
