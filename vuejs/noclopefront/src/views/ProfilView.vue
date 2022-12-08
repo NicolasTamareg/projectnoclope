@@ -58,11 +58,9 @@ export default {
     <p>{{ userList.lastname }}</p>
 
     <textarea cols="" rows="" placeholder="Ecrivez votre bio ici..."></textarea>
-    <a href="/craque"><button>J'ai craqué</button></a>
+    <a href="/craquer"><button>J'ai craqué</button></a>
   </div>
 </template>
 
 <style scoped>
-
-
 </style>

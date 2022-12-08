@@ -21,10 +21,6 @@ export default {
         },
         body: {
           firstname: JSON.stringify.this.profileUpdated,
-
-          // email: String,
-          // age: Number,
-          // occupation: String,
         },
       };
 
