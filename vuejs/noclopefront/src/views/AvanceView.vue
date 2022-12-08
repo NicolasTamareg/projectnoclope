@@ -2,7 +2,7 @@
 
 
 <h2>Demande d'avance sur cagnotte</h2>
-<form action="">
+<form action="/profil">
 <p>Bonjour, je souhaiterais retirer une avance de:
     
     <select name="" id="">

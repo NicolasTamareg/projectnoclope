@@ -27,7 +27,7 @@ export default {
       };
 
       const response = await fetch(
-        "https://api.mangopay.com/v2.01/oauth/token//projetnoclope/login",
+        "https://api.mangopay.com/v2.01/oauth/token/projetnoclope/vuejs/noclopefront/login",
         options
       );
 

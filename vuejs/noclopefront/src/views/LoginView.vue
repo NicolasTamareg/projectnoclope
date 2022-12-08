@@ -23,7 +23,7 @@ export default {
       };
 
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/login",
+        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/login",
         options
       );
 
@@ -58,7 +58,7 @@ export default {
 
 <template>
   <div class="arround">
-      <h2>Bonjour</h2>
+      <h1>Connexion</h1>
     <!-- Formulaire de login -->
     <form @submit.prevent="login" class="form-style">
         <input
