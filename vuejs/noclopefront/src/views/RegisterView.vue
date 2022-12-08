@@ -66,7 +66,7 @@ export default {
         <input
           type="email"
           id="emailInput"
-          placeholder="Email"
+          placeholder="Email@test.com"
           v-model="email"
           required
         />

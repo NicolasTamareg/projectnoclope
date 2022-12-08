@@ -58,7 +58,7 @@ export default {
 
 <template>
   <div class="arround">
-      <h2>Bonjour</h2>
+      <h1>Connexion</h1>
     <!-- Formulaire de login -->
     <form @submit.prevent="login" class="form-style">
         <input
