@@ -115,7 +115,7 @@ export default {
     </label>
     <input v-if="formIsValid" type="submit" value="Envoyer" />
   </form>
-  <p v-else>Merci pour vos sous!</p>
+  <p v-else>Merci de vôtre confiance!</p>
 </template>
 
 <style>
