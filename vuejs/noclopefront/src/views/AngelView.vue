@@ -1,87 +1,126 @@
 <script>
 export default {
+  name: "App",
   data() {
     return {
       firstname: "",
       lastname: "",
-      telephone: "",
+      numberphone: "",
       result: null,
       token: "",
+      feedbackMessage: "",
     };
   },
 
   methods: {
-    async ange() {
-      const options = {
+    async getContacts() {
+      const response = await fetch("http://127.0.0.1:8000/api/contacts", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      const data = await response.json();
+      this.contacts = data.contacts;
+    },
+    async createContact() {
+      const body = {
+        firstname: this.firstname,
+        lastname: this.lastname,
+        numberphone: this.numberphone,
+      };
+      const response = await fetch("http://127.0.0.1:8000/api/contacts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify({
-            firstname: this.firstname,
-            lastname: this.lastname,
-            telephone: this.telephone,
-        }),
-      };
-
-      const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/ange",
-        options
-      );
-
+        body: JSON.stringify(body),
+      });
       const data = await response.json();
-
-      this.result = data.success;
-      if (data.success === true) {
-        this.token = data.token;
-        localStorage.setItem("token", data.token);
-        this.$router.push("/profil");
-      }
+      this.feedbackMessage = data.message;
     },
   },
-  computed:{
-    // passwordValid: function () {
-    //   if (this.password.length === 0) return "";
-    //   const isLengthOk = this.password.length =< 8;
-    //   if (!isLengthOk) return "border-red";
-
-    //   for (let char of this.password) {
-    //     if (this.password == 5) {
-    //       return "border-red";
-    //     }
-    //   }
-    //   return "border-green";
-    // },
-
-
+  mounted() {
+    this.getContacts();
   },
 };
 </script>
 
-
 <template>
-<h2>Vos anges Gardiens</h2>
+  <h2>Vos anges Gardiens</h2>
 
-<form action="/profil">
-<label for="">Ange-Gardien 1</label>
-<input type="text" placeholder="Nom" id="lastname" v-model="lastname" required>
-<input type="text" placeholder="Prénom" id="firstname" v-model="firstname" required>
-<input type="number" placeholder="Numéro de telephone" id="telephone" v-model="telephone" required>
+  <form @submit.prevent="createContact">
+    <label for="">Ange-Gardien 1</label>
+    <input
+      type="text"
+      placeholder="Nom"
+      id="lastname"
+      v-model="lastname"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Prénom"
+      id="firstname"
+      v-model="firstname"
+      required
+    />
+    <input
+      type="number"
+      placeholder="Numéro de telephone"
+      id="numberphone"
+      v-model="numberphone"
+      required
+    />
 
-<label for="">Ange-Gardien 2</label>
-<input type="text" placeholder="Nom" id="lastname" v-model="lastname2" required>
-<input type="text" placeholder="Prénom" id="firstname" v-model="firstname2" required>
-<input type="number" placeholder="Numéro de telephone" id="telephone" v-model="telephone2" required>
+    <label for="">Ange-Gardien 2</label>
+    <input
+      type="text"
+      placeholder="Nom"
+      id="lastname"
+      v-model="lastname2"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Prénom"
+      id="firstname"
+      v-model="firstname2"
+      required
+    />
+    <input
+      type="number"
+      placeholder="Numéro de telephone"
+      id="numberphone3"
+      v-model="numberphone2"
+      required
+    />
 
+    <label for="">Ange-Gardien 3</label>
+    <input
+      type="text"
+      placeholder="Nom"
+      id="lastname"
+      v-model="lastname3"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Prénom"
+      id="firstname"
+      v-model="firstname3"
+      required
+    />
+    <input
+      type="number"
+      placeholder="Numéro de telephone"
+      id="numberphone3"
+      v-model="numberphone3"
+      required
+    />
 
-
-<label for="">Ange-Gardien 3</label>
-<input type="text" placeholder="Nom" id="lastname" v-model="lastname3" required>
-<input type="text" placeholder="Prénom" id="firstname" v-model="firstname3" required>
-<input type="number" placeholder="Numéro de telephone" id="telephone" v-model="telephone3" required>
-
-<input type="submit" value="Valider">
-</form>
-
-
+    <input type="submit" value="Valider" />
+  </form>
+  <p>{{ feedbackMessage }}</p>
 </template>
