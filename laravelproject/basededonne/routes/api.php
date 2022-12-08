@@ -29,14 +29,14 @@ Route::get('/', [ContactController::class, 'index'])->name('contact.index');
 // Route fin contact
 
 // Route User
-Route::get('/', [UsertController::class, 'index'])->name('user.index');
-    Route::get('/{id}', [UsertController::class, 'show'])->name('user.show');
-    Route::get('/{id}', [UsertController::class, 'edit'])->name('user.edit'); 
-    Route::get('/', [UsertController::class, 'store'])->name('user.edit');
-    Route::put('/{id}', [UsertController::class, 'update'])->name('user.update'); 
-    Route::get('/create', [UsertController::class, 'create'])->name('user.create'); 
-    Route::post('/', [UsertController::class, 'save'])->name('user.save'); 
-    Route::delete('/{id}', [UsertController::class, 'delete'])->name('user.delete');
+Route::get('/', [UserController::class, 'index'])->name('user.index');
+    Route::get('/{id}', [UserController::class, 'show'])->name('user.show');
+    Route::get('/{id}', [UserController::class, 'edit'])->name('user.edit'); 
+    Route::get('/', [UserController::class, 'store'])->name('user.edit');
+    Route::put('/{id}', [UserController::class, 'update'])->name('user.update'); 
+    Route::get('/create', [UserController::class, 'create'])->name('user.create'); 
+    Route::post('/', [UserController::class, 'save'])->name('user.save'); 
+    Route::delete('/{id}', [UserController::class, 'delete'])->name('user.delete');
 // Route Fin User
 
 // Route Craking
