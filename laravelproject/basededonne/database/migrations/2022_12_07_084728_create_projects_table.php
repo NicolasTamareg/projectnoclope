@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('objective');
+            $table->integer('price');
+            $table->integer('pricepack');
+            $table->integer('numbersmoke');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+        });
+        
+        Schema::table('projects', function(Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+           
         });
     }
 
