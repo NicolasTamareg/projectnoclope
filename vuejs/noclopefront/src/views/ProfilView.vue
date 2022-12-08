@@ -34,7 +34,7 @@ export default {
         },
       };
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/user",
+        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/user",
         options
       );
 

@@ -23,7 +23,7 @@ export default {
       };
 
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/login",
+        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/login",
         options
       );
 
