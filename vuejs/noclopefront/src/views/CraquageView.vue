@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-        nbrcigarette: "",
+        numbercigarette: "",
       result: false,
     };
   },
@@ -17,7 +17,7 @@ export default {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          nbrcigarette: this.nbrcigarette,
+            numbercigarette: this.numbercigarette,
           
         }),
       };
@@ -43,7 +43,7 @@ export default {
 
     <form action="/profil">
 <label for="">Combien de cigarettes ?</label>
-<input type="number" placeholder="Entrez le chiffre" id="nbrcigarette" v-model="nbrcigarette" name="nbrcigarette" required>
+<input type="number" placeholder="Entrez le chiffre" id="numbercigarette" v-model="numbercigarette" name="numbercigarette" required>
 <input type="submit">
 
 

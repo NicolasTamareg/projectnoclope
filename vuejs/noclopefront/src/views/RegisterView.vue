@@ -31,7 +31,7 @@ export default {
       };
 
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/register",
+        "projetnoclope/laravelproject/basededonne/register",
         options
       );
       const data = await response.json();
@@ -46,7 +46,7 @@ export default {
 <template>
   <div class="arround">
     <h1>Créer un compte</h1>
-    <form @submit.prevent="register">
+    <form @submit.prevent="register" action="/login">
         <label for="lastame"></label>
         <input
           placeholder="Nom"
