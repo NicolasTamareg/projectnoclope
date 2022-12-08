@@ -14,4 +14,3 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::post('/userS',[UserController::class, 'store']) -> name('users.store');
