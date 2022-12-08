@@ -34,7 +34,9 @@ class projectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('project.index',[
+            'personnage' => Project::all()
+        ]);
     }
 
     /**
