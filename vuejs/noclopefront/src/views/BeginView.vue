@@ -2,7 +2,7 @@
   <div class="arround">
   <h1>Simulation</h1>
   <h3>Faites une simulation rapide et gratuite</h3>
-<form action="">
+<form action="/register">
   <label for="">Objectif</label>
   <input type="text" placeholder="Ex: voyage..." />
 
@@ -15,7 +15,7 @@
   <input type="submit" name="selancer" value="Commencer" id="selancer" />
   </form>
 
-  <a href="/login">Déjà inscrit(e) ?</a>
+  
   </div>
 </template>
 

@@ -40,6 +40,16 @@ const router = createRouter({
       name: "craquer",
       component: () => import("../views/CraquageView.vue"),
     },
+    {
+      path: "/avance",
+      name: "avance",
+      component: () => import("../views/AvanceView.vue"),
+    },
+    {
+      path: "/ange",
+      name: "ange",
+      component: () => import("../views/AngelView.vue"),
+    },
   ],
 });
 
