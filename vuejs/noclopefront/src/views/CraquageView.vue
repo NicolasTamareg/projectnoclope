@@ -2,7 +2,7 @@
     <div class="arround">
     <h1>Oups, ca arrive...</h1>
 
-    <form action="">
+    <form action="/profil">
 <label for="">Combien de cigarettes ?</label>
 <input type="number" placeholder="Entrez le chiffre">
 <input type="submit">

@@ -57,10 +57,17 @@ export default {
     <p>{{ userList.firstname }}</p>
     <p>{{ userList.lastname }}</p>
 
-    <textarea cols="" rows="" placeholder="Ecrivez votre bio ici..."></textarea>
+    <div class="objectif"></div>
     <a href="/craquer"><button>J'ai craqué</button></a>
   </div>
 </template>
 
 <style scoped>
+
+.objectif{
+  border: solid 1px black;
+  height: 500px;
+  width: 400px;
+  background-color: grey;
+}
 </style>

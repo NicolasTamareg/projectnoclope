@@ -1,7 +1,7 @@
 <template>
 <h2>Vos anges Gardiens</h2>
 
-<form action="">
+<form action="/profil">
 <label for="">Ange-Gardien 1</label>
 <input type="text" placeholder="Nom">
 <input type="text" placeholder="Prénom">
