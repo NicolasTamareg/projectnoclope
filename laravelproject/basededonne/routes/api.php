@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //Route user
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create')->where('id', '[0-9]+');
 Route::post('/users',[UserController::class, 'store']) -> name('users.store');
 Route::get('/users/{id}/edit',[UserController::class, 'edit']) -> name('users.edit');
 Route::put('/users/{id}',[UserController::class, 'update']) -> name('users.update');
@@ -33,7 +35,9 @@ Route::put('/users/{id}',[UserController::class, 'update']) -> name('users.updat
 
 
 //Route Project
-
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create')->where('id', '[0-9]+');
+Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 
 //Fin Route Project
 

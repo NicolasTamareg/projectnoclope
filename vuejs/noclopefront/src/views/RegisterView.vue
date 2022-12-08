@@ -1,63 +1,75 @@
+
+
 <script>
 export default {
+  name: "App",
   data() {
     return {
+      role:"",
+      nummbercard:"",
       firstname: "",
       lastname: "",
       email: "",
       password: "",
-      result: false,
+      // result: false,
     };
   },
-  computed: {
-    validPassword: function () {
-      if (this.password.length < 4) return false;
-      return true;
-    },
-  },
+  // computed: {
+  //   validPassword: function () {
+  //     if (this.password.length < 4) return false;
+  //     return true;
+  //   },
+  // },
   methods: {
-    async register() {
-      const options = {
+    async createUser() {
+      const body = {
+        role: this.role,
+        nummbercard: this.firstname,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        password: this.password,
+      };
+      const response = await fetch("http://127.0.0.1:8000/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify({
-          firstname: this.firstname,
-          lastname: this.lastname,
-          email: this.email,
-          password: this.password,
-        }),
-      };
-
-      const response = await fetch(
-        "projetnoclope/laravelproject/basededonne/register",
-        options
-      );
+        body: JSON.stringify(body),
+      });
       const data = await response.json();
-      this.result = data.success;
-
-      this.$router.push("/login");
+      this.feedbackMessage = data.message;
     },
   },
+  
 };
 </script>
 
 <template>
   <div class="arround">
     <h1>Créer un compte</h1>
-    <form @submit.prevent="register" action="/login">
+    <form @submit.prevent="createUser">
+      <label for="role"></label>
+        <input
+          placeholder="role"
+          v-model="role"
+          required
+        />
+      <label for="numbercard"></label>
+        <input
+          placeholder="numbercard"
+          v-model="numbercard"
+          required
+        />
         <label for="lastame"></label>
         <input
           placeholder="Nom"
-          id="lastnameInput"
           v-model="lastname"
           required
         />
         <label for="firstname"></label>
         <input
           type="text"
-          id="firstnameInput"
           placeholder="Prénom"
           v-model="firstname"
           required
@@ -65,7 +77,6 @@ export default {
         <label for="email"></label>
         <input
           type="email"
-          id="emailInput"
           placeholder="Email@test.com"
           v-model="email"
           required
@@ -73,20 +84,18 @@ export default {
         <label for="password"></label>
         <input
           type="password"
-          :class="password"
-          id="passwordInput"
           placeholder="Password"
           v-model="password"
           required
         />
-      <input class="createaccount-btn" type="submit" value="S'inscrire" />
+      <input type="submit" value="S'inscrire" />
     </form>
     <a href="/login">Déjà inscrit(e) ?</a>
   </div>
 
-  <div v-if="result" class="input-container">
+  <!-- <div v-if="result" class="input-container"> -->
     <RouterLink to="/login"></RouterLink>
-  </div>
+  <!-- </div> -->
 </template>
 
 <style scoped>
