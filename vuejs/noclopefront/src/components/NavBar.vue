@@ -32,10 +32,11 @@ export default {
     </nav>
     <nav v-else>
       <RouterLink to="/">Accueil</RouterLink>
-      <RouterLink to="/login">Se connecter</RouterLink>
       <RouterLink to="/register">Créer un compte</RouterLink>
+      <RouterLink to="/login">Se connecter</RouterLink>
     </nav>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

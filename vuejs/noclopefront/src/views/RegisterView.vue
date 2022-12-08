@@ -44,10 +44,9 @@ export default {
 </script>
 
 <template>
-  <div class="mainContainer">
+  <div class="arround">
+    <h1>Créer un compte</h1>
     <form @submit.prevent="register">
-      <h1>Créer un compte</h1>
-      <div class="input-container">
         <label for="lastame"></label>
         <input
           placeholder="Nom"
@@ -55,8 +54,6 @@ export default {
           v-model="lastname"
           required
         />
-      </div>
-      <div class="input-container">
         <label for="firstname"></label>
         <input
           type="text"
@@ -65,8 +62,6 @@ export default {
           v-model="firstname"
           required
         />
-      </div>
-      <div class="input-container">
         <label for="email"></label>
         <input
           type="email"
@@ -75,8 +70,6 @@ export default {
           v-model="email"
           required
         />
-      </div>
-      <div class="input-container">
         <label for="password"></label>
         <input
           type="password"
@@ -86,7 +79,6 @@ export default {
           v-model="password"
           required
         />
-      </div>
       <input class="createaccount-btn" type="submit" value="S'inscrire" />
     </form>
     <a href="/login">Déjà inscrit(e) ?</a>
@@ -97,4 +89,5 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

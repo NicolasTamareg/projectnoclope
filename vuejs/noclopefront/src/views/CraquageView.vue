@@ -1,11 +1,17 @@
 <template>
-    <h1>Crackhead</h1>
+    <div class="arround">
+    <h1>Oups, ca arrive...</h1>
 
     <form action="">
-
-<input type="text" placeholder="Combien de cigarettes">
+<label for="">Combien de cigarettes ?</label>
+<input type="number" placeholder="Entrez le chiffre">
 <input type="submit">
 
 
     </form>
+</div>
 </template>
+
+<style scoped>
+
+</style>
