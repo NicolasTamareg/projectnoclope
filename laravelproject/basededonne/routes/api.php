@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CrackingController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,9 @@ Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.ind
 Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create')->where('id', '[0-9]+');
 Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
 Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
+
+//Fin Route contact
+
+//Routes craquages
+Route::get('/craques/create', [CrackingController::class, 'create'])->name('craques.create')->where('id', '[0-9]+');
+Route::post('/craques', [CrackingController::class, 'store'])->name('craques.store');

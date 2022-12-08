@@ -1,38 +1,31 @@
 <script>
 export default {
+  name:"App",
   data() {
     return {
         numbercigarette: "",
       result: false,
     };
   },
-  computed: {
-   
-  },
-  methods: {
-    async register() {
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            numbercigarette: this.numbercigarette,
-          
-        }),
-      };
+  methods:{
+    async createCraquage(){
+        const body = {
+            numbercigarette:this.numbercigarette,
+        };
+        const response = await fetch("http://127.0.0.1:8000/api/craques",{
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json",
+                "Accept":"application/json",
+            },
+            body: JSON.stringify(body),
+        });
+        const data =await response.json();
+        this.feedbackMessage = data.message;
+    }
+},
 
-      const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/register",
-        options
-      );
-      const data = await response.json();
-      this.result = data.success;
-
-      this.$router.push("/login");
-    },
-  },
-};
+    };
 </script>
 
 
@@ -41,13 +34,12 @@ export default {
     <div class="arround">
     <h1>Oups, ca arrive...</h1>
 
-    <form action="/profil">
+    <form form @submit.prevent="createCraquage">
 <label for="">Combien de cigarettes ?</label>
-<input type="number" placeholder="Entrez le chiffre" id="numbercigarette" v-model="numbercigarette" name="numbercigarette" required>
+<input type="number" placeholder="Entrez le chiffre" v-model="numbercigarette" required>
 <input type="submit">
-
-
     </form>
+    <p>{{feedbackMessage}}</p>
 </div>
 </template>
 
