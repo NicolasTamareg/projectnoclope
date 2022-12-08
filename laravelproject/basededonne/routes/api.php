@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,9 @@ Route::put('/users/{id}',[UserController::class, 'update']) -> name('users.updat
 
 
 //Fin Route Project
+
+//Routes contacts
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create')->where('id', '[0-9]+');
+Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
+Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');

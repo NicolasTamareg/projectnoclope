@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -13,7 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return response()->json(['contacts'=>$contacts]);
     }
 
     /**
@@ -22,8 +25,10 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    { 
+      
+       
+        return view('contacts.create');
     }
 
     /**
@@ -34,7 +39,21 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'numberphone' => 'required|integer',
+        ]);
+        
+        $contact = Contact::create([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'numberphone' => $request->numberphone,
+        ]);
+       
+        $contact->save();
+      
+        return response()->json(['message'=>'Contact created.','contact'=>$contact],201);
     }
 
     /**
