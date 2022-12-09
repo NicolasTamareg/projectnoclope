@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cracking;
 use Illuminate\Http\Request;
 
 class CrackingController extends Controller
@@ -22,8 +23,10 @@ class CrackingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    { 
+      
+       
+        return view('craques.create');
     }
 
     /**
@@ -32,9 +35,18 @@ class CrackingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store (Request $request)
     {
-        //
+        $request->validate([
+            
+            'numbercigarette' => 'required|integer',
+        ]); 
+        $craques = Cracking::create([
+            'numbercigarette' => $request->numbercigarette,
+        ]);
+        $craques->save();
+      
+        return response()->json(['message'=>'Un craquage...','craques'=>$craques],201);
     }
 
     /**

@@ -50,6 +50,11 @@ const router = createRouter({
       name: "ange",
       component: () => import("../views/AngelView.vue"),
     },
+    {
+      path: "/contacts",
+      name: "contacts",
+      component: () => import("../views/TestView.vue"),
+    },
   ],
 });
 
