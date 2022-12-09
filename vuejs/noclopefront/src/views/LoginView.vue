@@ -23,7 +23,7 @@ export default {
       };
 
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/login",
+        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/login",
         options
       );
 
@@ -37,35 +37,49 @@ export default {
       }
     },
   },
+  computed:{
+    // passwordValid: function () {
+    //   if (this.password.length === 0) return "";
+    //   const isLengthOk = this.password.length =< 8;
+    //   if (!isLengthOk) return "border-red";
+
+    //   for (let char of this.password) {
+    //     if (this.password == 5) {
+    //       return "border-red";
+    //     }
+    //   }
+    //   return "border-green";
+    // },
+
+
+  },
 };
 </script>
 
 <template>
-  <div id="mainContainer">
-    <div class="h2-style">
-      <h2>Nous sommes heureux de vous revoir !</h2>
-    </div>
+  <div class="arround">
+      <h1>Connexion</h1>
     <!-- Formulaire de login -->
     <form @submit.prevent="login" class="form-style">
-      <div class="input-container">
         <input
           type="email"
+          name="email"
+          :class="emailValid"
           id="emailInput"
           v-model="email"
           placeholder="test@test.com"
           required
         />
-      </div>
-
-      <div class="input-container">
+        
         <input
+        :class="passwordValid"
           type="password"
+          name="password"
           id="passwordInput"
           v-model="password"
           placeholder="********"
           required
         />
-      </div>
       <RouterLink to="/profil">
         <p v-if="result === true"></p>
         <p v-else-if="result === false" class="error">
@@ -76,3 +90,18 @@ export default {
     </form>
   </div>
 </template>
+
+<style scoped>
+.border-red {
+  border-color: red;
+}
+
+.border-green {
+  border-color: green;
+}
+
+.border-green,
+.border-red {
+  border-width: 2px;
+}
+</style>

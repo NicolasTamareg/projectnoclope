@@ -35,6 +35,26 @@ const router = createRouter({
       name: "payer",
       component: () => import("../views/PaymentView.vue"),
     },
+    {
+      path: "/craquer",
+      name: "craquer",
+      component: () => import("../views/CraquageView.vue"),
+    },
+    {
+      path: "/avance",
+      name: "avance",
+      component: () => import("../views/AvanceView.vue"),
+    },
+    {
+      path: "/ange",
+      name: "ange",
+      component: () => import("../views/AngelView.vue"),
+    },
+    {
+      path: "/contacts",
+      name: "contacts",
+      component: () => import("../views/TestView.vue"),
+    },
   ],
 });
 

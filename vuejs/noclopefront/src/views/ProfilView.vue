@@ -34,7 +34,7 @@ export default {
         },
       };
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/user",
+        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/user",
         options
       );
 
@@ -49,16 +49,76 @@ export default {
 </script>
 
 <template>
+
+
+
+
   <div class="card">
     <button @click="modifierProfil" id="inputModifierProfil">
-      <i class="fa-solid fa-sun"></i>
     </button>
     <ProfilPage :profile="userList" v-if="showModifierProfil" />
     <p>{{ userList.firstname }}</p>
     <p>{{ userList.lastname }}</p>
 
-    <textarea cols="" rows="" placeholder="Ecrivez votre bio ici..."></textarea>
+    <div class="objectif">
+      <h1>Jour 1</h1>
+      <div class="voyage">
+<h3>Voyage Voyage</h3>
+      </div>
+      <div class="separe"></div>
+      <h2>100/1000€</h2>
+      <div class="progression">
+      </div>
+    </div>
+    <a href="/craquer"><input type="submit" value="J'ai craqué"></a>
+    <a href="/ange"><input type="submit" value="Contacter mes anges gardiens"></a>
+    <a href="/avance"><input type="submit" value="Demander une avance"></a>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+.objectif{
+  border: solid 1px black;
+  height: 500px;
+  width: 400px;
+  background-color: grey;
+  margin-top: 0.25rem;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 10px 2px lightgray;
+}
+.voyage{
+  margin-left: 30%;
+  margin-top: 20%;
+  height: 150px;
+  width: 150px;
+  background-color: black;
+  color: beige;
+  margin-top: 0.25rem;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 10px 2px lightgray;
+}
+.progression{
+  height: 20px;
+  width: 90%;
+  background-color: aquamarine;
+  margin-left: 20px;
+  margin-top: 0.25rem;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 10px 2px lightgray;
+}
+h2{
+  text-align: center;
+}
+.separe{
+  height: 100px;
+}
+
+
+</style>

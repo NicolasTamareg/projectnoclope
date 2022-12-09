@@ -21,15 +21,11 @@ export default {
         },
         body: {
           firstname: JSON.stringify.this.profileUpdated,
-
-          // email: String,
-          // age: Number,
-          // occupation: String,
         },
       };
 
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/chat-match/user",
+        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/user",
         options
       );
 

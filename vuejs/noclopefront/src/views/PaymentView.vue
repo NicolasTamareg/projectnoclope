@@ -13,12 +13,35 @@ export default {
       // remplacer le formulaire par un message
       this.shouldDisplayForm = false;
     },
-    handleKeyUp: function () {
-      this.card = "4567123456789012";
-      this.expiry = "2025-06";
-      this.cvc = "123";
+    
+    async login() {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password,
+        }),
+      };
+
+      const response = await fetch(
+        "https://api.mangopay.com/v2.01/oauth/token/projetnoclope/vuejs/noclopefront/login",
+        options
+      );
+
+      const data = await response.json();
+
+      this.result = data.success;
+      if (data.success === true) {
+        this.token = data.token;
+        localStorage.setItem("token", data.token);
+        this.$router.push("/payer");
+      }
     },
   },
+
   computed: {
     cardIsValid: function () {
       if (!this.card || !this.card.length === 0) return "";
@@ -78,13 +101,12 @@ export default {
 </script>
 
 <template>
+  <div class="arround">
   <h2>Mon formulaire de paiement</h2>
   <form v-if="shouldDisplayForm" @submit.prevent="handleSubmit">
     <label for="card">
       Numéro de carte (16 chiffres)
-      <!-- <input :class="cardIsValid ? 'border-green' : 'border-red'" v-model="card" type="text" id="card"/> -->
       <input
-        @keyup.alt.enter="handleKeyUp"
         :class="cardIsValid"
         v-model="card"
         type="text"
@@ -94,7 +116,6 @@ export default {
     <label for="expiry">
       Date d'expiration (mois / année)
       <input
-        @keyup.alt.enter="handleKeyUp"
         :class="expiryIsValid"
         type="month"
         name="expiry"
@@ -105,7 +126,6 @@ export default {
     <label for="cvc">
       CVC (3 chiffres)
       <input
-        @keyup.alt.enter="handleKeyUp"
         :class="cvcValid"
         type="text"
         name="cvc"
@@ -115,48 +135,11 @@ export default {
     </label>
     <input v-if="formIsValid" type="submit" value="Envoyer" />
   </form>
-  <p v-else>Merci pour vos sous!</p>
+  <p v-else>Merci de vôtre confiance!</p>
+</div>
 </template>
 
-<style>
-#root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin: 1rem;
-  font-family: sans-serif;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 50%;
-  text-align: center;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-}
-
-input,
-button {
-  margin-top: 0.25rem;
-  padding: 6px;
-  border-radius: 8px;
-  border: 1px solid black;
-  box-shadow: 2px 2px 10px 2px lightgray;
-  outline: none;
-}
-
-input[type="submit"] {
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  padding: 8px;
-}
+<style scoped>
 
 .border-red {
   border-color: red;
