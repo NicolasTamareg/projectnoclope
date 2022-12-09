@@ -6,7 +6,7 @@ export default {
       password: "",
       result: null,
       token: "",
-      feedbackMessage: null
+      feedbackMessage: null,
     };
   },
 
