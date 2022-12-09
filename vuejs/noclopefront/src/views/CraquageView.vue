@@ -32,7 +32,6 @@ export default {
 
 <template>
     
-<<<<<<< HEAD
 
 
     <form form @submit.prevent="createCraquage" >
@@ -40,9 +39,7 @@ export default {
 <input type="number" placeholder="Entrez le chiffre" v-model="numbercigarette" required>
 <input type="submit">
 
-=======
 
->>>>>>> d8bc58b13e897486ac639ccb7566541ae0c5720e
 <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8">
     <div>
