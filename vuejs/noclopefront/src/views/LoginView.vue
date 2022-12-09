@@ -6,6 +6,7 @@ export default {
       password: "",
       result: null,
       token: "",
+      feedbackMessage: null
     };
   },
 
@@ -15,6 +16,7 @@ export default {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify({
           email: this.email,
@@ -23,18 +25,25 @@ export default {
       };
 
       const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/projetnoclope/vuejs/noclopefront/login",
+        "http://127.0.0.1:8000/api/login",
         options
       );
 
       const data = await response.json();
-
-      this.result = data.success;
-      if (data.success === true) {
-        this.token = data.token;
-        localStorage.setItem("token", data.token);
-        this.$router.push("/profil");
+      
+      if(response.status !== 200) {
+        this.feedbackMessage = data.message ?? "Une erreur s'est produite";
+        return;
       }
+      
+      if (!data.token) {
+        this.feedbackMessage = "Une erreur s'est produite";
+        return;
+      }
+
+      this.token = data.token;
+      localStorage.setItem("token", data.token);
+      this.$router.push("/profil");
     },
   },
   computed:{
@@ -64,7 +73,6 @@ export default {
         <input
           type="email"
           name="email"
-          :class="emailValid"
           id="emailInput"
           v-model="email"
           placeholder="test@test.com"
@@ -72,7 +80,7 @@ export default {
         />
         
         <input
-        :class="passwordValid"
+        
           type="password"
           name="password"
           id="passwordInput"
@@ -80,14 +88,16 @@ export default {
           placeholder="********"
           required
         />
-      <RouterLink to="/profil">
+      <!-- <RouterLink to="/profil">
         <p v-if="result === true"></p>
         <p v-else-if="result === false" class="error">
           Adresse mail ou mot de passe est invalide.
         </p>
-      </RouterLink>
+      </RouterLink> -->
       <input class="login-button" type="submit" value="Se connecter" />
     </form>
+
+    <p v-if="feedbackMessage">{{feedbackMessage}}</p>
   </div>
 </template>
 

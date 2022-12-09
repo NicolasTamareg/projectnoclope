@@ -15,7 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
+        $user_id = Auth::user()->id;
+        $contacts = Contact::where("user_id", "=", $user_id)->get();
         return response()->json(['contacts'=>$contacts]);
     }
 
