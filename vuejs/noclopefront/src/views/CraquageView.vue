@@ -33,7 +33,6 @@ export default {
 <template>
     
 
-<<<<<<< HEAD
 <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8">
     <div>
@@ -67,12 +66,6 @@ export default {
           J'ai Craquer
         </button>
       </div>
-=======
-    <form form @submit.prevent="createCraquage" >
-<label for="">Combien de cigarettes ?</label>
-<input type="number" placeholder="Entrez le chiffre" v-model="numbercigarette" required>
-<input type="submit">
->>>>>>> dcdf2b5df8793adce3c3e9c15b57bbee8e424388
     </form>
   </div>
 </div>
