@@ -1,16 +1,17 @@
-
-
 <script>
 export default {
   name: "App",
   data() {
     return {
-      role:"",
-      nummbercard:"",
+      role: "",
+      numbercard: "",
       firstname: "",
       lastname: "",
       email: "",
       password: "",
+      result: null,
+      token: "",
+      feedbackMessage: null,
       // result: false,
     };
   },
@@ -24,9 +25,10 @@ export default {
     async createUser() {
       const body = {
         role: this.role,
-        nummbercard: this.firstname,
+        numbercard: this.numbercard,
         firstname: this.firstname,
         lastname: this.lastname,
+        email: this.email,
         password: this.password,
       };
       const response = await fetch("http://127.0.0.1:8000/api/users", {
@@ -39,9 +41,22 @@ export default {
       });
       const data = await response.json();
       this.feedbackMessage = data.message;
+      if(response.status !== 200) {
+        this.feedbackMessage = data.message ?? "Une erreur s'est produite";
+        return;
+      }
+      
+      if (!data.token) {
+        this.feedbackMessage = "Une erreur s'est produite";
+        return;
+      }
+
+      this.token = data.token;
+      localStorage.setItem("token", data.token);
+      this.$router.push("/login");
     },
-  },
-  
+    },
+
 };
 </script>
 
@@ -49,54 +64,38 @@ export default {
   <div class="arround">
     <h1>Créer un compte</h1>
     <form @submit.prevent="createUser">
-      <label for="role"></label>
-        <input
-          placeholder="role"
-          v-model="role"
-          required
-        />
+      <label for="role">
+      <input placeholder="role" v-model="role" required />
+      </label>
       <label for="numbercard"></label>
-        <input
-          placeholder="numbercard"
-          v-model="numbercard"
-          required
-        />
-        <label for="lastame"></label>
-        <input
-          placeholder="Nom"
-          v-model="lastname"
-          required
-        />
-        <label for="firstname"></label>
-        <input
-          type="text"
-          placeholder="Prénom"
-          v-model="firstname"
-          required
-        />
-        <label for="email"></label>
-        <input
-          type="email"
-          placeholder="Email@test.com"
-          v-model="email"
-          required
-        />
-        <label for="password"></label>
-        <input
-          type="password"
-          placeholder="Password"
-          v-model="password"
-          required
-        />
-      <input type="submit" value="S'inscrire" />
+      <input placeholder="numbercard" v-model="numbercard" required />
+      <label for="lastame"></label>
+      <input placeholder="Nom" v-model="lastname" required />
+      <label for="firstname"></label>
+      <input type="text" placeholder="Prénom" v-model="firstname" required />
+      <label for="email"></label>
+      <input
+        type="email"
+        placeholder="Email@test.com"
+        v-model="email"
+        required
+      />
+      <label for="password"></label>
+      <input
+        type="password"
+        placeholder="Password"
+        v-model="password"
+        required
+      />
+      <input type="submit" value="S'inscrire" action/>
     </form>
     <a href="/login">Déjà inscrit(e) ?</a>
+    <p v-if="feedbackMessage">{{feedbackMessage}}</p>
   </div>
 
-  <!-- <div v-if="result" class="input-container"> -->
+  
     <RouterLink to="/login"></RouterLink>
-  <!-- </div> -->
+ 
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

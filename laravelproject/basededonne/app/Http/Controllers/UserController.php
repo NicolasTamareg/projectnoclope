@@ -14,8 +14,8 @@ class UserController extends Controller
     //    cretation d'un utilisateur
 
         $request->validate([
-            // 'role' => 'required|string|max:255',
-            // 'numbercard' => 'required|string|max:255',
+            'role' => 'required|string|max:255',
+            'numbercard' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'email' => 'required|email',
@@ -74,7 +74,7 @@ class UserController extends Controller
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'email' => 'required|email',
-            'password' => 'required','string','max:255',
+            'password' => 'required',
             // , Password::min(8)->numbers(), Password::min(8)->symbols(), Password::min(8)->mixedCase(),Password::min(8)->letters()]
             // un mot de passe de minimum 8 caractères et comportant une lettre, un chiffre et un symbole. 
             
