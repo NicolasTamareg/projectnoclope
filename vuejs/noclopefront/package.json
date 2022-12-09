@@ -19,9 +19,14 @@
     "autoprefixer": "^10.4.13",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
+    "node-sass": "^8.0.0",
     "npm-run-all": "^4.1.5",
+<<<<<<< HEAD
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4",
+=======
+    "sass-loader": "^13.2.0",
+>>>>>>> dcdf2b5df8793adce3c3e9c15b57bbee8e424388
     "vite": "^3.2.4"
   }
 }
