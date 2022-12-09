@@ -34,7 +34,7 @@ export default {
     <div class="arround">
     <h1>Oups, ca arrive...</h1>
 
-    <form form @submit.prevent="createCraquage">
+    <form form @submit.prevent="createCraquage" >
 <label for="">Combien de cigarettes ?</label>
 <input type="number" placeholder="Entrez le chiffre" v-model="numbercigarette" required>
 <input type="submit">
