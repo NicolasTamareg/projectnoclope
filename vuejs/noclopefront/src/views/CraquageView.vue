@@ -31,13 +31,6 @@ export default {
 
 
 <template>
-    
-
-
-    <form form @submit.prevent="createCraquage" >
-<label for="">Combien de cigarettes ?</label>
-<input type="number" placeholder="Entrez le chiffre" v-model="numbercigarette" required>
-<input type="submit">
 
 
 <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
