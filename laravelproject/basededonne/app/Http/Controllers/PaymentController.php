@@ -11,31 +11,44 @@ class PaymentController extends Controller
 {
 
     public function index()
+    
     {
         return view('clients.index');
     }
 
 
 public function create(){
+
+      
     $stripe = new \Stripe\StripeClient(
-        'sk_test_51MCsrwIRssU38XkxBIpH0betOU585QECdUhvHxnDKc7qIWFjZ8iqQKgFk0cDDaArqCtu3P0674uPeJIAkTrwLhzl004LGlClYq'
+        'sk_test_51MEHK3Gg161a08f0yIcpxAGYl4zOEXD2zx76TCVYyjlFmoQNkQdeH2wXFApYUDwwzF1hEogbtwS3QVyG4bM1BNHe00NHx0dL2p'
       );
       $stripe->customers->create([
         'description' => 'Premier fumeur',
       ]);
 
-      $stripe = new \Stripe\StripeClient(
-        'sk_test_51MCsrwIRssU38XkxBIpH0betOU585QECdUhvHxnDKc7qIWFjZ8iqQKgFk0cDDaArqCtu3P0674uPeJIAkTrwLhzl004LGlClYq'
-      );
-      $stripe->checkout->sessions->create([
+      \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+      $customer=$session = \Stripe\Checkout\Session::create([
           'payment_method_types' => ['card'],
           'mode' => 'setup',
-          'customer_id'=>'cus_My8uesbY25MRqI',
-         'success_url' => 'http://127.0.0.1:8000/clients/success?%7BCHECKOUT_SESSION_ID%7D', //A voir si lurl est bonne
+          // 'customer' => $customer['id'], 
+         'success_url' => 'http://127.0.0.1:8000/clients/success?session_id={CHECKOUT_SESSION_ID} ',
           'cancel_url' => 'http://127.0.0.1:8000/clients/cancel',
         ]);
+        $stripe = new \Stripe\StripeClient(
+            'sk_test_51MEHK3Gg161a08f0yIcpxAGYl4zOEXD2zx76TCVYyjlFmoQNkQdeH2wXFApYUDwwzF1hEogbtwS3QVyG4bM1BNHe00NHx0dL2p'
+          );
+          $stripe->setupIntents->create([
+            'payment_method_types' => ['card'],
+          ]);
 
-   
+    //   $stripe->checkout->sessions->create([
+    //       'payment_method_types' => ['card'],
+    //       'mode' => 'setup',
+    //       'customer'=>'cus_MyDnqWVQ9paXd1',
+    //      'success_url' => 'http://127.0.0.1:8000/api/clients/success?session_id={CHECKOUT_SESSION_ID}', //A voir si lurl est bonne
+    //       'cancel_url' => 'http://127.0.0.1:8000/clients/cancel',
+    //     ]);    
      
 }
 
@@ -62,9 +75,6 @@ public function create(){
 //                     ]
 //                 ], $cart->getProducts())
 //         ],
-// 'mode'=>'payment',
-// 'success_url'=>'http://localhost:8000/success.php',
-// 'cancel_url' => 'http://localhost:8000/',
 // 'billing_adress_collection'=>'required',
 // 'shipping_adress_collection'=>[
 //     'allowed_countries'=>['FR']
