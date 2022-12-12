@@ -27,12 +27,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //Authentification token
-
 Route::post('/login',[AuthController::class,'authenticate']);
 
+//Route admin
 
-
-//
 //Route user
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create')->where('id', '[0-9]+');
 Route::post('/users',[UserController::class, 'store']) -> name('users.store');
@@ -40,16 +38,11 @@ Route::get('/users/{id}/edit',[UserController::class, 'edit']) -> name('users.ed
 Route::put('/users/{id}',[UserController::class, 'update']) -> name('users.update');
 
 
-
-//Fin de Route user
-
-
 //Route Project
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create')->where('id', '[0-9]+');
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 
-//Fin Route Project
 
 //Routes contacts
 Route::middleware('auth:sanctum')->group(function() {
@@ -59,8 +52,11 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
 });
 
-//Fin Route contact
 
 //Routes craquages
 Route::get('/craques/create', [CrackingController::class, 'create'])->name('craques.create')->where('id', '[0-9]+');
 Route::post('/craques', [CrackingController::class, 'store'])->name('craques.store');
+
+//Routes dashboard
+
+//Routes paiements
