@@ -69,7 +69,7 @@ export default {
       </label>
       <label for="numbercard"></label>
       <input placeholder="numbercard" v-model="numbercard" required />
-      <label for="lastame"></label>
+      <label for="lastname"></label>
       <input placeholder="Nom" v-model="lastname" required />
       <label for="firstname"></label>
       <input type="text" placeholder="Prénom" v-model="firstname" required />
@@ -95,6 +95,15 @@ export default {
 
   
     <RouterLink to="/login"></RouterLink>
+
+
+
+
+
+    
+					
+		
+	
  
 </template>
 
