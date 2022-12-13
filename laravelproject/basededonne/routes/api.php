@@ -45,14 +45,14 @@ Route::middleware('auth:sanctum')->group(function(){
 
 //Authentification token
 Route::post('/login',[AuthController::class,'authenticate']);
-
-
+Route::get('/login',[AuthController::class,'show']);
 
 //
 //Route user
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create')->where('id', '[0-9]+');
 Route::post('/users',[UserController::class, 'store']) -> name('users.store');
-Route::get('/users/{id}/edit',[UserController::class, 'edit']) -> name('users.edit');
+Route::get('/users/edit',[UserController::class, 'edit']) -> name('users.edit')->middleware('auth:sanctum');
+Route::get('/me',[UserController::class, 'edit']) -> name('users.edit');
 Route::put('/users/{id}',[UserController::class, 'update']) -> name('users.update');
 
 

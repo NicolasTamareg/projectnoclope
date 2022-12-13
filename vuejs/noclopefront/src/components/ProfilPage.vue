@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 export default {
   props: ["profile"],
   data() {
@@ -52,4 +52,4 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped></style> -->

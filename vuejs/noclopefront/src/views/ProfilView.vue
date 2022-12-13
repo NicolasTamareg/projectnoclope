@@ -1,5 +1,5 @@
 <script>
-import ProfilPage from "../components/ProfilPage.vue";
+// import ProfilPage from "../components/ProfilPage.vue";
 
 export default {
   data() {
@@ -10,8 +10,7 @@ export default {
       token: "",
       profile: {},
 
-      showCreatePost: false,
-      showModifierProfil: false,
+      
     };
   },
 
@@ -19,46 +18,46 @@ export default {
     this.getProfil();
   },
   methods: {
-    modifierProfil() {
-      this.showModifierProfil = !this.showModifierProfil;
-    },
-    togglePost() {
-      this.showCreatePost = !this.showCreatePost;
-    },
+   
     async getProfil() {
-      const options = {
+      const token = localStorage.getItem("token")
+      const response =await fetch(
+        "http://127.0.0.1:8000/api/users/edit",{
         method: "GET",
         headers: {
-          "Content-Type": "application/json",
-          Authorization: "bearer " + localStorage.getItem("token"),
+          Accept: "application/json",
+          "Authorization":"Bearer " + token
         },
-      };
-      const response = await fetch(
-        "",
-        options
-      );
+      });
+      // const response = await fetch(
+      //   "http://127.0.0.1:8000/api/users/edit",
+      //   options
+      // );
 
-      const responseBody = await response.json();
-      this.profile = responseBody;
-      console.log("responseBody", responseBody);
-      this.userList = responseBody;
+      const data = await response.json();
+      this.user = data.user;
+      console.log(this.user)
+      // console.log("responseBody", responseBody);
+      // this.userList = responseBody;
     },
   },
-  components: { ProfilPage },
+  // components: { ProfilPage },
 };
 </script>
 
 <template>
 
-
-
+  <div>
+    <h2>Bonjour</h2>
+    
+        <p>Nom: {{user.firstname}}</p>
+        <p>Prénom: {{user.lastname}}</p>
+      
+  </div>
 
   <div class="card">
-    <button @click="modifierProfil" id="inputModifierProfil">
-    </button>
-    <ProfilPage :profile="userList" v-if="showModifierProfil" />
-    <p>{{ userList.firstname }}</p>
-    <p>{{ userList.lastname }}</p>
+  
+
 
     <div class="objectif">
       <h1>Jour 1</h1>
