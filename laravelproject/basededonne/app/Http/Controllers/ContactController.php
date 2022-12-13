@@ -48,16 +48,17 @@ class ContactController extends Controller
             'firstname' => 'required|string',
             'lastname' => 'required|string',
             'numberphone' => 'required|integer',
+            
         ]);
         
         $contact = Contact::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'numberphone' => $request->numberphone,
-            'project_id' => $project_id
+            'user_id'=> $request-> user_id = Auth::user()->id,
         ]);
        
-        $contact->save();
+            $contact->save();
       
         return response()->json(['message'=>'Contact created.','contact'=>$contact],201);
     }

@@ -26,6 +26,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+//Parti Admin
+
+Route::middleware('auth:sanctum')->group(function(){
+
+    Route::get('/getAdmin', [AuthController::class, 'getAdmin']);
+
+
+
+
+});
+
+
+//
+
+
+
+
 //Authentification token
 
 Route::post('/login',[AuthController::class,'authenticate']);
