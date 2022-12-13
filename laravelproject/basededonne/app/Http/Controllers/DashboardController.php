@@ -39,13 +39,13 @@ class DashboardController extends Controller
         $crakings = Cracking::where("project_id", $project->id)->get();
 
         // Date du jour
-        $current_date = Carbon::now();
+        $current_date = Date::now();
          
     
 
         // Calculs
-        $elapse_days =  $current_date->diffInDays( Carbon::parse($date_created));
-        $not_smoked_cigarettes_expectation = $cigarettes_per_day * $elapse_days;
+        $elapse_days =  $current_date->diff( new DateTime($date_created));
+        $not_smoked_cigarettes_expectation = $cigarettes_per_day * $elapse_days->days;
         $smoked_cigarettes = 0;
 
         if (count($crakings) > 0) {
@@ -55,7 +55,7 @@ class DashboardController extends Controller
         }
 
         $saved = ($pack_price / 20) * ($not_smoked_cigarettes_expectation - $smoked_cigarettes);
-return response()->json(['project'=>$project,'cigarettes_per_day'=>$cigarettes_per_day,'date_created'=>$date_created,'crakings'=>$crakings,'current_date'=>$current_date,'not_smoked_cigarettes_expectation'=>$not_smoked_cigarettes_expectation,'smoked_cigarettes'=>$smoked_cigarettes,'elapse_days'=>$elapse_days,]);
+return response()->json(['cigarettes_per_day'=>$cigarettes_per_day,'date_created'=>$date_created,'crakings'=>$crakings,'current_date'=>$current_date,'not_smoked_cigarettes_expectation'=>$not_smoked_cigarettes_expectation,'smoked_cigarettes'=>$smoked_cigarettes,'elapse_days'=>$elapse_days]);
     
     }
 }

@@ -50,6 +50,12 @@ const router = createRouter({
       name: "ange",
       component: () => import("../views/AngelView.vue"),
     },
+  {
+      path: "/dashboard",
+      name: "dashboard",
+      component: () => import("../views/DashboardView.vue"),
+    },
+    
   ],
 });
 
