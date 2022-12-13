@@ -14,7 +14,7 @@ class UserController extends Controller
     //    cretation d'un utilisateur
 
         $request->validate([
-            'role' => 'required|string|max:255',
+            // 'role' => 'required|string|max:255',
             'numbercard' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
@@ -38,7 +38,7 @@ class UserController extends Controller
         // ];
 
          $user=User::create([
-            'role'=>$request->role,           
+            // 'role'=>$request->role,           
             'numbercard'=>$request->numbercard,          
             'firstname'=>$request->firstname,          
             'lastname'=>$request->lastname,          
@@ -69,7 +69,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'role' => 'required|string|max:255',
+            // 'role' => 'required|string|max:255',
             'numbercard' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
@@ -81,7 +81,7 @@ class UserController extends Controller
         ]); 
 
         $user=([
-            'role'=>$request->role,           
+            // 'role'=>$request->role,           
             'numbercard'=>$request->numbercard,          
             'firstname'=>$request->firstname,          
             'lastname'=>$request->lastname,          

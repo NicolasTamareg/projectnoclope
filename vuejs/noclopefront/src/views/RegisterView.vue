@@ -24,7 +24,6 @@ export default {
   methods: {
     async createUser() {
       const body = {
-        role: this.role,
         numbercard: this.numbercard,
         firstname: this.firstname,
         lastname: this.lastname,
@@ -64,9 +63,9 @@ export default {
   <div class="arround">
     <h1>Créer un compte</h1>
     <form @submit.prevent="createUser">
-      <label for="role">
+      <!-- <label for="role">
       <input placeholder="role" v-model="role" required />
-      </label>
+      </label> -->
       <label for="numbercard"></label>
       <input placeholder="numbercard" v-model="numbercard" required />
       <label for="lastame"></label>
