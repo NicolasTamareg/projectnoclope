@@ -18,7 +18,7 @@ class UserController extends Controller
 
         $request->validate([
             // 'role' => 'required|string|max:255',
-            'numbercard' => 'required|string|max:255',
+            // 'numbercard' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'email' => 'required|email',
@@ -42,10 +42,10 @@ class UserController extends Controller
 
          $user=User::create([
             // 'role'=>$request->role,           
-            'numbercard'=>$request->numbercard,          
+            // 'numbercard'=>$request->numbercard,          
             'firstname'=>$request->firstname,          
             'lastname'=>$request->lastname,          
-            'email'=>$request->email,          
+            'email'=> $request->email,          
             'password' =>Hash::make($request->password),
             // Hash::make($request->password),
             // Hash::make($request->password)
@@ -56,17 +56,17 @@ class UserController extends Controller
          $stripe = new \Stripe\StripeClient(
             'sk_test_51MEHK3Gg161a08f0yIcpxAGYl4zOEXD2zx76TCVYyjlFmoQNkQdeH2wXFApYUDwwzF1hEogbtwS3QVyG4bM1BNHe00NHx0dL2p'
           );
+          \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
           $customer = $stripe->customers->create([
-            'email'=>$request->email,          
+            'email' => $request->email,          
             'description' => 'Premier fumeur',
           ]);
       
-          \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
           $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
             'customer' => $customer->id,
             'mode' => 'setup',
-            'success_url' => 'http://127.0.0.1:8000/clients/:userId/success?session_id={CHECKOUT_SESSION_ID}',
+            'success_url' => 'http://127.0.0.1:8000/clients/'. $user->id .'/success?session_id={CHECKOUT_SESSION_ID}',
             'cancel_url' => 'http://127.0.0.1:8000/clients/cancel',
           ]);
       
@@ -91,7 +91,6 @@ class UserController extends Controller
     {
         $request->validate([
             // 'role' => 'required|string|max:255',
-            'numbercard' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'email' => 'required|email',
@@ -103,7 +102,6 @@ class UserController extends Controller
 
         $user=([
             // 'role'=>$request->role,           
-            'numbercard'=>$request->numbercard,          
             'firstname'=>$request->firstname,          
             'lastname'=>$request->lastname,          
             'email'=>$request->email,          
@@ -114,7 +112,6 @@ class UserController extends Controller
         
         $userModify= User::findOrFail($id);
         $userModify-> role =$request->role;
-        $userModify-> numbercard =$request->numbercard;
         $userModify-> firstname =$request->firstname;
         $userModify-> lastname =$request->lastname;
         $userModify-> email =$request->email;

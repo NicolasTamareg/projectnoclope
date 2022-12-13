@@ -72,7 +72,6 @@ Route::middleware('auth:sanctum')->group(function() {
 
 
 //Routes craquages
-<<<<<<< HEAD
 Route::middleware('auth:sanctum')->group(function() {
     Route::post('/craques', [CrackingController::class, 'store'])->name('craques.store');
 });
@@ -82,11 +81,3 @@ Route::middleware('auth:sanctum')->group(function() {
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/dashboard/stats',[DashboardController::class],'getStats')->name('dashboard.stats');
 });
-=======
-Route::get('/craques/create', [CrackingController::class, 'create'])->name('craques.create')->where('id', '[0-9]+');
-Route::post('/craques', [CrackingController::class, 'store'])->name('craques.store');
-
-//Routes dashboard
-
-//Routes paiements
->>>>>>> dimanchehilel

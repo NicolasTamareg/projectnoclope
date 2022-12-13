@@ -48,17 +48,17 @@ export default {
     },
   },
   computed:{
-    passwordValid: function () {
-     if (this.password.length === 0) return "";
-      const isLengthOk = this.password.length <= 8;
-      if (!isLengthOk) return "border-red";
-       for (let char of this.password) {
-         if (this.password == 5) {
-          return "border-red";
-        }
-      }
-      return "border-green";
-    },
+    // passwordValid: function () {
+    //  if (this.password.length === 0) return "";
+    //   const isLengthOk = this.password.length <= 8;
+    //   if (!isLengthOk) return "border-red";
+    //    for (let char of this.password) {
+    //      if (this.password == 5) {
+    //       return "border-red";
+    //     }
+    //   }
+    //   return "border-green";
+    // },
 
 
   },
