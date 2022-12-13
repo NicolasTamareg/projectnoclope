@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       userList: {},
-
+      user:{},
       result: true,
       token: "",
       profile: {},
