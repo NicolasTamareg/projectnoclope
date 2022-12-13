@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Cracking;
 use App\Models\Project;
 use App\Models\User;
+use Carbon\Carbon;
 use Carbon\Doctrine\DateTimeType;
 use DateTime;
+use DateTimeImmutable;
 use Faker\Core\DateTime as CoreDateTime;
+use Faker\Provider\cs_CZ\DateTime as Cs_CZDateTime;
 use Faker\Provider\DateTime as ProviderDateTime;
+use Faker\Provider\zh_TW\DateTime as Zh_TWDateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
@@ -35,11 +39,12 @@ class DashboardController extends Controller
         $crakings = Cracking::where("project_id", $project->id)->get();
 
         // Date du jour
-        $current_date =  DateTime::now();
-
+        $current_date = Carbon::now();
+         
+    
 
         // Calculs
-        $elapse_days =  $current_date->diff(new DateTime($date_created));
+        $elapse_days =  $current_date->diffInDays( Carbon::parse($date_created));
         $not_smoked_cigarettes_expectation = $cigarettes_per_day * $elapse_days;
         $smoked_cigarettes = 0;
 
