@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Stripe\Chekout\Session;
 use Stripe\Stripe;
+use Stripe\StripeClient;
 
 
+use Stripe\Chekout\Session;
 use Illuminate\Http\Request;
 use SebastianBergmann\Template\Template;
 
@@ -23,7 +24,7 @@ class PaymentController extends Controller
   {
 
 
-    $stripe = new \Stripe\StripeClient(
+    $stripe = new StripeClient(
       'sk_test_51MEHK3Gg161a08f0yIcpxAGYl4zOEXD2zx76TCVYyjlFmoQNkQdeH2wXFApYUDwwzF1hEogbtwS3QVyG4bM1BNHe00NHx0dL2p'
     );
     // Recuperer le session id contenu dans $request

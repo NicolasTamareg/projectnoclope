@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use Stripe\Stripe;
 use App\Models\User;
+use Stripe\StripeClient;
+
 use Illuminate\Http\Request;
+
+use Stripe\Checkout\Session;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
-
-use Stripe\Chekout\Session;
-use Stripe\Stripe;
 
 class UserController extends Controller
 {
@@ -62,7 +65,7 @@ class UserController extends Controller
             'description' => 'Premier fumeur',
           ]);
       
-          $session = \Stripe\Checkout\Session::create([
+          $session = Session::create([
             'payment_method_types' => ['card'],
             'customer' => $customer->id,
             'mode' => 'setup',
