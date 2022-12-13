@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,7 @@ class ContactController extends Controller
     { 
       
        
-        return view('contacts.create');
+        
     }
 
     /**
@@ -40,6 +41,9 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = Auth::user()->id;
+        $project_id = Project::where('user_id', $user_id)->firstOrFail()->id;
+
         $request->validate([
             'firstname' => 'required|string',
             'lastname' => 'required|string',
@@ -50,6 +54,7 @@ class ContactController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'numberphone' => $request->numberphone,
+            'project_id' => $project_id
         ]);
        
         $contact->save();

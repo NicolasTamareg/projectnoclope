@@ -4,6 +4,7 @@ export default {
   data() {
     return {
         numbercigarette: "",
+        
       result: false,
     };
   },
@@ -12,11 +13,13 @@ export default {
         const body = {
             numbercigarette:this.numbercigarette,
         };
+        const token = localStorage.getItem("token")
         const response = await fetch("http://127.0.0.1:8000/api/craques",{
             method: "POST",
             headers:{
                 "Content-Type": "application/json",
                 "Accept":"application/json",
+                "Authorization":"Bearer " + token
             },
             body: JSON.stringify(body),
         });
@@ -38,7 +41,7 @@ export default {
 <label for="">Combien de cigarettes ?</label>
 <input type="number" placeholder="Entrez le chiffre" v-model="numbercigarette" required>
 <input type="submit">
-
+    </form>
 
 <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8">

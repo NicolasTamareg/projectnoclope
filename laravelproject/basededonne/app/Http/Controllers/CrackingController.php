@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cracking;
+use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CrackingController extends Controller
 {
@@ -37,12 +39,16 @@ class CrackingController extends Controller
      */
     public function store (Request $request)
     {
+        $user_id = Auth::user()->id;
+        $project_id = Project::where('user_id', $user_id)->firstOrFail()->id;
+
         $request->validate([
-            
             'numbercigarette' => 'required|integer',
         ]); 
+
         $craques = Cracking::create([
             'numbercigarette' => $request->numbercigarette,
+            'project_id' => $project_id
         ]);
         $craques->save();
       
