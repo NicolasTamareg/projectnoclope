@@ -59,7 +59,6 @@ export default {
   </form>
   <p>{{feedbackMessage}}</p>
 
-  <a href="/paye">Payer</a>
   
   </div>
 </template>

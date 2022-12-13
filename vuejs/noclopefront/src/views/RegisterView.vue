@@ -3,8 +3,6 @@ export default {
   name: "App",
   data() {
     return {
-      role: "",
-      numbercard: "",
       firstname: "",
       lastname: "",
       email: "",
@@ -24,7 +22,6 @@ export default {
   methods: {
     async createUser() {
       const body = {
-        numbercard: this.numbercard,
         firstname: this.firstname,
         lastname: this.lastname,
         email: this.email,
@@ -64,18 +61,7 @@ export default {
   <div class="arround">
     <h1>Créer un compte</h1>
     <form @submit.prevent="createUser">
-<<<<<<< HEAD
-      <!-- <label for="role">
-      <input placeholder="role" v-model="role" required />
-      </label> -->
-=======
-      <label for="role">
-        <input placeholder="role" v-model="role" required />
-      </label>
->>>>>>> dimanchehilel
-      <label for="numbercard"></label>
-      <input placeholder="numbercard" v-model="numbercard" required />
-      <label for="lastname"></label>
+      <label for="lastame"></label>
       <input placeholder="Nom" v-model="lastname" required />
       <label for="firstname"></label>
       <input type="text" placeholder="Prénom" v-model="firstname" required />
@@ -88,25 +74,6 @@ export default {
     <a href="/login">Déjà inscrit(e) ?</a>
     <p v-if="feedbackMessage">{{ feedbackMessage }}</p>
   </div>
-
-<<<<<<< HEAD
-  
-    <RouterLink to="/login"></RouterLink>
-
-
-
-
-
-    
-					
-		
-	
- 
-=======
-
-  <RouterLink to="/login"></RouterLink>
-
->>>>>>> dimanchehilel
 </template>
 
 <style scoped>
