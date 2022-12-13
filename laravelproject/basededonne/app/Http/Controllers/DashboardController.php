@@ -55,7 +55,7 @@ class DashboardController extends Controller
         }
 
         $saved = ($pack_price / 20) * ($not_smoked_cigarettes_expectation - $smoked_cigarettes);
-return response()->json();
-     
+return response()->json(['project'=>$project,'cigarettes_per_day'=>$cigarettes_per_day,'date_created'=>$date_created,'crakings'=>$crakings,'current_date'=>$current_date,'not_smoked_cigarettes_expectation'=>$not_smoked_cigarettes_expectation,'smoked_cigarettes'=>$smoked_cigarettes,'elapse_days'=>$elapse_days,]);
+    
     }
 }
