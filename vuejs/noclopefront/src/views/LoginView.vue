@@ -62,7 +62,7 @@ export default {
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.role);
-      // this.$router.push("/profil");
+      this.$router.push("/profil");
     },
   },
   computed:{
@@ -106,7 +106,7 @@ export default {
           placeholder="********"
           required
         />
-       <RouterLink to="/">
+       <RouterLink to="/profil">
         <p v-if="result === true"></p>
         <p v-else-if="result === false" class="error">
           Adresse mail ou mot de passe est invalide.
@@ -117,17 +117,7 @@ export default {
 
     <p v-if="feedbackMessage">{{feedbackMessage}}</p>
   </div>
-        <div>
-          <form @submit.prevent="getTorole" >
-            <input class="login-button" type="submit" value="Recupe" />
-            <button  ></button>
-          </form>
-
-
-
-
-
-        </div>
+       
 <!-- <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8">
     <div>
