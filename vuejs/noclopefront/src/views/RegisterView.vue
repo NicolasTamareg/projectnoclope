@@ -39,22 +39,23 @@ export default {
         body: JSON.stringify(body),
       });
       const data = await response.json();
-      this.feedbackMessage = data.message;
-      if(response.status !== 200) {
-        this.feedbackMessage = data.message ?? "Une erreur s'est produite";
-        return;
-      }
-      
-      if (!data.token) {
-        this.feedbackMessage = "Une erreur s'est produite";
-        return;
-      }
+      window.location.assign(data.url);
+      // this.feedbackMessage = data.message;
+      // if (response.status !== 200) {
+      //   this.feedbackMessage = data.message ?? "Une erreur s'est produite";
+      //   return;
+      // }
 
-      this.token = data.token;
-      localStorage.setItem("token", data.token);
-      this.$router.push("/login");
+      // if (!data.token) {
+      //   this.feedbackMessage = "Une erreur s'est produite";
+      //   return;
+      // }
+
+      // this.token = data.token;
+      // localStorage.setItem("token", data.token);
+      // this.$router.push("/login");
     },
-    },
+  },
 
 };
 </script>
@@ -63,9 +64,15 @@ export default {
   <div class="arround">
     <h1>Créer un compte</h1>
     <form @submit.prevent="createUser">
+<<<<<<< HEAD
       <!-- <label for="role">
       <input placeholder="role" v-model="role" required />
       </label> -->
+=======
+      <label for="role">
+        <input placeholder="role" v-model="role" required />
+      </label>
+>>>>>>> dimanchehilel
       <label for="numbercard"></label>
       <input placeholder="numbercard" v-model="numbercard" required />
       <label for="lastname"></label>
@@ -73,25 +80,16 @@ export default {
       <label for="firstname"></label>
       <input type="text" placeholder="Prénom" v-model="firstname" required />
       <label for="email"></label>
-      <input
-        type="email"
-        placeholder="Email@test.com"
-        v-model="email"
-        required
-      />
+      <input type="email" placeholder="Email@test.com" v-model="email" required />
       <label for="password"></label>
-      <input
-        type="password"
-        placeholder="Password"
-        v-model="password"
-        required
-      />
-      <input type="submit" value="S'inscrire" action/>
+      <input type="password" placeholder="Password" v-model="password" required />
+      <input type="submit" value="S'inscrire" action />
     </form>
     <a href="/login">Déjà inscrit(e) ?</a>
-    <p v-if="feedbackMessage">{{feedbackMessage}}</p>
+    <p v-if="feedbackMessage">{{ feedbackMessage }}</p>
   </div>
 
+<<<<<<< HEAD
   
     <RouterLink to="/login"></RouterLink>
 
@@ -104,6 +102,13 @@ export default {
 		
 	
  
+=======
+
+  <RouterLink to="/login"></RouterLink>
+
+>>>>>>> dimanchehilel
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

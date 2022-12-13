@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
+use Stripe\Chekout\Session;
+use Stripe\Stripe;
+
 class UserController extends Controller
 {
     public function store(Request $request)
@@ -50,7 +53,25 @@ class UserController extends Controller
          ]);
 
         
-        return response()->json(['message'=>'user created','user'=>$user],201);
+         $stripe = new \Stripe\StripeClient(
+            'sk_test_51MEHK3Gg161a08f0yIcpxAGYl4zOEXD2zx76TCVYyjlFmoQNkQdeH2wXFApYUDwwzF1hEogbtwS3QVyG4bM1BNHe00NHx0dL2p'
+          );
+          $customer = $stripe->customers->create([
+            'email'=>$request->email,          
+            'description' => 'Premier fumeur',
+          ]);
+      
+          \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+          $session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'customer' => $customer->id,
+            'mode' => 'setup',
+            'success_url' => 'http://127.0.0.1:8000/clients/:userId/success?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => 'http://127.0.0.1:8000/clients/cancel',
+          ]);
+      
+          $url = $session->url;
+          return response()->json(['url' => $url]);
     } 
 
     public function edit($id){

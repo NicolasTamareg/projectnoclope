@@ -34,6 +34,7 @@ export default {
 
 
 <template>
+<<<<<<< HEAD
     
 
 
@@ -42,6 +43,9 @@ export default {
 <input type="number" placeholder="Entrez le chiffre" v-model="numbercigarette" required>
 <input type="submit">
     </form>
+=======
+
+>>>>>>> dimanchehilel
 
 <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8">
