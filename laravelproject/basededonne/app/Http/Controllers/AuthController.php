@@ -11,6 +11,7 @@ class AuthController extends Controller
 {
     public function authenticate(Request $request)
     {
+
         $authuser= User::where('email',$request->email)->first();
 
         if(is_null($authuser)) {
@@ -26,22 +27,14 @@ class AuthController extends Controller
         }
 
         return response()->json([
+            'role' => $authuser->role,
             'token' => $authuser->createToken(time())->plainTextToken
         ]);
 
     }
 
-    public function getRole(): JsonResponse
-    {
+    
 
-        
-        
-
-        return response()->json([
-            'is_admin'=> auth()->user()->is_admin
-
-        ]);
-
-    }
+    
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
@@ -53,11 +54,11 @@ class UserController extends Controller
         return response()->json(['message'=>'user created','user'=>$user],201);
     } 
 
-    public function edit($id){
+    public function edit(){
 
-        $user= User::findOrFail($id);
+        $user= User::findOrFail(Auth::user()->id);
 
-        return response()->json(['message'=>'user afficher','user'=>$user],201);
+        return response()->json(['message'=>'user afficher','user'=>$user],200);
 
         // $listeperso= Personnage::where('user_id', Auth::user()->id)->get();
         

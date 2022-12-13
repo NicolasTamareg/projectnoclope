@@ -6,12 +6,28 @@ export default {
       email: "",
       password: "",
       result: null,
-      token: "",
       feedbackMessage: null,
     };
   },
 
   methods: {
+
+    // getTorole :async function(){
+    //   const token = localStorage.getItem("token")
+    //   const response = await fetch("http://127.0.0.1:8000/api/users/{{token}}/edit", {
+    //     method: "GET",
+    //     headers: {
+    //       Accept: "application/json",
+    //       "Authorization":"Bearer " + token
+    //     },
+    //   });
+    //   const data = await response.json();
+    //   this.contacts = data.contacts;
+
+    //   console.log(this.contacts)
+
+    // },
+
     async login() {
       const options = {
         method: "POST",
@@ -31,6 +47,8 @@ export default {
       );
 
       const data = await response.json();
+
+      console.log(response)
       
       if(response.status !== 200) {
         this.feedbackMessage = data.message ?? "Une erreur s'est produite";
@@ -42,9 +60,9 @@ export default {
         return;
       }
 
-      this.token = data.token;
       localStorage.setItem("token", data.token);
-      this.$router.push("/profil");
+      localStorage.setItem("role", data.role);
+      // this.$router.push("/profil");
     },
   },
   computed:{
@@ -88,7 +106,7 @@ export default {
           placeholder="********"
           required
         />
-       <RouterLink to="/profil">
+       <RouterLink to="/">
         <p v-if="result === true"></p>
         <p v-else-if="result === false" class="error">
           Adresse mail ou mot de passe est invalide.
@@ -99,7 +117,17 @@ export default {
 
     <p v-if="feedbackMessage">{{feedbackMessage}}</p>
   </div>
- 
+        <div>
+          <form @submit.prevent="getTorole" >
+            <input class="login-button" type="submit" value="Recupe" />
+            <button  ></button>
+          </form>
+
+
+
+
+
+        </div>
 <!-- <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8">
     <div>
