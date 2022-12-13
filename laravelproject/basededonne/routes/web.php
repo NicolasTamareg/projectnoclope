@@ -22,7 +22,8 @@ Route::get('/clients/create', function () {
 
 // Routes stripe
 Route::get('/clients', [PaymentController::class, 'index'])->name('clients.index');
-Route::get('/clients/create', [PaymentController::class, 'create'])->name('clients.create')->where('id', '[0-9]+');
+// Route::get('/clients/create', [PaymentController::class, 'create'])->name('clients.create')->where('id', '[0-9]+');
+Route::get('/clients/{userId}/success', [PaymentController::class, 'create'])->name('clients.create');
 // Route::post('/clients', [PaymentController::class, 'store'])->name('clients.store');
 // Route::get('/clients/{id}', [PaymentController::class, 'show'])->name('clients.show');
 // Route::get('/clients/{id}/edit', [PaymentController::class, 'edit'])->name('clients.edit')->where('id', '[0-9]+');
