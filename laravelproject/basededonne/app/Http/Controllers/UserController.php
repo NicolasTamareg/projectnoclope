@@ -63,17 +63,40 @@ class UserController extends Controller
           \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
           $customer = $stripe->customers->create([
             'email' => $request->email,          
-            'description' => 'Premier fumeur',
+            'description' => 'Premier fumeur motivé de la tête aux pieds',
+            
           ]);
       
           $session = Session::create([
             'payment_method_types' => ['card'],
-            'customer' => $customer->id,
+            'customer' => $customer['id'],
             'mode' => 'setup',
-            'success_url' => 'http://127.0.0.1:8000/clients/'. $user->id .'/success?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => 'http://127.0.0.1:8000/clients/cancel',
+            
+            
+            'success_url' => 'http://127.0.0.1:5173/',
+            'cancel_url' => 'http://127.0.0.1:5173/profil',
           ]);
-      
+          $stripe->paymentIntents->create([
+            'amount' => 2000,
+            'currency' => 'eur',
+            'payment_method_types' => ['card'],
+            //custmoer stipe id et lui passe la payment method avec
+          ]);
+          $stripe->paymentIntents->confirm(
+            'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
+            ['payment_method' => 'pm_card_visa']
+            
+          );
+
+        //   $payment_method=$stripe->paymentMethods->retrieve(
+        //     $customer['data'][0]['id'],
+        //     []
+        //   );
+
+          $stripe->paymentIntents->update(
+            'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
+           );
+        //   http://127.0.0.1:8000/clients/'. $user->id .'/success?session_id={CHECKOUT_SESSION_ID}
           $url = $session->url;
           return response()->json(['url' => $url]);
     } 
