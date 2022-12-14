@@ -58,24 +58,95 @@ export default {
 </script>
 
 <template>
-  <div class="arround">
-    <h1>Créer un compte</h1>
-    <form @submit.prevent="createUser">
-      <label for="lastame"></label>
-      <input placeholder="Nom" v-model="lastname" required />
-      <label for="firstname"></label>
-      <input type="text" placeholder="Prénom" v-model="firstname" required />
-      <label for="email"></label>
-      <input type="email" placeholder="Email@test.com" v-model="email" required />
-      <label for="password"></label>
-      <input type="password" placeholder="Password" v-model="password" required />
-      <input type="submit" value="S'inscrire" action />
-    </form>
-    <a href="/login">Déjà inscrit(e) ?</a>
-    <p v-if="feedbackMessage">{{ feedbackMessage }}</p>
+  <div class="englobe-all">
+    <div class="arround">
+      <h1>Créer un compte</h1>
+      <form @submit.prevent="createUser">
+       
+        <label for="lastame"></label>
+        <input placeholder="Nom" v-model="lastname" required />
+      
+        <label for="firstname"></label>
+        <input type="text" placeholder="Prénom" v-model="firstname" required />
+        
+        <label for="email"></label>
+        <input type="email" placeholder="Email@test.com" v-model="email" required />
+      
+        <label for="password"></label>
+        <input type="password" placeholder="Password" v-model="password" required />
+      
+        <label for="S'inscrire"></label>
+        <input class="submit" type="submit" value="S'inscrire" placeholder="S'inscrire"/>
+        
+      </form>
+
+      <button><a href="/login">Déjà inscrit(e) ?</a></button>
+      <p v-if="feedbackMessage">{{ feedbackMessage }}</p>
+    </div>
   </div>
+    
+
+  
 </template>
 
 <style scoped>
+.arround{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: rgb(31 41 55 );
+  border-radius: 30px;
+  padding: 20px;
+  width: 30vw;
+  text-align: center;
+}
+input{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 30px;
+  text-align: center;
+}
+label{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+}
+.submit{
+  display: flex;
+  background-color: red;
+  text-align: center;
+  color: white;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+.englobe-all[data-v-bf0653ef] {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+  padding: 20px;
+  font-size: 1.5em;
+}
+button{
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1em;
+  background-color: red;
+  color: white;
+  border: 2px solid black;
+  border-radius: 30px;
+  width: 20vw;
+}
 </style>
