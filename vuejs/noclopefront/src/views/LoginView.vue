@@ -62,7 +62,7 @@ export default {
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.role);
-      // this.$router.push("/profil");
+      this.$router.push("/profil");
     },
   },
   computed:{
