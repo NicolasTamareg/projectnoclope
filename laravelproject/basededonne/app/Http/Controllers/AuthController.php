@@ -27,7 +27,7 @@ class AuthController extends Controller
         }
 
         return response()->json([
-            'role' => $authuser->role,
+            'is_admin' => $authuser->is_admin,
             'token' => $authuser->createToken(time())->plainTextToken
         ]);
 
