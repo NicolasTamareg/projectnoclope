@@ -1,5 +1,5 @@
 <script>
-// import ProfilPage from "../components/ProfilPage.vue";
+
 
 export default {
   data() {
