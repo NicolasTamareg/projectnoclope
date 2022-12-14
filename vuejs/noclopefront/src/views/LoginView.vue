@@ -6,6 +6,7 @@ export default {
       email: "",
       password: "",
       result: null,
+      token: "",
       feedbackMessage: null,
     };
   },
@@ -47,7 +48,7 @@ export default {
       );
 
       const data = await response.json();
-
+      
       console.log(response)
       
       if(response.status !== 200) {
@@ -60,6 +61,7 @@ export default {
         return;
       }
 
+      this.token = data.token;
       localStorage.setItem("token", data.token);
       localStorage.setItem("is_admin", data.is_admin);
       this.$router.push("/profil");
@@ -117,7 +119,7 @@ export default {
 
     <p v-if="feedbackMessage">{{feedbackMessage}}</p>
   </div>
-       
+ 
 <!-- <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8">
     <div>
