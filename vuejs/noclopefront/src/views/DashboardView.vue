@@ -34,7 +34,9 @@ export default {
       this.date_created=data.date_created
       this.current_date=data.current_date
       this.crakings=data.crakings
-      console.log(this.current_date)
+      this.not_smoked_cigarettes_expectation=data.not_smoked_cigarettes_expectation
+      this.smoked_cigarettes=data.smoked_cigarettes
+      console.log(this.smoked_cigarettes)
      
     }
   },
@@ -62,6 +64,17 @@ export default {
 <div>
   crakings
   {{crakings}}
+</div>
+
+<div>
+  not_smoked_cigarettes_expectation
+  {{not_smoked_cigarettes_expectation}}
+
+</div>
+
+<div>
+  smoked_cigarettes
+  {{smoked_cigarettes}}
 </div>
 
 </template>
