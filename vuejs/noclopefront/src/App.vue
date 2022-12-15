@@ -17,4 +17,9 @@ import NavBar from "./components/NavBar.vue";
 </template>
 
 <style scoped>
+footer{
+  background-color: rgb(31 41 55 );
+  color: white;
+  padding: 40px;
+}
 </style>
