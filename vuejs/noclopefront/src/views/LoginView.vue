@@ -89,9 +89,9 @@ export default {
   <div class="englobe-all">
 
     <div class="arround">
-      <h1>Connexion</h1>
       <!-- Formulaire de login -->
-      <form @submit.prevent="login" class="form-style">
+      <form @submit.prevent="login" >
+          <h1>Connexion</h1>
           
           <label for="email"></label>
           <input type="email" name="email" id="emailInput" v-model="email" placeholder="email" required />
@@ -111,6 +111,7 @@ export default {
   
       <p v-if="feedbackMessage">{{feedbackMessage}}</p>
     </div>
+    
   </div>
  
 
@@ -123,6 +124,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  
   
 }
 
@@ -169,6 +171,7 @@ label[data-v-45f5edd7]{
 h1 {
   padding: 20px;
   font-size: 1.5em;
+  color: white;
 }
 button{
   margin-top: 20px;
@@ -180,4 +183,5 @@ button{
   border-radius: 30px;
   width: 20vw;
 }
+
 </style> 
