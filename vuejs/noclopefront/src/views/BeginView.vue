@@ -1,9 +1,11 @@
 <script>
 export default {
-  name:"App",
+  
   data() {
     return {
+      user_id:{},
       objective: "",
+      user:{}, 
       price: "",
       pricepack: "",
       numbersmoke:"",
@@ -14,16 +16,19 @@ export default {
   methods:{
         async createProject(){
             const body = {
+
                 objective:this.objective,
                 price:this.price,
                 pricepack:this.pricepack,
                 numbersmoke:this.numbersmoke,
             };
+            const token = localStorage.getItem("token")
             const response = await fetch("http://127.0.0.1:8000/api/projects",{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json",
                     "Accept":"application/json",
+                    "Authorization":"Bearer " + token,
                 },
                 body: JSON.stringify(body),
             });

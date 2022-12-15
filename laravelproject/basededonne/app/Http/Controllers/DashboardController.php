@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cracking;
 use App\Models\Project;
-use App\Models\User;
-use Carbon\Doctrine\DateTimeType;
 use DateTime;
-use Faker\Core\DateTime as CoreDateTime;
-use Faker\Provider\DateTime as ProviderDateTime;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 
@@ -23,7 +18,7 @@ class DashboardController extends Controller
 
     public function getStats()
     {
-        $user_id = Auth::user()->id;
+        $user_id = auth()->id();
 
         // Le projet de l'utilisateur
         $project = Project::where("user_id", $user_id)->firstOrFail();
@@ -35,12 +30,13 @@ class DashboardController extends Controller
         $crakings = Cracking::where("project_id", $project->id)->get();
 
         // Date du jour
-        $current_date =  DateTime::now();
-
+        $current_date = Date::now();
+         
+    
 
         // Calculs
-        $elapse_days =  $current_date->diff(new DateTime($date_created));
-        $not_smoked_cigarettes_expectation = $cigarettes_per_day * $elapse_days;
+        $elapse_days =  $current_date->diff( new DateTime($date_created));
+        $not_smoked_cigarettes_expectation = $cigarettes_per_day * $elapse_days->days;
         $smoked_cigarettes = 0;
 
         if (count($crakings) > 0) {
@@ -50,7 +46,7 @@ class DashboardController extends Controller
         }
 
         $saved = ($pack_price / 20) * ($not_smoked_cigarettes_expectation - $smoked_cigarettes);
-return response()->json();
-     
+        return response()->json(['project'=>$project,"cigarettes_per_day"=>$cigarettes_per_day,'date_created'=>$date_created,'crakings'=>$crakings,'current_date'=>$current_date,'not_smoked_cigarettes_expectation'=>$not_smoked_cigarettes_expectation,'smoked_cigarettes'=>$smoked_cigarettes,'elapse_days'=>$elapse_days]);
+    
     }
 }
