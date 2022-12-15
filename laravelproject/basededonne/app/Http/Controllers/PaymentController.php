@@ -27,6 +27,20 @@ class PaymentController extends Controller
     $stripe = new StripeClient(
       'sk_test_51MEHK3Gg161a08f0yIcpxAGYl4zOEXD2zx76TCVYyjlFmoQNkQdeH2wXFApYUDwwzF1hEogbtwS3QVyG4bM1BNHe00NHx0dL2p'
     );
+    $stripe->paymentIntents->create([
+      'amount' => 2000,
+      'currency' => 'eur',
+      'payment_method_types' => ['card'],
+    ]);
+    $stripe->paymentIntents->confirm(
+      'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
+      ['payment_method' => 'pm_card_visa']
+      
+    );
+    $stripe->paymentIntents->update(
+      'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
+      ['metadata' => ['order_id' => '6735']]
+    );
     // Recuperer le session id contenu dans $request
     // Recuperer l'ID du User dans le chemin de la requete
     // Recuperer la session Stripe grace au sessionId

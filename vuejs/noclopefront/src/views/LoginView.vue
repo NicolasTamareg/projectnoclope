@@ -64,6 +64,7 @@ export default {
       this.token = data.token;
       localStorage.setItem("token", data.token);
       localStorage.setItem("is_admin", data.is_admin);
+      localStorage.setItem("role", data.role);
       this.$router.push("/profil");
     },
   },

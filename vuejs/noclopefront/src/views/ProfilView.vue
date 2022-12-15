@@ -9,8 +9,6 @@ export default {
       result: true,
       token: "",
       profile: {},
-
-      
     };
   },
 
