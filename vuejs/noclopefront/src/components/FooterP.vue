@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { RouterLink } from "vue-router";
 </script>
 
@@ -36,4 +36,4 @@ export default {
       <RouterLink to="/login">Se connecter</RouterLink>
     </nav>
   </div>
-</template>
+</template> -->
