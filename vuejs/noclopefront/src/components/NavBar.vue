@@ -43,7 +43,7 @@ export default {
       
       <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
+      <div class="flex h-16 items-center justify-center">
         <div class="flex items-center">
           <div class="flex-shrink-0">
             
@@ -51,7 +51,7 @@ export default {
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <h1 class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-bold font-large">NO CLOPE</h1>
+              <a class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-bold font-large"><RouterLink  to="/home">NO CLOPE</RouterLink></a>
               <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page"><RouterLink to="/home">Accueil</RouterLink></a>
 
               <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/register">Créer un compte</RouterLink></a>
