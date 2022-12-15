@@ -32,9 +32,10 @@
   <div class="about-me">
     <div class="about-me-text">
       <h2>A Propos De Nous</h2>
-      <p>I am a web developer and I love to create websites. I am a very good developer and I am always looking for new projects. I am a very good developer.</p>
+      <p>nous sommes la seule application qui a pour but d'aider l'utilisateur à arrêter de fumer et de réaliser leur projet .
+notre but est de suivre nos clients tout au long de leur projet les aider à atteindre leurs objectifs tout en diminuant la consommation journalière de cigarette jusqu'a à arrêter définitivement et réduit leur cout sûr et orienté leur argent dans des loisirs qu'il peut des à présent réaliser.</p>
     </div>
-    <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="me">
+    <img src="https://th.bing.com/th/id/OIP.ntUNHB34CErM9uePPCZNBwHaHZ?w=221&h=220&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="me">
   </div>
 </main>
     </div>
@@ -118,6 +119,8 @@ h1 {
   justify-content: space-around;
   align-items: center;
   padding: 40px 80px;
+      text-align: center;
+    align-items: center;
 }
 
 .achievements .work {
@@ -156,13 +159,15 @@ h1 {
   align-items: center;
   padding: 40px 80px;
   border-top: 2px solid #eeeeee;
+  border-color: red;
 }
 
 .about-me img {
-  width: 500px;
+  width: 300px;
   max-width: 100%;
   height: auto;
   border-radius: 10px;
+  margin-left: 15px;
 }
 
 .about-me-text h2 {
