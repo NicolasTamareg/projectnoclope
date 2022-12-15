@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CrackingController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,14 +31,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Parti Admin
 
-Route::middleware('auth:sanctum')->group(function(){
 
     Route::get('/admin', [AdminController::class, 'getFullUsers']);
     Route::get('/adminproject', [AdminController::class, 'getFullUsersProject']);
 
     
 
-});
+
 
 
 //
@@ -65,29 +65,24 @@ Route::put('/users/{id}',[UserController::class, 'update']) -> name('users.updat
 
 
 //Route Project
+Route::middleware('auth:sanctum')->group(function() {
+
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create')->where('id', '[0-9]+');
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+});
 
 //Fin Route Project
 
-//Routes contacts
 Route::middleware('auth:sanctum')->group(function() {
+    //Routes contacts
     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
     Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create')->where('id', '[0-9]+');
     Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
     Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
-});
-
-//Fin Route contact
-
-//Routes craquages
-Route::middleware('auth:sanctum')->group(function() {
+    //Fin Route contact
+    //Routes craquages
     Route::post('/craques', [CrackingController::class, 'store'])->name('craques.store');
+    Route::get('/dashboard/stats', [DashboardController::class,'getStats'])->name('dashboard.stats');
 });
 
-
-// Routes dashboard
-Route::middleware('auth:sanctum')->group(function() {
-    Route::get('/dashboard/stats',[DashboardController::class],'getStats')->name('dashboard.stats');
-});
