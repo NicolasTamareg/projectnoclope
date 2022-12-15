@@ -16,7 +16,7 @@
     <div class="work">
       <i class="fas fa-atom"></i>
       <p class="work-heading">Etape 1</p>
-      <p class="work-text">Cree ton objectif en quelque clique !.</p>
+      <p class="work-text">Cree ton objectif en quelques cliques !.</p>
     </div>
     <div class="work">
       <i class="fas fa-skiing"></i>
@@ -26,7 +26,7 @@
     <div class="work">
       <i class="fas fa-ethernet"></i>
       <p class="work-heading">Etape 3</p>
-      <p class="work-text">Ton objectif est atteint et réussite garantis d'arrêter de fumer bravo!.</p>
+      <p class="work-text">Ton objectif atteint! et une réussite garantis d'arrêter de fumer!.</p>
     </div>
   </div>
   <div class="about-me">
