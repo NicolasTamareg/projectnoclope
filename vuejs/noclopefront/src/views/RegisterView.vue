@@ -95,6 +95,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  
 }
 
 form{
@@ -134,6 +135,8 @@ label{
 .englobe-all[data-v-bf0653ef] {
     display: flex;
     justify-content: center;
+    background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+    padding: 40px;
 }
 h1 {
   padding: 20px;
