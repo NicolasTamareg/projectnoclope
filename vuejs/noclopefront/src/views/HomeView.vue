@@ -16,7 +16,7 @@
     <div class="work">
       <i class="fas fa-atom"></i>
       <p class="work-heading">Etape 1</p>
-      <p class="work-text">Cree ton objectif en quelque clique .</p>
+      <p class="work-text">Cree ton objectif en quelque clique !.</p>
     </div>
     <div class="work">
       <i class="fas fa-skiing"></i>
