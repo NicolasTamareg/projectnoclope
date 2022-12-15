@@ -4,7 +4,7 @@
       <div class="intro2">
         <div class="ab">
           <h1>NO CLOPE</h1>
-          <p>Le premier site qui va vous faire arreter de fumer</p>
+          <p>Le premier site qui va vous faire arreter de fumer!</p>
         </div>
       </div>
     </main>
