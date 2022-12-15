@@ -60,8 +60,8 @@ export default {
 <template>
   <div class="englobe-all">
     <div class="arround">
-      <h1>Créer un compte</h1>
       <form @submit.prevent="createUser">
+        <h1>Créer un compte</h1>
        
         <label for="lastame"></label>
         <input placeholder="Nom" v-model="lastname" required />
@@ -136,11 +136,12 @@ label{
     display: flex;
     justify-content: center;
     background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
-    padding: 40px;
+    padding: 40px 40px 40px 40px;
 }
 h1 {
   padding: 20px;
   font-size: 1.5em;
+  color: white;
 }
 button{
   margin-top: 20px;
