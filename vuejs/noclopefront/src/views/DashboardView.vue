@@ -1,37 +1,67 @@
 <script>
 export default {
-    el: '#app',
+
   data() {
     return {
-        project: {},
-            cigarettes_per_day: 0,
-            date_created: {},
-            crakings: {},
-            current_date: {},
-            not_smoked_cigarettes_expectation: {},
-            smoked_cigarettes: {},
-            elapse_days:{}
-
+      project: {},
+      cigarettes_per_day: {},
+      date_created: {},
+      crakings: {},
+      current_date: {},
+      not_smoked_cigarettes_expectation: {},
+      smoked_cigarettes:{},
+      elapse_days: {},
+     
     };
   },
-  mounted () {
-   fetch('http://127.0.0.1:8000/api/dashboard/stats', { headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}})
-      .then(response =>response.json())
-      .then(json => {
-        this.cigarettes_per_day = json.cigarettes_per_day;
-      })
-    }
-}
 
- 
+  methods: {
+    async DashboardProject() {
+    
+      const token = localStorage.getItem("token")
+      const response = await fetch("http://127.0.0.1:8000/api/dashboard/stats", {
+        method: "GET",
+        headers: {
+         
+          "Accept": "application/json",
+          "Authorization": "Bearer " + token,
+        },
+        // body: JSON.stringify(body),
+      });
+      const data = await response.json();
+      this.project= data.project
+      this.elapse_days=data.elapse_days
+      this.date_created=data.date_created
+      this.current_date=data.current_date
+      this.crakings=data.crakings
+      console.log(this.current_date)
+     
+    }
+  },
+  mounted() {
+            this.DashboardProject();
+        }
+};
+
+
 </script>
 
 
 
 <template>
 
-<div id="app">
-  {{ cigarettes_per_day }}
+  <div >
+    project
+    {{ project.objective }}
+  </div>
+  <div >
+    elapse_days
+    {{ elapse_days.days}}
+  </div>
+
+<div>
+  crakings
+  {{crakings}}
 </div>
 
 </template>
