@@ -21,7 +21,7 @@
     <div class="work">
       <i class="fas fa-skiing"></i>
       <p class="work-heading">Etape 2</p>
-      <p class="work-text">Suis en temps réel l'évolution de ton objectif et ta consommation réduite .</p>
+      <p class="work-text">Suis en temps réel l'évolution de ton objectif et ta consommation réduite! .</p>
     </div>
     <div class="work">
       <i class="fas fa-ethernet"></i>
