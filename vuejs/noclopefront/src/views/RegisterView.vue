@@ -36,6 +36,11 @@ export default {
         body: JSON.stringify(body),
       });
       const data = await response.json();
+
+      if(response.status !== 200 ) {
+        return;
+      }
+      
       window.location.assign(data.url);
       // this.feedbackMessage = data.message;
       // if (response.status !== 200) {
