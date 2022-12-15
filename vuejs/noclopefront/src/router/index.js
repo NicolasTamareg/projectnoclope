@@ -10,9 +10,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/admin",
-      name: "admin",
+      path: "/adminUtilisateur",
+      name: "adminUtilisateur",
       component: () => import("../views/AdminView.vue")
+    },
+    {
+      path: "/adminTransaction",
+      name: "adminTransaction",
+      component: () => import("../views/TransactionView.vue")
     },
     {
       path: "/profil",

@@ -11,8 +11,7 @@ export default {
   },
 
   data() {
-    return { isConnected: Boolean(localStorage.getItem("token")) };
-    return { isAdmin: String(localStorage.getItem("is_admin")) };
+    return { isConnected: Boolean(localStorage.getItem("token")), isAdmin: String(localStorage.getItem("is_admin")) };
   },
   mounted: function () {
     this.$router.afterEach(() => {
@@ -27,8 +26,10 @@ export default {
 <template>
   <div class="wrapper">
     <nav v-if="isConnected">
-        <div v-if="isAdmin==admin">
-          <RouterLink to="/admin">admin</RouterLink>
+        <div v-if="isAdmin=='admin'">
+          <RouterLink to="/adminUtilisateur">Utilisateurs</RouterLink>
+          <RouterLink to="/adminTransaction">Transactions</RouterLink>
+          <RouterLink to="/login" @click="logout">Se déconnecter</RouterLink>
         </div>
         <div v-else>
           <RouterLink to="/profil">Profil</RouterLink>

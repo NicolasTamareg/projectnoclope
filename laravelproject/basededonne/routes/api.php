@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CrackingController;
 use App\Http\Controllers\ProjectController;
@@ -31,7 +32,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function(){
 
-    Route::get('/getAdmin', [AuthController::class, 'getAdmin']);
+    Route::get('/admin', [AdminController::class, 'getFullUsers']);
+    Route::get('/adminproject', [AdminController::class, 'getFullUsersProject']);
 
     
 
@@ -45,9 +47,11 @@ Route::middleware('auth:sanctum')->group(function(){
 
 //Authentification token
 Route::post('/login',[AuthController::class,'authenticate']);
-Route::get('/login',[AuthController::class,'show']);
+// Route::get('/login',[AuthController::class,'show']);
 
 //
+
+
 //Route user
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create')->where('id', '[0-9]+');
 Route::post('/users',[UserController::class, 'store']) -> name('users.store');
