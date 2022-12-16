@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -59,6 +60,14 @@ class ContactController extends Controller
         ]);
        
             $contact->save();
+
+            $data = array('name'=> $contact->firstname);
+   
+        Mail::send('mail', $data, function($message) use($contact) {
+         $message->to('test@test.com', $contact->firstname )->subject
+            ('Vous avez été choisi comme ange gardien');
+         $message->from('contact@noclope.com','No clope');
+      });
       
         return response()->json(['message'=>'Contact created.','contact'=>$contact],201);
     }

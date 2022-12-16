@@ -27,6 +27,8 @@ class Project extends Model
 
     public function crackings(){
         return $this->hasMany(Cracking::class,'project_id','id');
+        
     }
+   
 
 }
