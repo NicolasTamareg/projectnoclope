@@ -24,9 +24,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 
 //Parti Admin
@@ -56,7 +54,7 @@ Route::post('/login',[AuthController::class,'authenticate']);
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create')->where('id', '[0-9]+');
 Route::post('/users',[UserController::class, 'store']) -> name('users.store');
 Route::get('/users/edit',[UserController::class, 'edit']) -> name('users.edit')->middleware('auth:sanctum');
-Route::get('/me',[UserController::class, 'edit']) -> name('users.edit');
+// Route::get('/me',[UserController::class, 'edit']) -> name('users.edit');
 Route::put('/users/{id}',[UserController::class, 'update']) -> name('users.update');
 
 
@@ -70,7 +68,6 @@ Route::middleware('auth:sanctum')->group(function() {
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create')->where('id', '[0-9]+');
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
-Route::post('/projects/{id}', [ProjectController::class,'show'])->name('projects.show');
 Route::post('/projects/{id}', [ProjectController::class,'show'])->name('projects.show');
 Route::get('/projects/{id}/edit', [ProjectController::class,'edit'])->name('projects.edit');
 });
