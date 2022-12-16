@@ -27,13 +27,64 @@ export default {
   <div class="wrapper">
     <nav v-if="isConnected">
         <div v-if="isAdmin=='admin'">
-          <RouterLink to="/adminUtilisateur">Utilisateurs</RouterLink>
-          <RouterLink to="/adminTransaction">Transactions</RouterLink>
-          <RouterLink to="/login" @click="logout">Se déconnecter</RouterLink>
+          <nav class="bg-gray-800">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div class="flex h-16 items-center justify-center">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+          
+                  </div>
+                  <div class="hidden md:block">
+          
+                    <div class="ml-10 flex items-baseline space-x-4">
+          
+                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        <RouterLink to="/">NO CLOPE</RouterLink>
+                      </a>
+                      <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        <RouterLink to="/">Accueil</RouterLink>
+                      </a>
+                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/adminUtilisateur">Utilisateurs</RouterLink>
+                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/adminTransaction">Transactions</RouterLink>
+                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
+                    </div>
+                  </div>
+          
+                </div>
+              </div>
+          
+            </div>
+          </nav>
+          
+
         </div>
         <div v-else>
-          <RouterLink to="/profil">Profil</RouterLink>
-          <RouterLink to="/login" @click="logout">Se déconnecter</RouterLink>
+          <nav class="bg-gray-800">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div class="flex h-16 items-center justify-center">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+          
+                  </div>
+                  <div class="hidden md:block">
+          
+                    <div class="ml-10 flex items-baseline space-x-4">
+          
+                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">NO CLOPE</RouterLink></a>
+                      <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">Accueil</RouterLink></a>
+                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/project">Projets</RouterLink></a>
+                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/profil">Profil</RouterLink>
+                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
+                    </div>
+                  </div>
+          
+                </div>
+              </div>
+          
+            </div>
+          </nav>
+          
 
         </div>
 
