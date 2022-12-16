@@ -35,7 +35,7 @@ export default {
         const body = {
           firstname: this.firstname,
           lastname: this.lastname,
-          numberphone: this.numberphone,
+          email: this.email,
           
         };
           const token = localStorage.getItem("token");
@@ -58,7 +58,7 @@ export default {
           const data = await option.json();
           this.feedbackMessage = data.message;
           this.getContacts();
-          console.log(this.feedbackMessage)
+          
       },
   },
 
@@ -100,10 +100,10 @@ export default {
       required
     />
     <input
-      type="number"
-      placeholder="Numéro de telephone"
-      id="numberphone"
-      v-model="numberphone"
+      type="email"
+      placeholder="Email"
+      id="email"
+      v-model="email"
       required
     />
     <input type="submit" value="tes mort" />

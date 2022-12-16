@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -41,31 +42,43 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
+        $user=User::findOrFail(Auth::user()->id);
         $user_id = Auth::user()->id;
         $project_id = Project::where('user_id', $user_id)->firstOrFail()->id;
 
         $request->validate([
             'firstname' => 'required|string',
             'lastname' => 'required|string',
-            'numberphone' => 'required|integer',
+            'email' => 'required|string',
             
         ]);
         
         $contact = Contact::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
-            'numberphone' => $request->numberphone,
+            'email' => $request->email,
             'user_id'=> $request-> user_id = Auth::user()->id,
         ]);
        
             $contact->save();
 
-            $data = array('name'=> $contact->firstname);
+            //envoi du mail au contact
+            $data = array(
+                'name'=> $contact->firstname,
+                'lastname'=>$user->lastname,
+                'firstname'=>$user->firstname
+        
+            );
+            // $data = array('lastname'=> $contact->lastname);
+            
+           
+            
    
-        Mail::send('mail', $data, function($message) use($contact) {
-         $message->to('test@test.com', $contact->firstname )->subject
-            ('Vous avez été choisi comme ange gardien');
+        Mail::send('mail', $data, function($message) use($contact,) {
+         $message->to('test@test.com', $contact->firstname,$contact->lastname,$contact->firstname)->subject
+            ('Équipe-Noclope:Ange gardien');
          $message->from('contact@noclope.com','No clope');
       });
       
