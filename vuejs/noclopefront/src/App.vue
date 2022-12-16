@@ -13,7 +13,6 @@ import NavBar from "./components/NavBar.vue";
   <RouterView />
   <footer>
         Noclope &copy;Tout droits reservés
-        
     </footer>
 </template>
 
@@ -21,6 +20,6 @@ import NavBar from "./components/NavBar.vue";
 footer{
   background-color: rgb(31 41 55 );
   color: white;
-  height: 20vh;
+  padding: 40px;
 }
 </style>
