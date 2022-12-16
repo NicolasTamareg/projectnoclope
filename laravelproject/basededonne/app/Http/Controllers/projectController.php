@@ -49,7 +49,7 @@ class ProjectController extends Controller
         return response()->json(['message'=>'Project created.','projet'=>$projet],201);
     }
 
-     public function show($projectUser)
+     public function show( $projectUser)
     {
         $projectUser = Project::where('user_id',Auth::user()->id)->get();
         return response()->json(['projectUser'=>$projectUser]);
@@ -61,9 +61,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($project)
     {
-        $project = Project::findOrFail($id);
+        $project = Project::findOrFail(Auth::user()->id);
 
         return  response()->json(['project'=>$project]);
     }

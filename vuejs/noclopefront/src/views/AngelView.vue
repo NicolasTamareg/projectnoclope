@@ -5,7 +5,7 @@ export default {
     return {
       firstname: "",
       lastname: "",
-      numberphone: "",
+      email: "",
       result: null,
       token: "",
       feedbackMessage: "",
@@ -35,7 +35,7 @@ export default {
         const body = {
           firstname: this.firstname,
           lastname: this.lastname,
-          numberphone: this.numberphone,
+          email: this.email,
           
         };
           const token = localStorage.getItem("token");
@@ -78,7 +78,7 @@ export default {
   <li v-for = "contacts in contacts" :key="user_id">
     <p>Nom: {{contacts.firstname}}</p>
     <p>Prénom: {{contacts.lastname}}</p>
-    <p>Number : {{contacts.numberphone}}</p>
+    <p>Email : {{contacts.email}}</p>
   </li>
   
   <!-- <p>{{contacts.firstname}}</p> -->
@@ -100,10 +100,10 @@ export default {
       required
     />
     <input
-      type="number"
-      placeholder="Numéro de telephone"
-      id="numberphone"
-      v-model="numberphone"
+      type="email"
+      placeholder="Votre Email"
+      id="email"
+      v-model="email"
       required
     />
     <input type="submit" value="tes mort" />

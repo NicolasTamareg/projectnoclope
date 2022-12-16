@@ -71,7 +71,6 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects.ind
 Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create')->where('id', '[0-9]+');
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 Route::post('/projects/{id}', [ProjectController::class,'show'])->name('projects.show');
-Route::post('/projects/{id}', [ProjectController::class,'show'])->name('projects.show');
 Route::get('/projects/{id}/edit', [ProjectController::class,'edit'])->name('projects.edit');
 });
 

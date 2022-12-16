@@ -48,14 +48,14 @@ class ContactController extends Controller
         $request->validate([
             'firstname' => 'required|string',
             'lastname' => 'required|string',
-            'numberphone' => 'required|integer',
+            'email' => 'required|string',
             
         ]);
         
         $contact = Contact::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
-            'numberphone' => $request->numberphone,
+            'email' => $request->email,
             'user_id'=> $request-> user_id = Auth::user()->id,
         ]);
        
