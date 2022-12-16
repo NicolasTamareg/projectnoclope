@@ -117,6 +117,9 @@ export default {
   align-self: center;
 }
 .progression{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 20px;
   width: 90%;
   background-color: chartreuse;
