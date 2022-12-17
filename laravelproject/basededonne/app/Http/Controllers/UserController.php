@@ -65,17 +65,19 @@ class UserController extends Controller
                         
           ]);
       
+          $stripe->paymentIntents->create([
+            'amount' => 2000,
+            'currency' => 'eur',
+            'payment_method_types' => ['card'],
+          ]);
           $session = Session::create([
             'payment_method_types' => ['card'],
             'customer' => $customer['id'],
-            
+            'amount'=>2000,
             'mode' => 'setup',
-            
-            
-            'success_url' => 'http://127.0.0.1:5173/',
-            'cancel_url' => 'http://127.0.0.1:5173/profil',
+            'success_url' => 'http://127.0.0.1:5173/profil',
+            'cancel_url' => 'http://127.0.0.1:5173/',
           ]);
-
 
           // $stripe->paymentIntents->create([
           //   'amount' => 2000,
