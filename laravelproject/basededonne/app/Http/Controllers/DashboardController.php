@@ -29,7 +29,7 @@ class DashboardController extends Controller
 
         // Les craquages de l'utilisateur
         $crakings = Cracking::where("project_id", $project->id)->get();
-
+        
         // Date du jour
         $current_date = Date::now();
          
