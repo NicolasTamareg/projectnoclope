@@ -134,7 +134,7 @@ form{
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  background-color: rgb(31 41 55 );
+  background-color: #6CD1BC;
   border-radius: 30px;
   padding: 20px;
   width: 30vw;
@@ -145,9 +145,12 @@ input{
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  border: 2px solid white;
+  border: 1px solid black;
   border-radius: 30px;
   text-align: center;
+}
+form{
+  border: 2px solid black;
 }
 label[data-v-45f5edd7]{
   display: flex;
@@ -166,7 +169,7 @@ label[data-v-45f5edd7]{
 .englobe-all[data-v-45f5edd7] {
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+    background: linear-gradient(to bottom, #FFFFFF, #ACE7DC, #69D5BF);
     padding: 40px;
 }
 h1 {
