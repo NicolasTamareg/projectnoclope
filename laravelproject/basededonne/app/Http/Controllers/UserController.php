@@ -68,38 +68,40 @@ class UserController extends Controller
           $session = Session::create([
             'payment_method_types' => ['card'],
             'customer' => $customer['id'],
-            "object" => $customer['setup_intent'],
+            // "payment_method" => $stripe['setup_intent'],
             'mode' => 'setup',
-            
             
             'success_url' => 'http://127.0.0.1:5173/',
             'cancel_url' => 'http://127.0.0.1:5173/profil',
           ]);
-
-
-          $stripe->paymentIntents->create([
-            'amount' => 2000,
-            'currency' => 'eur',
-            
+          $stripe->setupIntents->create([
             'payment_method_types' => ['card'],
-            //custmoer stipe id et lui passe la payment method avec
-          //       $payment_method=$stripe->paymentMethods->retrieve(
-          //   $customer['data'][0]['id'],
-          //   []
-          // )
-            
+            'customer' => $customer['id'],
           ]);
-          $stripe->paymentIntents->confirm(
-            'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
-            ['payment_method' => $stripe]
+
+          // $stripe->paymentIntents->create([
+          //   'amount' => 2000,
+          //   'currency' => 'eur',
             
-          );
+          //   'payment_method_types' => ['card'],
+          //   //custmoer stipe id et lui passe la payment method avec
+          // //       $payment_method=$stripe->paymentMethods->retrieve(
+          // //   $customer['data'][0]['id'],
+          // //   []
+          // // )
+            
+          // ]);
+          // $stripe->paymentIntents->confirm(
+          //   'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
+          //   ['payment_method' => $stripe]
+            
+          // );
 
       
 
-          $stripe->paymentIntents->update(
-            'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
-           );
+          // $stripe->paymentIntents->update(
+          //   'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
+          //  );
         //   http://127.0.0.1:8000/clients/'. $user->id .'/success?session_id={CHECKOUT_SESSION_ID}
           $url = $session->url;
           return response()->json(['url' => $url]);
