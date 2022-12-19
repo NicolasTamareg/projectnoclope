@@ -15,7 +15,9 @@ class ProjectController extends Controller
     public function index()
     { 
       
-       
+        $projectUser = Project::where('user_id',Auth::user()->id)->get();
+        return response()->json(['projectUser'=>$projectUser]);
+      
     }
 
     public function create()
@@ -49,7 +51,7 @@ class ProjectController extends Controller
         return response()->json(['message'=>'Project created.','projet'=>$projet],201);
     }
 
-     public function show( $projectUser)
+     public function show( )
     {
         $projectUser = Project::where('user_id',Auth::user()->id)->get();
         return response()->json(['projectUser'=>$projectUser]);
@@ -86,11 +88,12 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        
+        $projectDelete = Project::where("user_id", Auth::user()->id)->firstOrFail();;
+        $projectDelete->delete();
     }
 }
-  
+
 
 

@@ -25,6 +25,7 @@ class DashboardController extends Controller
         $cigarettes_per_day = $project->numbersmoke;
         $pack_price = $project->pricepack;
         $date_created = $project->created_at;
+        $price_project = $project->price;
 
         // Les craquages de l'utilisateur
         $crakings = Cracking::where("project_id", $project->id)->get();
@@ -46,7 +47,8 @@ class DashboardController extends Controller
         }
 
         $saved = ($pack_price / 20) * ($not_smoked_cigarettes_expectation - $smoked_cigarettes);
-        return response()->json(['project'=>$project,"cigarettes_per_day"=>$cigarettes_per_day,'date_created'=>$date_created,'crakings'=>$crakings,'current_date'=>$current_date,'not_smoked_cigarettes_expectation'=>$not_smoked_cigarettes_expectation,'smoked_cigarettes'=>$smoked_cigarettes,'elapse_days'=>$elapse_days]);
+        $final= ($price_project - $saved) * $elapse_days->days;
+        return response()->json(['final'=>$final,'saved'=>$saved,'price_project'=>$price_project,'project'=>$project,"cigarettes_per_day"=>$cigarettes_per_day,'date_created'=>$date_created,'crakings'=>$crakings,'current_date'=>$current_date,'not_smoked_cigarettes_expectation'=>$not_smoked_cigarettes_expectation,'smoked_cigarettes'=>$smoked_cigarettes,'elapse_days'=>$elapse_days]);
     
     }
 }
