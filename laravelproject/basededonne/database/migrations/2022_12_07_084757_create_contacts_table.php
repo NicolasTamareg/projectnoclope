@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
         $table->id();
         $table->string('email');
+        $table->integer('verified')->nullable();
         $table->string('firstname');
         $table->string('lastname');
         $table->unsignedBigInteger('user_id');
