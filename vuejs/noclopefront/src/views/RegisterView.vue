@@ -82,6 +82,7 @@ export default {
       
         <label for="S'inscrire"></label>
         <input class="submit" type="submit" value="S'inscrire" placeholder="S'inscrire"/>
+      
         
       </form>
 
