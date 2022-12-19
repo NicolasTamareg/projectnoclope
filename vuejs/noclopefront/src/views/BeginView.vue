@@ -66,7 +66,7 @@
        <label for="submit"></label>
        <input type="submit" class="submit" name="selancer" value="Commencer" id="selancer" />
        </form>
-       <p>{{feedbackMessage}}</p>
+       <p>{{feedbackMessage}}</p> <RouterLink to="/register">Créer un compte</RouterLink>
    
      
      </div>
@@ -135,7 +135,7 @@ h3 {
   font-size: 1em;
   color: black;
 }
-button{
+a{
   margin-top: 20px;
   padding: 10px;
   font-size: 1em;
@@ -144,11 +144,10 @@ button{
   border: 2px solid white;
   border-radius: 30px;
   width: 20vw;
+  text-align: center;
 }
-button:hover{
-  background-color: #FFFFFF;
-  color: black;
-}
+
+
 
 </style>
 

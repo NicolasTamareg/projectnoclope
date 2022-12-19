@@ -49,6 +49,8 @@ export default {
                       <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/adminTransaction">Transactions</RouterLink>
                       <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
                     </div>
+                    
+                    
                   </div>
           
                 </div>
@@ -120,7 +122,7 @@ export default {
         </div>
         <div class="-mr-2 flex md:hidden">
           <!-- Mobile menu button -->
-          <button type="button" class="inline-flex items-center justify-center rounded-md bg-green-300 p-2 text-white hover:bg-green-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+          <button type="button" class="inline-flex items-center justify-center rounded-md bg-green-300 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
            
             <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
