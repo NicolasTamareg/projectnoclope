@@ -27,7 +27,7 @@ export default {
   <div class="wrapper">
     <nav v-if="isConnected">
         <div v-if="isAdmin=='admin'">
-          <nav class="bg-gray-800">
+          <nav class="navbar">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div class="flex h-16 items-center justify-center">
                 <div class="flex items-center">
@@ -38,16 +38,16 @@ export default {
           
                     <div class="ml-10 flex items-baseline space-x-4">
           
-                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                      <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                         <RouterLink to="/">NO CLOPE</RouterLink>
                       </a>
                       <a href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                         <RouterLink to="/">Accueil</RouterLink>
                       </a>
-                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/adminUtilisateur">Utilisateurs</RouterLink>
-                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/adminTransaction">Transactions</RouterLink>
-                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
+                      <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/adminUtilisateur">Utilisateurs</RouterLink>
+                      <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/adminTransaction">Transactions</RouterLink>
+                      <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
                     </div>
                   </div>
           
@@ -60,7 +60,7 @@ export default {
 
         </div>
         <div v-else>
-          <nav class="bg-gray-800">
+          <nav class="navbar">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div class="flex h-16 items-center justify-center">
                 <div class="flex items-center">
@@ -71,11 +71,11 @@ export default {
           
                     <div class="ml-10 flex items-baseline space-x-4">
           
-                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">NO CLOPE</RouterLink></a>
-                      <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">Accueil</RouterLink></a>
-                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/project">Projets</RouterLink></a>
-                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/profil">Profil</RouterLink>
-                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
+                      <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">NO CLOPE</RouterLink></a>
+                      <a class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">Accueil</RouterLink></a>
+                      <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/project">Projets</RouterLink></a>
+                      <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/profil">Profil</RouterLink>
+                      <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
                     </div>
                   </div>
           
@@ -93,7 +93,7 @@ export default {
       
       
       
-      <nav class="bg-gray-800">
+      <nav class="navbar">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-center">
         <div class="flex items-center">
@@ -103,22 +103,16 @@ export default {
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page"><RouterLink  to="/">NO CLOPE</RouterLink></a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">Accueil</RouterLink></a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/project">Projets</RouterLink></a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/register">Créer un compte</RouterLink></a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"> <RouterLink to="/login">Se connecter</RouterLink></a>
+              <a href="#" class="bg-green-300 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page"><RouterLink  to="/">NO CLOPE</RouterLink></a>
+              <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/project">Projets</RouterLink></a>
+              <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/register">Créer un compte</RouterLink></a>
+              <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"> <RouterLink to="/login">Se connecter</RouterLink></a>
             </div>
           </div>
         </div>
         <div class="hidden md:block">
           <div class="ml-4 flex items-center md:ml-6">
-            <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-              <span class="sr-only">View notifications</span>
-              <!-- Heroicon name: outline/bell -->
- 
-             
-            </button>
+            
 
             <!-- Profile dropdown -->
             
@@ -185,4 +179,7 @@ export default {
 </template>
 
 <style scoped>
+.navbar{
+  background-color: #6CD1BC;
+}
 </style>

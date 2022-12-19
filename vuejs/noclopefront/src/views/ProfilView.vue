@@ -74,7 +74,7 @@ export default {
 
 <style scoped>
 .all{
-  background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+  background: linear-gradient(to bottom, #FFFFFF, #ACE7DC, #69D5BF);
 
 }
 .card{
@@ -92,7 +92,7 @@ export default {
   border: solid 1px black;
   height: 500px;
   width: 600px;
-  background-color: rgb(31 41 55 );
+  background-color: #6CD1BC;
   margin-top: 0.25rem;
   padding: 10px;
   border-radius: 8px;
