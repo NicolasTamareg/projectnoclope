@@ -187,9 +187,6 @@ button{
   width: 20vw;
 }
 @media (max-width: 845px){
-.form{
 
-  
-}
 }
 </style> 
