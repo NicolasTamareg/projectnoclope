@@ -126,6 +126,7 @@ export default {
     </div>
 
     <button @click="DeleteProject">Delete</button>
+    <a href="/dashboard">Tableau de bord</a>
    
   </div>
      <div class="links">
