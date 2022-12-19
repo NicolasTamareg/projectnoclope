@@ -73,11 +73,10 @@ export default {
           
                     <div class="ml-10 flex items-baseline space-x-4">
           
-                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">NO CLOPE</RouterLink></a>
-                      <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">Accueil</RouterLink></a>
-                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/project">Projets</RouterLink></a>
-                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/profil">Profil</RouterLink>
-                      <RouterLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
+                      <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">NO CLOPE</RouterLink></a>
+                      <a class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><RouterLink to="/">Accueil</RouterLink></a>
+                      <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/profil">Profil</RouterLink>
+                      <RouterLink class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login" @click="logout">Se déconnecter</RouterLink>
                     </div>
                   </div>
           

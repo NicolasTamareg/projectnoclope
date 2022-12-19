@@ -65,7 +65,7 @@ export default {
       localStorage.setItem("token", data.token);
       localStorage.setItem("is_admin", data.is_admin);
       localStorage.setItem("role", data.role);
-      this.$router.push("/profil");
+      this.$router.push("/");
     },
   },
   computed:{
@@ -100,7 +100,7 @@ export default {
           <label for="password"></label>
           <input type="password" name="password" id="passwordInput" v-model="password" placeholder="********" required />
           
-          <RouterLink to="/profil">
+          <RouterLink to="/">
             <p v-if="result === true"></p>
             <p v-else-if="result === false" class="error">
               Adresse mail ou mot de passe est invalide.
