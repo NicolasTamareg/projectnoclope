@@ -69,6 +69,7 @@ export default {
   background-color: aqua;
   width: auto;
   height: auto;
+  
 }
 
 .container{
