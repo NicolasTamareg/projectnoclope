@@ -181,4 +181,21 @@ h1 {
   font-size: 15px;
   color: #585858;
   margin: 10px 0;}
+
+  @media (max-width: 766px){
+
+.intro2{
+  display: none;
+};
+.achievements{
+  display: flex;
+  flex-direction: column;
+
+};
+.about-me{
+  display: flex;
+  flex-direction: column;
+}
+  
+}
 </style>
