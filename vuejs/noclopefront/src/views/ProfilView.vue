@@ -107,12 +107,14 @@ export default {
 
 
   <div>
+   
     <li v-for = "projectUser in projectUser" >
     <p>project: {{projectUser.objective}}</p>
     <p>price {{projectUser.price}}</p>
     <button @click="DeleteProject">Delete</button>
+
   </li>
-  
+   <a href="/dashboard">Tableau de bord</a>
   </div>
 
   <!-- <div class="card">
