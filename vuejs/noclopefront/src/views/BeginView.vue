@@ -89,12 +89,12 @@ form{
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  background-color: #6CD1BC;
+  background-color: #FFFFFF;
   border-radius: 30px;
   padding: 20px;
   width: 30vw;
   text-align: center;
-  border: solid 2px black;
+  border: solid 1px black; 
 }
 input{
   display: flex;
@@ -113,7 +113,7 @@ label{
 }
 .submit{
   display: flex;
-  background-color: red;
+  background-color: #6CD1BC;
   text-align: center;
   color: white;
   flex-direction: row-reverse;
@@ -122,28 +122,32 @@ label{
 .englobe-all {
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom, #FFFFFF, #ACE7DC, #69D5BF);
+    background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
     padding: 40px;
 }
 h1 {
   padding: 20px;
   font-size: 1.5em;
-  color: white;
+  color: black;
 }
 h3 {
   padding: 20px;
   font-size: 1em;
-  color: white;
+  color: black;
 }
 button{
   margin-top: 20px;
   padding: 10px;
   font-size: 1em;
-  background-color: red;
+  background-color: #6CD1BC;
   color: white;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 30px;
   width: 20vw;
+}
+button:hover{
+  background-color: #FFFFFF;
+  color: black;
 }
 
 </style>
