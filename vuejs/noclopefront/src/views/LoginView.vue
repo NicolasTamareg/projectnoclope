@@ -125,7 +125,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  
+  padding: 40px;
   
 }
 
@@ -134,11 +134,12 @@ form{
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  background-color: #6CD1BC;
   border-radius: 30px;
-  padding: 20px;
+  padding: 40px;
   width: 30vw;
   text-align: center;
+  background-color: #FFFFFF;
+  border: 1px solid black;
 }
 input{
   display: flex;
@@ -149,9 +150,7 @@ input{
   border-radius: 30px;
   text-align: center;
 }
-form{
-  border: 2px solid black;
-}
+
 label[data-v-45f5edd7]{
   display: flex;
   flex-direction: column;
@@ -160,7 +159,7 @@ label[data-v-45f5edd7]{
 }
 .submit{
   display: flex;
-  background-color: red;
+  background-color: #6CD1BC;
   text-align: center;
   color: white;
   flex-direction: row-reverse;
@@ -169,19 +168,19 @@ label[data-v-45f5edd7]{
 .englobe-all[data-v-45f5edd7] {
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom, #FFFFFF, #ACE7DC, #69D5BF);
+    background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
     padding: 40px;
 }
 h1 {
   padding: 20px;
   font-size: 1.5em;
-  color: white;
+  color: black;
 }
 button{
   margin-top: 20px;
   padding: 10px;
   font-size: 1em;
-  background-color: red;
+  background-color: #6CD1BC;
   color: white;
   border: 2px solid black;
   border-radius: 30px;

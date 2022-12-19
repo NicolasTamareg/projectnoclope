@@ -11,10 +11,10 @@ import NavBar from "./components/NavBar.vue";
   
  
   <RouterView />
-  <footer>
-        Noclope &copy;Tout droits reservés
+    <footer>
+      Noclope &copy;Tout droits reservés
     </footer>
-</template>
+  </template>
 
 <style scoped>
 footer{
@@ -22,5 +22,6 @@ footer{
   color: white;
   padding: 40px;
   border-top: 1px solid black;
+  width: 100vw;
 }
 </style>
