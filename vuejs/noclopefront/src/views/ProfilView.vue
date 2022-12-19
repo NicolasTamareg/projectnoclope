@@ -96,7 +96,7 @@ export default {
   margin-top: 0.25rem;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid black;
+  border: 2px solid black;
   
 }
 .voyage{
