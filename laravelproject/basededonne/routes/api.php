@@ -68,8 +68,9 @@ Route::middleware('auth:sanctum')->group(function() {
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create')->where('id', '[0-9]+');
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
-Route::post('/projects/{id}', [ProjectController::class,'show'])->name('projects.show');
+// Route::get('/projects', [ProjectController::class,'show'])->name('projects.show');
 Route::get('/projects/{id}/edit', [ProjectController::class,'edit'])->name('projects.edit');
+Route::delete('/projects', [ProjectController::class,'destroy'])->name('projects.delete');
 });
 
 //Fin Route Project
@@ -84,6 +85,7 @@ Route::middleware('auth:sanctum')->group(function() {
     //Fin Route contact
     //Routes craquages
     Route::post('/craques', [CrackingController::class, 'store'])->name('craques.store');
+    
     Route::get('/dashboard/stats', [DashboardController::class,'getStats'])->name('dashboard.stats');
 });
 

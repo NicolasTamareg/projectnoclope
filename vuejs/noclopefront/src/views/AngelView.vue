@@ -80,7 +80,7 @@ export default {
     <p>Prénom: {{contacts.lastname}}</p>
     <p>Email : {{contacts.email}}</p>
   </li>
-  
+ 
   <!-- <p>{{contacts.firstname}}</p> -->
 
   <form @submit.prevent="addToContact">

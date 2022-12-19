@@ -5,26 +5,31 @@ export default {
   data() {
     return {
       userList: {},
-      user:{},
+      user: {},
       result: true,
       token: "",
       profile: {},
+      projectUser: {},
+      projectDelete:{}
+
     };
   },
 
   mounted: function () {
     this.getProfil();
+    this.getProjectUser() 
+   
   },
   methods: {
-   
+
     async getProfil() {
       const token = localStorage.getItem("token")
-      const response =await fetch(
-        "http://127.0.0.1:8000/api/users/edit",{
+      const response = await fetch(
+        "http://127.0.0.1:8000/api/users/edit", {
         method: "GET",
         headers: {
           Accept: "application/json",
-          "Authorization":"Bearer " + token
+          "Authorization": "Bearer " + token
         },
       });
       // const response = await fetch(
@@ -38,18 +43,79 @@ export default {
       // console.log("responseBody", responseBody);
       // this.userList = responseBody;
     },
+  
+   async getProjectUser() {
+    const token = localStorage.getItem("token")
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/projects", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Authorization": "Bearer " + token
+      },
+    });
+    // const response = await fetch(
+    //   "http://127.0.0.1:8000/api/users/edit",
+    //   options
+    // );
+
+    const data = await response.json();
+    this.projectUser = data.projectUser;
+    console.log(this.projectUser)
+    // console.log("responseBody", responseBody);
+    // this.userList = responseBody;
   },
+
+  async DeleteProject() {
+    const token = localStorage.getItem("token")
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/projects", {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Authorization": "Bearer " + token
+      },
+    });
+    // const response = await fetch(
+    //   "http://127.0.0.1:8000/api/users/edit",
+    //   options
+    // );
+
+    const data = await response.json();
+    this.projectDelete = data.projectDelete;
+    console.log(this.projectDelete)
+    // console.log("responseBody", responseBody);
+    // this.userList = responseBody;
+  },
+},
+}
+
+
+
+
   // components: { ProfilPage },
-};
+
 </script>
 
 <template>
+
   <div class="all">
     <div class="user-title" >
     <h2>Bonjour {{user.firstname}} {{user.lastname}}</h2>
+    </div>
   </div>
 
-  <div class="card">
+
+  <div>
+    <li v-for = "projectUser in projectUser" >
+    <p>project: {{projectUser.objective}}</p>
+    <p>price {{projectUser.price}}</p>
+    <button @click="DeleteProject">Delete</button>
+  </li>
+  
+  </div>
+
+  <!-- <div class="card">
       <div class="objectif">
         <h1>Jour 1</h1>
       <div></div>  
@@ -69,7 +135,7 @@ export default {
   </div>
   </div>
 
- 
+  -->
 </template>
 
 <style scoped>

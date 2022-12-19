@@ -3,14 +3,16 @@ export default {
 
   data() {
     return {
-      project: {},
-      cigarettes_per_day: {},
-      date_created: {},
-      crakings: {},
-      current_date: {},
-      not_smoked_cigarettes_expectation: {},
-      smoked_cigarettes:{},
-      elapse_days: {},
+      project: "",
+      cigarettes_per_day: "",
+      date_created: "",
+      crakings: "",
+      current_date: "",
+      not_smoked_cigarettes_expectation: "",
+      smoked_cigarettes:"",
+      elapse_days: "",
+      final:"",
+      saved:"",
      
     };
   },
@@ -36,7 +38,9 @@ export default {
       this.crakings=data.crakings
       this.not_smoked_cigarettes_expectation=data.not_smoked_cigarettes_expectation
       this.smoked_cigarettes=data.smoked_cigarettes
-      console.log(this.smoked_cigarettes)
+      this.final=data.final
+      this.saved=data.saved
+      console.log(this.saved)
      
     }
   },
@@ -50,31 +54,40 @@ export default {
 
 
 
+
 <template>
-
-  <div >
-    project
-    {{ project.objective }}
-  </div>
-  <div >
-    elapse_days
-    {{ elapse_days.days}}
-  </div>
-
-<div>
-  crakings
-  {{crakings}}
+  <div class="raw">
+<div class="container">
+  <div class="child-2"></div>
+  
 </div>
-
-<div>
-  not_smoked_cigarettes_expectation
-  {{not_smoked_cigarettes_expectation}}
-
-</div>
-
-<div>
-  smoked_cigarettes
-  {{smoked_cigarettes}}
-</div>
-
+ </div>
 </template>
+
+<style>
+.raw{
+  background-color: aqua;
+  width: auto;
+  height: auto;
+}
+
+.container{
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-color: coral;
+}
+
+.child-2{
+  position: absolute;
+  z-index: 2; 
+  background: lightgreen;
+  bottom: 10px;
+  width: 100%;
+  height: 7em;
+  opacity: 0.9;
+}
+
+
+
+</style>
