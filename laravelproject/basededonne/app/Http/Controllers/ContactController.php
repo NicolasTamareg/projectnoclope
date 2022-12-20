@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class ContactController extends Controller
 {
 
-
+ // Envoi du mail a tout les contacts pour le "je vais craquer"
     public function helpcontact(){
         $user=Auth::user();
         $user_id = Auth::user()->id;
@@ -48,6 +48,8 @@ class ContactController extends Controller
     //  */
     public function index()
     {
+
+        // recuper tout les contacts de l'utilisateur connecter
         $user_id = Auth::user()->id;
         $contacts = Contact::where("user_id", "=", $user_id)->get();
         return response()->json(['contacts'=>$contacts]);
@@ -74,6 +76,8 @@ class ContactController extends Controller
     public function store(Request $request)
 
     {
+
+        // formulaire d'ajout de contact 
         $user=User::findOrFail(Auth::user()->id);
         $user_id = Auth::user()->id;
         $project_id = Project::where('user_id', $user_id)->firstOrFail()->id;
@@ -94,7 +98,7 @@ class ContactController extends Controller
        
             $contact->save();
 
-            //envoi du mail au contact
+            
             $data = array(
                 'name'=> $contact->firstname,
                 'lastname'=>$user->lastname,
@@ -102,9 +106,8 @@ class ContactController extends Controller
                 'email'=>$contact->email,
         
             );
-        // $data = array('lastname'=> $contact->lastname);
-
-
+    
+        //envoi du mail au contact pour demande d'ange
 
 
         Mail::send('mail', $data, function ($message) use ($contact,) {

@@ -12,6 +12,8 @@ class AdminController extends Controller
 {
     
     public function getFullUsers(){
+
+        // recupere tout les utilisateur coter admin
         $listusers=User::all();
 
     
@@ -20,6 +22,8 @@ class AdminController extends Controller
         
     }
     public function getFullUsersProject(){
+
+        //recupere tout les projects coter admin
             
         $users =DB::table('users')->join('projects', 'users.id', '=', 'projects.user_id')->get();
 
