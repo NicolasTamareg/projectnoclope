@@ -130,7 +130,7 @@ export default {
   </div>
  
      <div class="links">
-      <a href="/craquer"><input type="submit" value="J'ai craquÃ©"></a>
+      <a href="/craquer"><input type="submit" value="J'ai craqué"></a>
       <a href="/ange"><input type="submit" value="Contacter mes anges gardiens"></a>
       <a href="/avance"><input type="submit" value="Demander une avance"></a>
     </div>
@@ -234,7 +234,7 @@ h4{
 }
 a{
   font-size: 1.3em;
-  color: white;
+  color: black;
 }
 a:hover{
   background-color: red;
