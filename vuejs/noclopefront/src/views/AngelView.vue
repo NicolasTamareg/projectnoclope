@@ -105,7 +105,7 @@ export default {
       <!-- <p>{{contacts.firstname}}</p> -->
 
       <form @submit.prevent="addToContact">
-        <label for="">Nouvel Ange-Gardien </label>
+      <label for="">Nouvel Ange-Gardien </label>
 
         <label for="lastname"></label>
         <input type="text" placeholder="Nom" id="lastname" v-model="lastname" required/>
