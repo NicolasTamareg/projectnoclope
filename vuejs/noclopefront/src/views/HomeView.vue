@@ -2,10 +2,10 @@
   <div class="ok">
     <main class="main">
       <div class="intro2">
-        <div class="ab">
-          <h1>NO CLOPE</h1>
-          <p>Le premier site qui va vous faire arreter de fumer!</p>
-        </div>
+      </div>
+      <div class="ab">
+         <h1>NO CLOPE</h1>
+        <p>Le premier site qui va vous faire arreter de fumer!</p> 
       </div>
     </main>
     <div class="intro">
@@ -35,7 +35,7 @@
       <p>nous sommes la seule application qui a pour but d'aider l'utilisateur à arrêter de fumer et de réaliser leur projet .
 notre but est de suivre nos clients tout au long de leur projet les aider à atteindre leurs objectifs tout en diminuant la consommation journalière de cigarette jusqu'a à arrêter définitivement et réduit leur cout sûr et orienté leur argent dans des loisirs qu'il peut des à présent réaliser.</p>
     </div>
-    <img src="https://th.bing.com/th/id/OIP.ntUNHB34CErM9uePPCZNBwHaHZ?w=221&h=220&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="me">
+    <img src="../views/img/logo2.png" alt="me">
   </div>
 </main>
     </div>
@@ -45,12 +45,16 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
 <style scoped>
 .main {
   display: flex;
+  justify-content: center;
+  padding: 40px;
 }
 
 .ok {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
+
 }
 .intro {
   display: flex;
@@ -60,13 +64,14 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
 }
 .intro2 {
   display: flex;
-  width: 100vw;
-  height: 700px;
-  background-image: url(https://images8.alphacoders.com/359/thumb-1920-359901.jpg);
+  width: 25vw;
+  height:  60vh;
+  background-image: url(../views/img/logo-principal.png);
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   color: white;
   text-align: center;
+  
   justify-content: center;
 }
 h1 {
@@ -75,6 +80,13 @@ h1 {
   text-align: center;
   font-size: 4em;
   flex-direction: column;
+  color: black;
+  text-shadow: rgb(255, 255, 255) 7px 0 3px;
+
+}
+p{
+  text-shadow: rgb(255, 255, 255) 1px 0 10px;
+  text-align: center;
 }
 .ab {
   text-align: center;
