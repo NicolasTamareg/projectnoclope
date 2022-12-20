@@ -68,7 +68,7 @@ class UserController extends Controller
             'currency' => 'eur',
             'payment_method_types' => ['card'],
             'customer' => $customer['id'],
-            ['payment_method' => 'pm_card_visa']
+            ['payment_method' => 'pm_card_visa'],
           ]);
           // $stripe->paymentIntents->confirm(
           //   'pi_3MGSafGg161a08f00TAntVgt',
