@@ -120,8 +120,7 @@ export default {
        </div>
        
        <h4>Prix: {{projectUser.price}}<br></h4>
-       <div class="progression">
-       </div>
+       <div class="progression"></div>
      </div>
  
      <button @click="DeleteProject">Delete</button>
@@ -131,7 +130,7 @@ export default {
   </div>
  
      <div class="links">
-      <a href="/craquer"><input type="submit" value="J'ai craqué"></a>
+      <a href="/craquer"><input type="submit" value="J'ai craquÃ©"></a>
       <a href="/ange"><input type="submit" value="Contacter mes anges gardiens"></a>
       <a href="/avance"><input type="submit" value="Demander une avance"></a>
     </div>
