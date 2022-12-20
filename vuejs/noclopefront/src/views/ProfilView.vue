@@ -182,11 +182,8 @@ export default {
   justify-content: center;
   height: 300px;
   width: 400px;
-  background-image: url(../views/img/projet.jpg);
   color: black;
   font-weight: bold;
-  background-position: center;
-  background-size: cover;
   margin-top: 0.25rem;
   padding: 6px;
   border-radius: 8px;
