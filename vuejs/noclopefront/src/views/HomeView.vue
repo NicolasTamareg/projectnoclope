@@ -129,9 +129,9 @@ p{
 .achievements {
   display: flex;
   justify-content: space-around;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
-    padding: 20px;
+    padding: 20px; 
 }
 
 .achievements .work {
