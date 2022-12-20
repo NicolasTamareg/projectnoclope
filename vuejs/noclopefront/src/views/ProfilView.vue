@@ -21,6 +21,7 @@ export default {
    
   },
   methods: {
+    
 
     async getProfil() {
       const token = localStorage.getItem("token")
@@ -88,6 +89,8 @@ export default {
     // this.userList = responseBody;
   },
 },
+
+
 }
 
 
@@ -101,46 +104,49 @@ export default {
 
   <div class="all">
     <div class="user-title" >
-      <h2>Bonjour {{user.firstname}} {{user.lastname}}</h2>
-    </div>
-    
-
-
-   <!-- <div>
-    <li v-for = "projectUser in projectUser" >
-    <p>project: {{projectUser.objective}}</p>
-    <p>price {{projectUser.price}}</p>
-    <button @click="DeleteProject">Delete</button>
-    </li>
-  
-    </div>  -->
-
-    <div class="card">
-      <div class="objectif">
-        <h1>Jour 1</h1>
-        <div></div>
-        <div class="voyage">
-          <h3>Voyage</h3>
-        </div>
-    
-        <h4>100/1000€</h4>
-        <div class="progression">
-        </div>
-      </div>
-      <div class="links">
-        <a href="/craquer"><input type="submit" value="J'ai craqué"></a>
-        <a href="/ange"><input type="submit" value="Contacter mes anges gardiens"></a>
-        <a href="/avance"><input type="submit" value="Demander une avance"></a>
-      </div>
+    <h2>Bonjour {{user.firstname}} {{user.lastname}}</h2>
     </div>
   </div>
+
+  <div v-for = "projectUser in projectUser">
+    
+    
+    <div class="card">
+       <div class="objectif">
+         <h1>Jour 1</h1>
+       <div></div>  
+       <div class="voyage">
+         <h3>Project: <br>{{projectUser.objective}}</h3>
+       </div>
+       
+       <h4>Prix: {{projectUser.price}}<br></h4>
+       <div class="progression"></div>
+     </div>
+ 
+     <button @click="DeleteProject">Delete</button>
+     <a href="/dashboard">Tableau de bord</a>
+    
+   </div>
+  </div>
+ 
+     <div class="links">
+      <a href="/craquer"><input type="submit" value="J'ai craquÃ©"></a>
+      <a href="/ange"><input type="submit" value="Contacter mes anges gardiens"></a>
+      <a href="/avance"><input type="submit" value="Demander une avance"></a>
+    </div>
+  
+  
+  
+
+   
+  
 
   
 </template>
 
 <style scoped>
 .all{
-  background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
+  background: linear-gradient(to bottom, #FFFFFF, #ACE7DC, #69D5BF);
 
 }
 .card{
@@ -149,6 +155,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+ 
 }
 .objectif{
   display: flex;
@@ -157,8 +165,8 @@ export default {
   text-align: center;
   border: solid 1px black;
   height: 500px;
-  width: 600px;
-  background-color: white;
+  width: fit-content;
+  background-color: #6CD1BC;
   margin-top: 0.25rem;
   padding: 10px;
   border-radius: 8px;
@@ -208,7 +216,7 @@ export default {
 }
 h1{
   padding: 10px;
-  color: black;
+  color: white;
 }
 h2{
   padding: 20px;
@@ -216,7 +224,7 @@ h2{
 }
 h4{
   padding: 20px;
-  color: black;
+  color: white;
 }
 .links{
   display: flex;
@@ -226,11 +234,22 @@ h4{
 }
 a{
   font-size: 1.3em;
-  color: black;
+  color: white;
 }
 a:hover{
-  background-color: #6CD1BC;
+  background-color: red;
   border-radius: 30px;
-  padding: 8px;
+  padding: 5px;
+}
+button{
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 1em;
+  background-color: #6CD1BC;
+  color: white;
+  border: 2px solid black;
+  border-radius: 15px;
+  
+  width: fit-content;
 }
 </style>

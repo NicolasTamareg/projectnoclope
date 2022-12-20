@@ -40,7 +40,7 @@ export default {
       this.smoked_cigarettes=data.smoked_cigarettes
       this.final=data.final
       this.saved=data.saved
-      console.log(this.saved)
+      console.log(this.final)
      
     }
   },
@@ -59,16 +59,38 @@ export default {
   <div class="raw">
 <div class="container">
   <div class="child-2"></div>
-  
 </div>
  </div>
+
+<div class="suivie">
+  Mon suivie
+  <div class="jours">{{elapse_days.d}} <br> Jours </div>
+  <div class="non-clope">{{not_smoked_cigarettes_expectation}} <br> Clopes Non Fumées</div>
+  <div class="clope">{{ smoked_cigarettes}} <br> Clope Fumées</div>
+
+</div>
+
+
 </template>
 
 <style>
+.suivie{
+  width: 100%;
+  height: 100%;
+  background-color: aquamarine;
+}
+.jours{
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  border-radius: 10px;
+}
+
 .raw{
   background-color: aqua;
   width: auto;
   height: auto;
+  
 }
 
 .container{

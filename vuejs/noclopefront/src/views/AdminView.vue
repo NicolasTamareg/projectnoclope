@@ -58,22 +58,100 @@ export default {
 </script>
 
 <template>
-
 <h2>Liste des utilisateurs de l'application</h2>
+
+<table class="customers " v-for = "userproject in userproject">
+      <tr>
+        <th>nom</th>
+        <th>prenon</th>
+        <th>email</th>
+        <th>project</th>
+        <th>prix de project</th>
+        <th>cigarette par jour</th>
+      </tr>
+      <tr>
+        <td>{{userproject.firstname}}</td>
+        <td>{{userproject.lastname}}</td>
+        <td>{{userproject.email}}</td>
+        <td>{{userproject.objective}}</td>
+        <td>{{userproject.price}}€</td>
+        <td>{{userproject.numbersmoke}}</td>
+        
+      </tr>
+      <button>Voir le project</button>
+    </table>
+
+
 <br>
 
-<ul v-for = "userproject in userproject" >
-    <li>Nom: {{userproject.firstname}}</li>
-    <li>Prénom: {{userproject.lastname}}</li>
-    <li>Email: {{userproject.email}}</li>
-    <li>Project: {{userproject.objective}}</li>
-    <li>Prix du project: {{userproject.price}}€</li>
-    <li>Fume par jour: {{userproject.numbersmoke}} cigarette</li>
+<!-- <div class="grid" v-for = "userproject in userproject">
+  
+   <p> Nom: {{userproject.firstname}}</p>
+   <p> Prénom: {{userproject.lastname}}</p>
+   <p> Email: {{userproject.email}}</p>
+   <p> Project: {{userproject.objective}}</p>
+   <p> Prix du project: {{userproject.price}}€</p>
+   <p> Fume par jour: {{userproject.numbersmoke}} cigarette</p>
 
     <br>
 
     <button>Voir le project</button>
     
-</ul>
+  </div> -->
+
+
 
 </template>
+
+<style scoped>
+
+/* .grid {
+  grid-column: 1 / 5;
+  border: 1px solid;
+  display: grid;
+  
+
+} */
+h2{
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+button{
+  margin-bottom: 10px;
+  
+  padding: 10px;
+  font-size: 1em;
+  background-color: #6CD1BC;
+  color: rgb(15, 15, 15);
+  border: 2px solid black;
+  border-radius: 30px;
+  
+  width: fit-content;
+}
+
+
+.customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.customers td, .customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+
+
+
+.customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#8dc2b4;
+  color: rgb(14, 13, 13);
+}
+</style>

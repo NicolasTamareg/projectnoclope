@@ -136,13 +136,16 @@ form{
   padding: 10px;
   border-radius: 30px;
   padding: 40px;
-  width: 30vw;
+  width: fit-content;
   text-align: center;
   background-color: #FFFFFF;
   border: 1px solid black;
+  max-width: 24rem;
+  
 }
 input{
-  display: flex;
+  
+  display: block;
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
@@ -186,7 +189,8 @@ button{
   border-radius: 30px;
   width: 20vw;
 }
-@media (max-width: 845px){
+@media (max-width: 766px){
+
 
 }
 </style> 

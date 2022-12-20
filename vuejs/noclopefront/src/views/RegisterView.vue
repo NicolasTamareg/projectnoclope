@@ -82,6 +82,7 @@ export default {
       
         <label for="S'inscrire"></label>
         <input class="submit" type="submit" value="S'inscrire" placeholder="S'inscrire"/>
+      
         
       </form>
 
@@ -111,7 +112,7 @@ form{
   background-color: #FFFFFF;
   border-radius: 30px;
   padding: 20px;
-  width: 30vw;
+  width: fit-content;
   text-align: center;
   border: 1px solid black;
 }
@@ -157,6 +158,7 @@ button{
   color: white;
   border: 2px solid black;
   border-radius: 30px;
-  width: 20vw;
+  
+  width: fit-content;
 }
 </style>

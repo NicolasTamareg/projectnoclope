@@ -21,12 +21,12 @@
     <div class="work">
       <i class="fas fa-skiing"></i>
       <p class="work-heading">Etape 2</p>
-      <p class="work-text">Suis en temps réel l'évolution de ton objectif et ta consommation réduite! .</p>
+      <p class="work-text">Suis en temps réel l'évolution de ton objectif <br> et ta consommation réduite! .</p>
     </div>
     <div class="work">
       <i class="fas fa-ethernet"></i>
       <p class="work-heading">Etape 3</p>
-      <p class="work-text">Ton objectif atteint! et une réussite garantis d'arrêter de fumer!.</p>
+      <p class="work-text">Ton objectif atteint! et une réussite <br> garantis d'arrêter de fumer!.</p>
     </div>
   </div>
   <div class="about-me">
@@ -82,7 +82,7 @@ h1 {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  text-shadow: 2px 2px 3px red;
+  text-shadow: 2px 2px 3px #6CD1BC;
 }
 
 
@@ -117,10 +117,9 @@ h1 {
 .achievements {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 40px 80px;
-      text-align: center;
-    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 20px;
 }
 
 .achievements .work {
@@ -159,15 +158,17 @@ h1 {
   align-items: center;
   padding: 40px 80px;
   border-top: 2px solid #eeeeee;
-  border-color: red;
+  border-color: #6CD1BC;
+  flex-wrap: wrap;
 }
 
 .about-me img {
-  width: 300px;
+  width: 150px;
   max-width: 100%;
   height: auto;
   border-radius: 10px;
   margin-left: 15px;
+  margin-top: 15px;
 }
 
 .about-me-text h2 {
@@ -187,11 +188,8 @@ h1 {
 .intro2{
   display: none;
 };
-.achievements{
-  display: flex;
-  flex-direction: column;
 
-};
+
 .about-me{
   display: flex;
   flex-direction: column;

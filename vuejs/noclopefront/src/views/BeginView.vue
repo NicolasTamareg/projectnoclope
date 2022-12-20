@@ -92,9 +92,9 @@ form{
   background-color: #FFFFFF;
   border-radius: 30px;
   padding: 20px;
-  width: 30vw;
   text-align: center;
   border: solid 1px black; 
+  width: fit-content;
 }
 input{
   display: flex;
