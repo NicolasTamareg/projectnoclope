@@ -43,7 +43,7 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
 </template>
 
 <style scoped>
-.main {
+.main{
   display: flex;
   justify-content: center;
   padding: 40px;
@@ -62,7 +62,7 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
   width: 100vw;
   height: 700px;
 }
-.intro2 {
+.intro2{
   display: flex;
   width: 25vw;
   height:  60vh;
@@ -71,7 +71,6 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
   background-size: cover;
   color: white;
   text-align: center;
-  
   justify-content: center;
 }
 h1 {
@@ -82,11 +81,12 @@ h1 {
   flex-direction: column;
   color: black;
   text-shadow: rgb(255, 255, 255) 7px 0 3px;
-
+  padding: 40px;
 }
 p{
   text-shadow: rgb(255, 255, 255) 1px 0 10px;
   text-align: center;
+  padding: 40px;
 }
 .ab {
   text-align: center;
