@@ -12,6 +12,7 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
 
+        // authentification de l'utilisateur
         $authuser= User::where('email',$request->email)->first();
 
         if(is_null($authuser)) {
@@ -25,7 +26,7 @@ class AuthController extends Controller
                 'message' => "Email ou mot de passe incorrect"
             ], 401);
         }
-
+         // création de token unique et envoi du role "admin"
         return response()->json([
             'is_admin' => $authuser->is_admin,
             'token' => $authuser->createToken(time())->plainTextToken
