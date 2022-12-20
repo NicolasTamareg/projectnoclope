@@ -81,12 +81,12 @@ h1 {
   flex-direction: column;
   color: black;
   text-shadow: rgb(255, 255, 255) 7px 0 3px;
-  padding: 40px;
+  padding-left: 40px;
 }
 p{
   text-shadow: rgb(255, 255, 255) 1px 0 10px;
   text-align: center;
-  padding: 40px;
+  padding-left: 40px;
 }
 .ab {
   text-align: center;
