@@ -3,6 +3,7 @@ export default {
   name: "App",
   data() {
     return {
+      contacts:[],
       firstname: "",
       lastname: "",
       email: "",
@@ -28,6 +29,20 @@ export default {
       this.contacts = data.contacts;
 
       console.log(this.contacts)
+    },
+    async helpContacts () {
+      const token = localStorage.getItem("token")
+      const response = await fetch("http://127.0.0.1:8000/api/test", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Authorization":"Bearer " + token
+        },
+      });
+      const data = await response.json();
+      this.feedbackMessage = data.message;
+
+      console.log(this.feedbackMessage)
     },
 
     //Ajouter des contacts    
@@ -60,10 +75,14 @@ export default {
           this.getContacts();
           
       },
+
+     
+      
   },
 
   mounted:async function () {
     this.getContacts();
+    // this.helpContacts();
    } 
   // mounted() {
     
@@ -109,54 +128,11 @@ export default {
     <input type="submit" value="tes mort" />
     </form>
 
-    <!-- <form>
-    <label for="">Ange-Gardien 2</label>
-    <input
-      type="text"
-      placeholder="Nom"
-      id="lastname"
-      v-model="lastname2"
-      required
-    />
-    <input
-      type="text"
-      placeholder="Prénom"
-      id="firstname"
-      v-model="firstname2"
-      required
-    />
-    <input
-      type="number"
-      placeholder="Numéro de telephone"
-      id="numberphone3"
-      v-model="numberphone2"
-      required
-    />
+    <form @submit.prevent="helpContacts">
 
-    <label for="">Ange-Gardien 3</label>
-    <input
-      type="text"
-      placeholder="Nom"
-      id="lastname"
-      v-model="lastname3"
-      required
-    />
-    <input
-      type="text"
-      placeholder="Prénom"
-      id="firstname"
-      v-model="firstname3"
-      required
-    />
-    <input
-      type="number"
-      placeholder="Numéro de telephone"
-      id="numberphone3"
-      v-model="numberphone3"
-      required
-    />
+      <button type="submit">JE VAIS CRAQUER !</button>
 
-    <input type="submit" value="Valider" />
-  </form> -->
+    </form>
+
   <p>{{ feedbackMessage }}</p>
 </template>

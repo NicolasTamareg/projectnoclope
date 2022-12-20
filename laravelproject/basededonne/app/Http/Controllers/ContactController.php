@@ -11,13 +11,45 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+ // Envoi du mail a tout les contacts pour le "je vais craquer"
+    public function helpcontact(){
+        $user=Auth::user();
+        $user_id = Auth::user()->id;
+        $angels=Contact::where("user_id","=",$user_id)->get();
+        
+        
+
+        foreach($angels as $angel){
+                
+                $data= array (
+
+                    'lastname'=>$angel->lastname,
+                    'lastnameUser'=>$user->lastname,
+                    'firstnameUser'=>$user->firstname,
+                );
+
+                Mail::send('mailcrack', $data, function ($message) use ($angel,) {
+                    $message->to($angel->email);//
+                    $message->subject('Équipe-Noclope:Cracking');
+                    $message->from('contact@noclope.com', 'No clope');
+                    
+              });
+        }
+
+    
+
+        return response()->json(['emailangel'=>$angels,'message'=>'Email envoyer'],200);
+    }
+    // /**
+    //  * Display a listing of the resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
     public function index()
     {
+
+        // recuper tout les contacts de l'utilisateur connecter
         $user_id = Auth::user()->id;
         $contacts = Contact::where("user_id", "=", $user_id)->get();
         return response()->json(['contacts'=>$contacts]);
@@ -44,6 +76,8 @@ class ContactController extends Controller
     public function store(Request $request)
 
     {
+
+        // formulaire d'ajout de contact 
         $user=User::findOrFail(Auth::user()->id);
         $user_id = Auth::user()->id;
         $project_id = Project::where('user_id', $user_id)->firstOrFail()->id;
@@ -64,22 +98,21 @@ class ContactController extends Controller
        
             $contact->save();
 
-            //envoi du mail au contact
+            
             $data = array(
                 'name'=> $contact->firstname,
                 'lastname'=>$user->lastname,
-                'firstname'=>$user->firstname
+                'firstname'=>$user->firstname,
+                'email'=>$contact->email,
         
             );
-            // $data = array('lastname'=> $contact->lastname);
-            
-           
-            
-   
-        Mail::send('mail', $data, function($message) use($contact,) {
-         $message->to('test@test.com', $contact->firstname,$contact->lastname,$contact->firstname)->subject
-            ('Équipe-Noclope:Ange gardien');
-         $message->from('contact@noclope.com','No clope');
+    
+        //envoi du mail au contact pour demande d'ange
+
+
+        Mail::send('mail', $data, function ($message) use ($contact,) {
+            $message->to($contact->email)->subject('Équipe-Noclope:Ange gardien');
+            $message->from('contact@noclope.com', 'No clope');
       });
       
         return response()->json(['message'=>'Contact created.','contact'=>$contact],201);
@@ -125,8 +158,28 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function invitation(Request $request)
     {
-        //
+        
+     
+        $contact = Contact::findOrFail($request->email);
+
+        $contact->verified=1;
+
+        $contact->save();
+        
+        
+         
+        
+
+        // $user_id = Auth::user()->id;
+
+       
+
+        
+
+       
+
+        return response()->json(['message'=>'Contact recupe.','contact'=>$contact],200);
     }
 }

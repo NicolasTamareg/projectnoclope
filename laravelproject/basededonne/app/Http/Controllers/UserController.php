@@ -21,8 +21,7 @@ class UserController extends Controller
     //    cretation d'un utilisateur
 
         $request->validate([
-            // 'role' => 'required|string|max:255',
-            // 'numbercard' => 'required|string|max:255',
+    
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'email' => 'required|email',
@@ -33,20 +32,9 @@ class UserController extends Controller
         ]); 
         
 
-        // $infosuser=[
-
-        //     'role'=>$request->role,           
-        //     'numbercard'=>$request->numbercard,          
-        //     'firstname'=>$request->firstname,          
-        //     'lastname'=>$request->lastname,          
-        //     'email'=>$request->email,          
-        //     'password' =>$request->password,
-        //     // Hash::make($request->password)
-        // ];
 
          $user=User::create([
-            // 'role'=>$request->role,           
-            // 'numbercard'=>$request->numbercard,          
+                    
             'firstname'=>$request->firstname,          
             'lastname'=>$request->lastname,          
             'email'=> $request->email,          
@@ -56,7 +44,7 @@ class UserController extends Controller
 
          ]);
 
-        
+        // creation compte stripe
          $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
           \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
           $customer = $stripe->customers->create([
@@ -89,23 +77,7 @@ class UserController extends Controller
             ['payment_method' => 'pm_card_visa']
           );
 
-          // $stripe->paymentIntents->create([
-          //   'amount' => 2000,
-          //   'currency' => 'eur',
-            
-          //   'payment_method_types' => ['card'],
-          //   //custmoer stipe id et lui passe la payment method avec
-          // //       $payment_method=$stripe->paymentMethods->retrieve(
-          // //   $customer['data'][0]['id'],
-          // //   []
-          // // )
-            
-          // ]);
-          // $stripe->paymentIntents->confirm(
-          //   'pi_1JKS2Y2VYugoKSBzNHPFBNj9',
-          //   ['payment_method' => $stripe]
-            
-          // );
+          
 
       
 

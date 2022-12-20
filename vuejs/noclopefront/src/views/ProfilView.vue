@@ -108,27 +108,28 @@ export default {
     </div>
   </div>
 
-
   <div v-for = "projectUser in projectUser">
     
     
-   <div class="card">
-      <div class="objectif">
-        <h1>Jour 1</h1>
-      <div></div>  
-      <div class="voyage">
-        <h3>Project: <br>{{projectUser.objective}}</h3>
-      </div>
-      
-      <h4>Prix: {{projectUser.price}}<br></h4>
-      <div class="progression">
-      </div>
-    </div>
-
-    <button @click="DeleteProject">Delete</button>
-    <a href="/dashboard">Tableau de bord</a>
-   
+    <div class="card">
+       <div class="objectif">
+         <h1>Jour 1</h1>
+       <div></div>  
+       <div class="voyage">
+         <h3>Project: <br>{{projectUser.objective}}</h3>
+       </div>
+       
+       <h4>Prix: {{projectUser.price}}<br></h4>
+       <div class="progression">
+       </div>
+     </div>
+ 
+     <button @click="DeleteProject">Delete</button>
+     <a href="/dashboard">Tableau de bord</a>
+    
+   </div>
   </div>
+ 
      <div class="links">
       <a href="/craquer"><input type="submit" value="J'ai craqué"></a>
       <a href="/ange"><input type="submit" value="Contacter mes anges gardiens"></a>
@@ -136,7 +137,7 @@ export default {
     </div>
   
   
-  </div>
+  
 
    
   
