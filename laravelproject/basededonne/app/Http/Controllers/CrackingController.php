@@ -52,7 +52,7 @@ class CrackingController extends Controller
         ]);
         $craques->save();
       
-        return response()->json(['message'=>'Un craquage...','craques'=>$craques],201);
+        return response()->json(['message'=>'Un craquage ca arrive','craques'=>$craques],201);
     }
 
     /**

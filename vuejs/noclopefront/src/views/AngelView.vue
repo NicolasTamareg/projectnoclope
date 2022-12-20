@@ -92,47 +92,116 @@ export default {
 </script>
 
 <template>
-  <h2>Vos anges Gardiens</h2>
+  <div class="englobe-all">
+    <div class="arround">
+      <h2>Vos anges Gardiens</h2>
 
-  <li v-for = "contacts in contacts" :key="user_id">
-    <p>Nom: {{contacts.firstname}}</p>
-    <p>Prénom: {{contacts.lastname}}</p>
-    <p>Email : {{contacts.email}}</p>
-  </li>
+      <li v-for = "contacts in contacts" :key="user_id">
+      <p>Nom: {{contacts.firstname}}</p>
+      <p>Prénom: {{contacts.lastname}}</p>
+      <p>Email : {{contacts.email}}</p>
+      </li>
  
-  <!-- <p>{{contacts.firstname}}</p> -->
+      <!-- <p>{{contacts.firstname}}</p> -->
 
-  <form @submit.prevent="addToContact">
-    <label for="">Ange-Gardien 1</label>
-    <input
-      type="text"
-      placeholder="Nom"
-      id="lastname"
-      v-model="lastname"
-      required
-    />
-    <input
-      type="text"
-      placeholder="Prénom"
-      id="firstname"
-      v-model="firstname"
-      required
-    />
-    <input
-      type="email"
-      placeholder="Email"
-      id="email"
-      v-model="email"
-      required
-    />
-    <input type="submit" value="tes mort" />
-    </form>
+      <form @submit.prevent="addToContact">
+        <label for="">Nouvel Ange-Gardien </label>
 
-    <form @submit.prevent="helpContacts">
+        <label for="lastname"></label>
+        <input type="text" placeholder="Nom" id="lastname" v-model="lastname" required/>
 
+        <label for="firstname"></label>
+        <input type="text" placeholder="Prénom" id="firstname" v-model="firstname" required/>
+
+        <label for="email"></label>
+        <input type="email" placeholder="Email" id="email" v-model="email" required/>
+
+        <label for="submit"></label>
+        <input class="submit"  type="submit" value="Valider" />
+
+        <form class="nothing" @submit.prevent="helpContacts">
+      </form>
+
+
+        
+      </form>
       <button type="submit">JE VAIS CRAQUER !</button>
+      
+    <p>{{ feedbackMessage }}</p>
+    </div>
 
-    </form>
-
-  <p>{{ feedbackMessage }}</p>
+    
+  </div>
 </template>
+
+<style scoped>
+  .arround{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  padding: 20px;
+  width: fit-content;
+  text-align: center;
+  border: 1px solid black;
+}
+input{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-align: center;
+}
+label{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+}
+.submit{
+  display: flex;
+  background-color: #6CD1BC;
+  text-align: center;
+  color: white;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+.englobe-all{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
+    padding: 40px 40px 40px 40px;
+}
+h2 {
+  padding: 20px;
+  font-size: 1.5em;
+  color: black;
+}
+button{
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 1em;
+  background-color: #6CD1BC;
+  color: white;
+  border: 2px solid black;
+  border-radius: 30px;
+  
+  width: fit-content;
+}
+.nothing{
+  display: none;
+}
+
+</style>
