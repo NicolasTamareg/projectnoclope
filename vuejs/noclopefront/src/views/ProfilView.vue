@@ -234,7 +234,7 @@ h4{
 }
 a{
   font-size: 1.3em;
-  color: white;
+  color: black;
 }
 a:hover{
   background-color: red;

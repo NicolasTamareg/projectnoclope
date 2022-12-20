@@ -126,7 +126,7 @@ p{
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
 }
 
-.achievements {
+.achievements[data-v-b4e148ca]{
   display: flex;
   justify-content: space-around;
     flex-wrap: nowrap;
@@ -188,6 +188,7 @@ p{
   color: #333333;
   text-transform: uppercase;
   margin: 0;
+  text-align: center;
 }
 
 .about-me-text p {
