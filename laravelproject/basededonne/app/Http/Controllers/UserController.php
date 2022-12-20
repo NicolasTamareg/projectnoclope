@@ -74,20 +74,20 @@ class UserController extends Controller
             'success_url' => 'http://127.0.0.1:5173/',
             'cancel_url' => 'http://127.0.0.1:5173/profil',
           ]);
-          $stripe->setupIntents->create([
-            'payment_method_types' => ['card'],
-            'customer' => $customer['id'],
-          ]);
+          // $stripe->setupIntents->create([
+          //   'payment_method_types' => ['card'],
+          //   'customer' => $customer['id'],
+          // ]);
 
-          $stripe->paymentIntents->create([
-            'amount' => 2000,
-            'currency' => 'eur',
-            'payment_method_types' => ['card'],
-          ]);
-          $stripe->paymentIntents->confirm(
-            'pi_3MGSafGg161a08f00TAntVgt',
-            ['payment_method' => 'pm_card_visa']
-          );
+          // $stripe->paymentIntents->create([
+          //   'amount' => 2000,
+          //   'currency' => 'eur',
+          //   'payment_method_types' => ['card'],
+          // ]);
+          // $stripe->paymentIntents->confirm(
+          //   'pi_3MGSafGg161a08f00TAntVgt',
+          //   ['payment_method' => 'pm_card_visa']
+          // );
 
           // $stripe->paymentIntents->create([
           //   'amount' => 2000,
