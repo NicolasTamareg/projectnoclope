@@ -67,7 +67,7 @@ export default {
           <nav class="navbar">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div class="flex h-16 items-center justify-center">
-                <a href=""><img src="../views/img/logo.2.png" alt="" class="logo"><RouterLink  to="/"></RouterLink></a>
+                <a href=""><img src="../views/img/logo-principal.png" alt="" class="logo"><RouterLink  to="/"></RouterLink></a>
 
                 <div class="flex items-center">
                   <div class="flex-shrink-0">
