@@ -101,46 +101,46 @@ export default {
 
   <div class="all">
     <div class="user-title" >
-    <h2>Bonjour {{user.firstname}} {{user.lastname}}</h2>
+      <h2>Bonjour {{user.firstname}} {{user.lastname}}</h2>
     </div>
-  </div>
+    
 
 
-  <div>
+   <!-- <div>
     <li v-for = "projectUser in projectUser" >
     <p>project: {{projectUser.objective}}</p>
     <p>price {{projectUser.price}}</p>
     <button @click="DeleteProject">Delete</button>
-  </li>
+    </li>
   
-  </div>
+    </div>  -->
 
-  <!-- <div class="card">
+    <div class="card">
       <div class="objectif">
         <h1>Jour 1</h1>
-      <div></div>  
-      <div class="voyage">
-        <h3>Voyage</h3>
+        <div></div>
+        <div class="voyage">
+          <h3>Voyage</h3>
+        </div>
+    
+        <h4>100/1000€</h4>
+        <div class="progression">
+        </div>
       </div>
-      
-      <h4>100/1000€</h4>
-      <div class="progression">
+      <div class="links">
+        <a href="/craquer"><input type="submit" value="J'ai craqué"></a>
+        <a href="/ange"><input type="submit" value="Contacter mes anges gardiens"></a>
+        <a href="/avance"><input type="submit" value="Demander une avance"></a>
       </div>
     </div>
-    <div class="links">
-      <a href="/craquer"><input type="submit" value="J'ai craqué"></a>
-      <a href="/ange"><input type="submit" value="Contacter mes anges gardiens"></a>
-      <a href="/avance"><input type="submit" value="Demander une avance"></a>
-    </div>
-  </div>
   </div>
 
-  -->
+  
 </template>
 
 <style scoped>
 .all{
-  background: linear-gradient(to bottom, #FFFFFF, #ACE7DC, #69D5BF);
+  background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
 
 }
 .card{
@@ -158,7 +158,7 @@ export default {
   border: solid 1px black;
   height: 500px;
   width: 600px;
-  background-color: #6CD1BC;
+  background-color: white;
   margin-top: 0.25rem;
   padding: 10px;
   border-radius: 8px;
@@ -208,7 +208,7 @@ export default {
 }
 h1{
   padding: 10px;
-  color: white;
+  color: black;
 }
 h2{
   padding: 20px;
@@ -216,7 +216,7 @@ h2{
 }
 h4{
   padding: 20px;
-  color: white;
+  color: black;
 }
 .links{
   display: flex;
@@ -226,11 +226,11 @@ h4{
 }
 a{
   font-size: 1.3em;
-  color: white;
+  color: black;
 }
 a:hover{
-  background-color: red;
+  background-color: #6CD1BC;
   border-radius: 30px;
-  padding: 5px;
+  padding: 8px;
 }
 </style>
