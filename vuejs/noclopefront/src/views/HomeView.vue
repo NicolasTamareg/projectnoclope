@@ -68,7 +68,7 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
   height:  60vh;
   background-image: url(../views/img/logo-principal.png);
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   color: white;
   text-align: center;
   
