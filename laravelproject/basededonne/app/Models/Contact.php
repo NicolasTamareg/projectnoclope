@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
+
+    // model contact
     use HasFactory;
     protected $fillable =[
         'id',
@@ -18,6 +20,7 @@ class Contact extends Model
         'updated_at',
         
     ];
+    //relation de clef externe
     public function users(){
         return $this->belongsTo(User::class,'user_id','id');
     }

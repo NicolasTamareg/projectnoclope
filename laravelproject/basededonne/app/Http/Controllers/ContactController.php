@@ -160,6 +160,7 @@ class ContactController extends Controller
      */
     public function invitation(Request $request)
     {
+        //invitation pour un angel 
         
      
         $contact = Contact::findOrFail($request->email);

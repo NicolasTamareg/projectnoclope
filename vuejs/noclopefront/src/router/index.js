@@ -14,6 +14,7 @@ const router = createRouter({
       name: "adminUtilisateur",
       component: () => import("../views/AdminView.vue")
     },
+    
     {
       path: "/invitation",
       name: "invitation",
@@ -75,6 +76,16 @@ const router = createRouter({
       name: "project",
       component: () => import("../views/BeginView.vue"),
     },
+    {
+      path: "/resetPassword",
+      name: "resetPassword",
+      component: () => import("../views/ResetPasswordView.vue")
+    },
+    {
+      path: "/renew-password/:token",
+      name: "renewPassword",
+      component: () => import("../views/RenewPasswordView.vue")
+    }
   ],
 });
 
