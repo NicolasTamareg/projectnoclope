@@ -105,7 +105,7 @@ export default {
  
       <!-- <p>{{contacts.firstname}}</p> -->
 
-      <form @submit.prevent="addToContact">
+      <form class="allo" @submit.prevent="addToContact">
         <label for="">Nouvel Ange-Gardien </label>
 
           <label for="lastname"></label>
@@ -122,14 +122,16 @@ export default {
 
         
       </form>
-
-      <form  @submit.prevent="helpContacts">
+      
+      <form class="lola" @submit.prevent="helpContacts">
         
         <button type="submit">JE VAIS CRAQUER !</button>
       </form>
+      
 
       
     <p>{{ feedbackMessage }}</p>
+
     </div>
 
     
@@ -145,7 +147,7 @@ export default {
   
 }
 
-form{
+.allo{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -199,11 +201,11 @@ button{
   color: white;
   border: 2px solid black;
   border-radius: 30px;
-  
   width: fit-content;
 }
 .nothing{
   display: none;
 }
+
 
 </style>
