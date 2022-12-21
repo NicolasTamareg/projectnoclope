@@ -114,7 +114,9 @@ export default {
     </div>
     
   </div>
- 
+  <RouterLink to="/resetPassword">
+  <p>Mot de passe oublier ?</p>
+  </RouterLink> 
 
 </template>
 
