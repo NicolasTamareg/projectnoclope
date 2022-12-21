@@ -5,6 +5,8 @@ export default {
     return {
         userproject:{},
       feedbackMessage: "",
+      adminproject:{},
+      
     };
   },
 
@@ -24,7 +26,7 @@ export default {
       this.user = data.user;
       this.feedbackMessage = data.message;
 
-      console.log("message:", this.user)
+     
     }, 
     async getFullUserProject () {
       const token = localStorage.getItem("token")
@@ -39,8 +41,24 @@ export default {
       this.userproject = data.userproject;
       this.feedbackMessage = data.message;
 
-      console.log("message:",this.userproject)
+      
     }, 
+    getProjet: async function (reccupid) {
+      const token = localStorage.getItem("token")
+      const response = await fetch("http://127.0.0.1:8000/api/adminproject/"+reccupid, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Authorization":"Bearer " + token
+        },
+      });
+      const data = await response.json();
+      this.adminproject = data.adminproject;
+      // this.feedbackMessage = data.message;
+
+      
+
+    }
       
   },
 
@@ -78,11 +96,27 @@ export default {
         <td>{{userproject.numbersmoke}}</td>
         
       </tr>
-      <button>Voir le project</button>
+      
+      
+      <button @click="getProjet(userproject.id)" >Voir le project</button>
+    
     </table>
 
-
 <br>
+
+<section>
+      <h2>Detail project</h2>
+    <div>
+      <p>Son objectif: {{ adminproject.objective }}</p>
+      <p>Prix de l'objectif: {{ adminproject.price }}</p>
+      <p>Prix de son packe: {{ adminproject.pricepack }}</p>
+      <p>Nombre de cigarette fumer : {{ adminproject.numbersmoke }}</p>
+      <p>Date de creation : {{ adminproject.updated_at }}</p>
+      
+    </div>
+</section>
+
+
 
 <!-- <div class="grid" v-for = "userproject in userproject">
   
@@ -112,6 +146,12 @@ export default {
   
 
 } */
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 h2{
   display: flex;
   justify-content: space-around;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
@@ -31,6 +32,16 @@ class AdminController extends Controller
         return response()->json(['message'=>'User Project check','userproject'=>$users],200);
             
         
+    }
+
+    public function getProject($id){
+
+        // recupere un project relier a un ID
+
+        $project=Project::findOrFail($id);
+
+        return response()->json(['message'=>'User Project check','adminproject'=>$project],200);
+
     }
 
     

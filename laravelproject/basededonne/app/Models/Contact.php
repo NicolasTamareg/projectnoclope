@@ -15,6 +15,7 @@ class Contact extends Model
         'email',
         'firstname',
         'lastname',
+        'token_verifi',
         'user_id',
         'created_at',
         'updated_at',
