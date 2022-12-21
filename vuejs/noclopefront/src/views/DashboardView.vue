@@ -13,6 +13,7 @@ export default {
       elapse_days: "",
       final:"",
       saved:"",
+      pourcentage:"",
      
     };
   },
@@ -40,8 +41,8 @@ export default {
       this.smoked_cigarettes=data.smoked_cigarettes
       this.final=data.final
       this.saved=data.saved
-      console.log(this.final)
-     
+      this.pourcentage=data.pourcentage.toFixed(2)
+      console.log(this.saved)
     }
   },
   mounted() {
@@ -58,7 +59,15 @@ export default {
 <template>
   <div class="raw">
 <div class="container">
-  <div class="child-2"></div>
+  <div class="child-2">
+
+    <p></p>
+     <div class="progressbar-wrapper">
+     <div title="downloaded" class="progressbar jours" :style="'width: ' + pourcentage + '%'"  >{{pourcentage}}%</div>
+     </div>
+    
+  </div>
+   <!-- {{project.price}} -->
 </div>
  </div>
 
@@ -74,6 +83,41 @@ export default {
 </template>
 
 <style>
+/* Barre */
+:root {
+  --success: #00b894;
+  --progress: #e17055;
+}
+
+.progressbar-wrapper {
+  background-color: #dfe6e9;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.progressbar {
+  background-color: var(--progress);
+  color: white;
+  padding: 1rem;
+  text-align: right;
+  font-size: 20px;
+  border-radius: 15px;
+}
+
+.progressbar[title="downloading"] {
+   background-color: var(--progress);
+}
+
+.progressbar[title="downloaded"] {
+   background-color: var(--success);
+}
+
+/* Fin barre */
+.container{
+  display: flex;
+  align-items: center;
+}
 .suivie{
   width: 100%;
   height: 100%;
