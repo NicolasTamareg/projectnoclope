@@ -40,7 +40,7 @@ export default {
 <div class="englobe-all">
   <div class="arround">
     <h2>Oups, ca arrive..</h2>
-    <p><a href="#">Craquage !</a></p>
+    <!-- <p><a href="#">Craquage !</a></p> -->
     
     <form action="#" method="POST" form @submit.prevent="createCraquage">
       <input type="hidden" name="remember" value="true">
@@ -50,14 +50,7 @@ export default {
           <input id="email-address" v-model="numbercigarette" required  type="number" placeholder="Entrez le chiffre">
         </div>
         
-      </div>
-
-      
-
-      <div>
-        <button type="submit" >
-          J'ai Craquer
-        </button>
+        <button type="submit">J'ai craquer</button>
       </div>
     </form>
     <p v-if="feedbackMessage">{{ feedbackMessage }}</p>
