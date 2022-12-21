@@ -29,14 +29,14 @@ class DashboardController extends Controller
 
         // Les craquages de l'utilisateur
         $crakings = Cracking::where("project_id", $project->id)->get();
-        
+
         // Date du jour
         $current_date = Date::now();
-         
-    
+
+
 
         // Calculs
-        $elapse_days =  $current_date->diff( new DateTime($date_created));
+        $elapse_days =  $current_date->diff(new DateTime($date_created));
         $not_smoked_cigarettes_expectation = $cigarettes_per_day * $elapse_days->days;
         $smoked_cigarettes = 0;
 
@@ -45,10 +45,14 @@ class DashboardController extends Controller
                 $smoked_cigarettes += $craking->numbercigarette;
             }
         }
-
+        
         $saved = ($pack_price / 20) * ($not_smoked_cigarettes_expectation - $smoked_cigarettes);
-        $final= ($price_project - $saved) * $elapse_days->days;
-        return response()->json(['final'=>$final,'saved'=>$saved,'price_project'=>$price_project,'project'=>$project,"cigarettes_per_day"=>$cigarettes_per_day,'date_created'=>$date_created,'crakings'=>$crakings,'current_date'=>$current_date,'not_smoked_cigarettes_expectation'=>$not_smoked_cigarettes_expectation,'smoked_cigarettes'=>$smoked_cigarettes,'elapse_days'=>$elapse_days]);
-    
+    if ($saved < 0) {
+            $saved = 0;
+        }
+        $final = ($price_project - $saved);
+        $pourcentage = $saved  / $price_project * 100;
+        return response()->json(['pourcentage' => $pourcentage, 'final' => $final, 'saved' => $saved, 'price_project' => $price_project, 'project' => $project, "cigarettes_per_day" => $cigarettes_per_day, 'date_created' => $date_created, 'crakings' => $crakings, 'current_date' => $current_date, 'not_smoked_cigarettes_expectation' => $not_smoked_cigarettes_expectation, 'smoked_cigarettes' => $smoked_cigarettes, 'elapse_days' => $elapse_days]);
     }
 }
+
