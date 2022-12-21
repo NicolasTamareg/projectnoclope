@@ -25,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // création d'url avec concaténation token 
         $this->registerPolicies();
 
         ResetPassword::createUrlUsing(function ($user, string $token) {

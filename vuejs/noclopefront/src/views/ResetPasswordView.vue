@@ -1,5 +1,5 @@
 <template>
-
+  <!-- formulaire de requete pour mot de passe oublier -->
 <h2>Mot de passe oublier ?</h2>
     <p>Entre votre email pour revoir un lien pour la réinitialisation de votre mot de passe</p>
 
@@ -26,6 +26,8 @@ export default {
 
     methods:{
 
+      // requete async pour envoyer un email crée token unique dans l'url dans l'index avec :token sur le route 
+      
          async reset  (){
             const body={
                 email: this.email

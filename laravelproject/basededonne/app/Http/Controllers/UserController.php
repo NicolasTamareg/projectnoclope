@@ -98,21 +98,21 @@ class UserController extends Controller
 
     public function edit(){
 
+      //recuperation de donner d'un utilisateur
         $user= User::findOrFail(Auth::user()->id);
 
         return response()->json(['message'=>'user afficher','user'=>$user],200);
 
-        // $listeperso= Personnage::where('user_id', Auth::user()->id)->get();
-        
-        
-        // return view('groupe.edit', [ 'truc' => $truc ], [ 'listeperso' => $listeperso ]) ;
+      
 
     }
 
     public function update(Request $request, $id)
     {
+
+      //modfication des donner d'un utilisateur
         $request->validate([
-            // 'role' => 'required|string|max:255',
+           
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'email' => 'required|email',
@@ -133,7 +133,7 @@ class UserController extends Controller
          ]);
         
         $userModify= User::findOrFail($id);
-        $userModify-> role =$request->role;
+      
         $userModify-> firstname =$request->firstname;
         $userModify-> lastname =$request->lastname;
         $userModify-> email =$request->email;

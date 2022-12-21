@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Operation extends Model
 {
+    // model des oppertations
     use HasFactory;
     protected $fillable =[
         'amount',
@@ -14,6 +15,8 @@ class Operation extends Model
         'project_id',
         
     ];
+    //relation des clefs externes
+
     public function users(){
         return $this->belongsTo(User::class,'user_id','id');
     }

@@ -20,8 +20,9 @@ class User extends Authenticatable
      * 
      * 
      */
+    // protection de l'id
     protected $guarded=['id'];
-    
+    //model de l'user
     protected $fillable = [
         'id',
         'is_admin',
@@ -49,6 +50,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //relation des clefs externes
 
     public function projects(){
         return $this->hasMany(Project::class,'user_id','id');

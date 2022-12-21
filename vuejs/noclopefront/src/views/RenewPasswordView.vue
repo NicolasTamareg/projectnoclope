@@ -1,4 +1,5 @@
 <template>
+    <!-- formulaire de changement de mot de passe -->
     <div>
         <form @submit.prevent="submitRenewPassword">
             <label for="email">Email:
@@ -33,6 +34,7 @@ export default {
 
     methods: {
 
+        // requete async pour modifer le mot de passe
         async submitRenewPassword() {
 
 
