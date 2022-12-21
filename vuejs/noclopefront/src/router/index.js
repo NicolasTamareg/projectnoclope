@@ -16,11 +16,6 @@ const router = createRouter({
     },
     
     {
-      path: "/invitation",
-      name: "invitation",
-      component: () => import("../views/InvitationView.vue")
-    },
-    {
       path: "/adminTransaction",
       name: "adminTransaction",
       component: () => import("../views/TransactionView.vue")
@@ -85,7 +80,12 @@ const router = createRouter({
       path: "/renew-password/:token",
       name: "renewPassword",
       component: () => import("../views/RenewPasswordView.vue")
-    }
+    },
+    {
+      path: "/invitation/:token",
+      name: "invitation",
+      component: () => import("../views/InvitationView.vue")
+    },
   ],
 });
 

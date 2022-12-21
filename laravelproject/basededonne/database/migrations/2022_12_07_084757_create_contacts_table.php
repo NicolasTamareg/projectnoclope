@@ -19,6 +19,7 @@ return new class extends Migration
         $table->integer('verified')->nullable();
         $table->string('firstname');
         $table->string('lastname');
+        $table->string('token_verifi')->nullable();
         $table->unsignedBigInteger('user_id');
         $table->timestamps();
         });

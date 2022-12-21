@@ -39,14 +39,17 @@ class AdminController extends Controller
           return redirect()->action(
             [DashboardController::class, 'getStats'], ['user_id' => $user_id]
         );
+    } 
 
+    public function getProject($id){
 
-    
+        // recupere un project relier a un ID
 
+        $project=Project::findOrFail($id);
 
-      
-   
-      
-      
+        return response()->json(['message'=>'User Project check','adminproject'=>$project],200);
+
     }
+
 }
+

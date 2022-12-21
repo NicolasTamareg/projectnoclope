@@ -34,11 +34,12 @@ use Illuminate\Support\Str;
 
 //Parti Admin
 
+Route::middleware('auth:sanctum')->group(function() {
 
     Route::get('/admin', [AdminController::class, 'getFullUsers']);
     Route::get('/adminproject', [AdminController::class, 'getFullUsersProject']);
     Route::get('/dashboard/stats/admin', [AdminController::class,'getStats']);
-
+});
 //
 
 
