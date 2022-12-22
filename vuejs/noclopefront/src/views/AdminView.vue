@@ -39,13 +39,14 @@ export default {
       });
       const data = await response.json();
       this.userproject = data.userproject;
+      console.log(this.userproject)
       this.feedbackMessage = data.message;
 
       
     }, 
     getProjet: async function (reccupid) {
       const token = localStorage.getItem("token")
-      const response = await fetch("http://127.0.0.1:8000/api/adminproject/"+reccupid, {
+      const response = await fetch("http://127.0.0.1:8000/api/adminget/"+reccupid, {
         method: "GET",
         headers: {
           Accept: "application/json",
