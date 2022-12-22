@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+
+    //model de project
     use HasFactory;
     protected $fillable =[
         'objective',
@@ -16,6 +18,7 @@ class Project extends Model
         'user_id',
         
     ];
+    //relation des clefs externes
     public function users(){
         return $this->belongsTo(User::class,'user_id','id');
 

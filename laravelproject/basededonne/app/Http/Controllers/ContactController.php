@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Project;
 use App\Models\User;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -93,6 +94,7 @@ class ContactController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
+            // 'token_verifi'=>$request->token_verifi= rand(1, 100),
             'user_id'=> $request-> user_id = Auth::user()->id,
         ]);
        
@@ -160,6 +162,7 @@ class ContactController extends Controller
      */
     public function invitation(Request $request)
     {
+        //invitation pour un angel 
         
      
         $contact = Contact::findOrFail($request->email);

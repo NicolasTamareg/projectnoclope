@@ -30,6 +30,7 @@ export default {
 
       console.log(this.contacts)
     },
+
     async helpContacts () {
       const token = localStorage.getItem("token")
       const response = await fetch("http://127.0.0.1:8000/api/test", {
@@ -104,30 +105,33 @@ export default {
  
       <!-- <p>{{contacts.firstname}}</p> -->
 
-      <form @submit.prevent="addToContact">
-      <label for="">Nouvel Ange-Gardien </label>
+      <form class="allo" @submit.prevent="addToContact">
+        <label for="">Nouvel Ange-Gardien </label>
 
-        <label for="lastname"></label>
-        <input type="text" placeholder="Nom" id="lastname" v-model="lastname" required/>
+          <label for="lastname"></label>
+          <input type="text" placeholder="Nom" id="lastname" v-model="lastname" required/>
 
-        <label for="firstname"></label>
-        <input type="text" placeholder="Prénom" id="firstname" v-model="firstname" required/>
+          <label for="firstname"></label>
+          <input type="text" placeholder="Prénom" id="firstname" v-model="firstname" required/>
 
-        <label for="email"></label>
-        <input type="email" placeholder="Email" id="email" v-model="email" required/>
+          <label for="email"></label>
+          <input type="email" placeholder="Email" id="email" v-model="email" required/>
 
-        <label for="submit"></label>
-        <input class="submit"  type="submit" value="Valider" />
-
-        <form class="nothing" @submit.prevent="helpContacts">
-      </form>
-
+          <label for="submit"></label>
+          <input class="submit"  type="submit" value="Valider" />
 
         
       </form>
-      <button type="submit">JE VAIS CRAQUER !</button>
+      
+      <form class="lola" @submit.prevent="helpContacts">
+        
+        <button type="submit">JE VAIS CRAQUER !</button>
+      </form>
+      
+
       
     <p>{{ feedbackMessage }}</p>
+
     </div>
 
     
@@ -143,7 +147,7 @@ export default {
   
 }
 
-form{
+.allo{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -197,11 +201,11 @@ button{
   color: white;
   border: 2px solid black;
   border-radius: 30px;
-  
   width: fit-content;
 }
 .nothing{
   display: none;
 }
+
 
 </style>

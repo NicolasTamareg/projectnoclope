@@ -109,12 +109,14 @@ export default {
           <label for="submit"></label>
           <input class="submit" type="submit" value="Se connecter" />
       </form>
-  
+  <!-- lien de mot de passe oublier -->
       <p v-if="feedbackMessage">{{feedbackMessage}}</p>
+      <RouterLink to="/resetPassword">
+      <p>Mot de passe oublier ?</p>
+      </RouterLink> 
     </div>
     
   </div>
- 
 
 </template>
 
