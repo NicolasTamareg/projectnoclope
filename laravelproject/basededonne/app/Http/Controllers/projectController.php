@@ -23,25 +23,26 @@ class ProjectController extends Controller
     }
 
     public function create()
-    { $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-       //a mettre dans le controlleur du projet
-          $stripe->paymentIntents->create([
-            'amount' => 2000,
-            'currency' => 'eur',
-            'payment_method_types' => ['card'],
-            'customer' =>['id'],
-            // 'customer' => $user->client_stripe_id,
-            ['payment_method' => 'pm_card_visa'],
-          ]);
-          $stripe->paymentIntents->confirm(
-            'pi_3MGSafGg161a08f00TAntVgt',
-            ['payment_method' => 'pm_card_visa']
-          );
+    {
+    // { $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+    //     \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    //    //a mettre dans le controlleur du projet
+    //       $stripe->paymentIntents->create([
+    //         'amount' => 2000,
+    //         'currency' => 'eur',
+    //         'payment_method_types' => ['card'],
+    //         'customer' =>['id'],
+    //         // 'customer' => $user->client_stripe_id,
+    //         ['payment_method' => 'pm_card_visa'],
+    //       ]);
+    //       $stripe->paymentIntents->confirm(
+    //         'pi_3MGSafGg161a08f00TAntVgt',
+    //         ['payment_method' => 'pm_card_visa']
+    //       );
 
-          return view('update-payment-method', [
-            'intent' => $customer->createSetupIntent()
-        ]);
+    //       return view('update-payment-method', [
+    //         'intent' => $customer->createSetupIntent()
+    //     ]);
         return view('projects.create');
     }
 
