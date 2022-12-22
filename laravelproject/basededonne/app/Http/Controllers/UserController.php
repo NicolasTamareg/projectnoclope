@@ -63,12 +63,14 @@ class UserController extends Controller
             'customer'=>$customer['id'],
           ]);
 
+
+
           //a mettre dans la table user les deux $ stocker en bdd et recuperer en vue
-      //$client_stripe_id=$customer['id']
-      //$client_stripe_secret=$intent['client_secret']
+      $client_stripe_id=$customer['id'];
+      // $client_stripe_secret=$intent['client_secret']
           $session = Session::create([
             'payment_method_types' => ['card'],
-            'customer' => $customer['id'],
+            'customer' => $user->client_stripe_id,
             // "payment_method" => $stripe['setup_intent'],
             'mode' => 'setup',
             
@@ -104,6 +106,7 @@ class UserController extends Controller
     } 
 
     public function edit(){
+      $user= User::findOrFail(Auth::user()->client_stripe_id);
 
       //recuperation de donner d'un utilisateur
         $user= User::findOrFail(Auth::user()->id);
