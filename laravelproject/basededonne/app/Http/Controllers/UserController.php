@@ -52,7 +52,13 @@ class UserController extends Controller
             'description' => 'Premier fumeur motivé de la tête aux pieds',
                         
           ]);
-      
+          $intent=$stripe->setupIntents->create([
+            'customer'=>$customer['id'],
+          ]);
+
+          //a mettre dans la table user les deux $ stocker en bdd et recuperer en vue
+      //$client_stripe_id=$customer['id']
+      //$client_stripe_secret=$intent['client_secret']
           $session = Session::create([
             'payment_method_types' => ['card'],
             'customer' => $customer['id'],
@@ -63,13 +69,16 @@ class UserController extends Controller
             'cancel_url' => 'http://127.0.0.1:5173/profil',
           ]);
          
-          $stripe->paymentIntents->create([
-            'amount' => 2000,
-            'currency' => 'eur',
-            'payment_method_types' => ['card'],
-            'customer' => $customer['id'],
-            ['payment_method' => 'pm_card_visa'],
-          ]);
+          //retenir la payment method pour les debits
+
+          //a mettre dans le controlleur du projet
+          // $stripe->paymentIntents->create([
+          //   'amount' => 2000,
+          //   'currency' => 'eur',
+          //   'payment_method_types' => ['card'],
+          //   'customer' => $user->client_stripe_id,
+          //   ['payment_method' => 'pm_card_visa'],
+          // ]);
           // $stripe->paymentIntents->confirm(
           //   'pi_3MGSafGg161a08f00TAntVgt',
           //   ['payment_method' => 'pm_card_visa']
