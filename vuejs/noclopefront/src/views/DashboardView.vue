@@ -61,7 +61,7 @@ export default {
 <div class="container">
   <div class="child-2">
 
-    <p></p>
+    
      <div class="progressbar-wrapper">
      <div title="downloaded" class="progressbar jours" :style="'width: ' + pourcentage + '%'"  >{{pourcentage}}%</div>
      </div>

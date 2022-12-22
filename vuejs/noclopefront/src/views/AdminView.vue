@@ -55,6 +55,7 @@ export default {
       });
       const data = await response.json();
       this.adminproject = data.adminproject;
+      
       // this.feedbackMessage = data.message;
 
       
@@ -99,14 +100,34 @@ export default {
       </tr>
       
       
-      <button @click="getProjet(userproject.id)" >Voir le project</button>
+      <button @click="getProjet(userproject.id)">Voir le project</button>
     
     </table>
 
 <br>
 
 <section>
-      <h2>Detail project</h2>
+    <table class="customers">
+      <tr>
+        <th>Son objectif: </th>
+        <th>Prix de l'objectif:</th>
+        <th>Prix de son packe: </th>
+        
+        <th>Nombre de cigarette fumer :</th>
+        <th>Date de creation : </th>
+      </tr>
+      <tr>
+        <td>{{ adminproject.objective }}</td>
+        <td>{{ adminproject.price }}</td>
+        <td>{{ adminproject.pricepack }}</td>
+        <td>{{ adminproject.numbersmoke }}</td>
+        <td> {{ adminproject.updated_at }}</td>
+        
+        
+      </tr>
+
+    </table>
+      <!-- <h2>Detail project</h2>
     <div>
       <p>Son objectif: {{ adminproject.objective }}</p>
       <p>Prix de l'objectif: {{ adminproject.price }}</p>
@@ -114,25 +135,12 @@ export default {
       <p>Nombre de cigarette fumer : {{ adminproject.numbersmoke }}</p>
       <p>Date de creation : {{ adminproject.updated_at }}</p>
       
-    </div>
+    </div> -->
 </section>
 
 
 
-<!-- <div class="grid" v-for = "userproject in userproject">
-  
-   <p> Nom: {{userproject.firstname}}</p>
-   <p> Prénom: {{userproject.lastname}}</p>
-   <p> Email: {{userproject.email}}</p>
-   <p> Project: {{userproject.objective}}</p>
-   <p> Prix du project: {{userproject.price}}€</p>
-   <p> Fume par jour: {{userproject.numbersmoke}} cigarette</p>
 
-    <br>
-
-    <button>Voir le project</button>
-    
-  </div> -->
 
 
 
@@ -140,13 +148,7 @@ export default {
 
 <style scoped>
 
-/* .grid {
-  grid-column: 1 / 5;
-  border: 1px solid;
-  display: grid;
-  
 
-} */
 
 section{
     display: flex;
@@ -182,11 +184,8 @@ button{
 .customers td, .customers th {
   border: 1px solid #ddd;
   padding: 8px;
+ 
 }
-
-
-
-
 
 .customers th {
   padding-top: 12px;
