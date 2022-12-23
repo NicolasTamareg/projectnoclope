@@ -95,17 +95,19 @@ export default {
 <template>
   <div class="englobe-all">
     <div class="arround">
-      <h2>Vos anges Gardiens</h2>
 
+      <h2>Vos anges Gardiens</h2>
+       <div class="card">
       <div v-for = "contacts in contacts" :key="user_id">
         <div v-if = "contacts.verified==null" >
         </div>
           <li v-else>
           
-            <p>Nom: {{contacts.firstname}}</p>
-            <p>Prénom: {{contacts.lastname}}</p>
+            <p>Nom: {{contacts.firstname}}</p><br>
+            <p>Prénom: {{contacts.lastname}}</p><br>
             <p>Email : {{contacts.email}}</p>
           </li>
+        </div>
       </div>
  
       <!-- <p>{{contacts.firstname}}</p> -->
@@ -208,9 +210,24 @@ button{
   border-radius: 30px;
   width: fit-content;
 }
-.nothing{
-  display: none;
+.card {
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+  min-height: 200px;
+  display: grid;
+  grid-template-rows: 20px 50px 1fr 50px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+  background-color: #ddf8f3;
 }
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
 
 
 </style>
