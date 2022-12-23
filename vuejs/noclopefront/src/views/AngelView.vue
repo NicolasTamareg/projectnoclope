@@ -97,11 +97,16 @@ export default {
     <div class="arround">
       <h2>Vos anges Gardiens</h2>
 
-      <li v-for = "contacts in contacts" :key="user_id">
-      <p>Nom: {{contacts.firstname}}</p>
-      <p>Prénom: {{contacts.lastname}}</p>
-      <p>Email : {{contacts.email}}</p>
-      </li>
+      <div v-for = "contacts in contacts" :key="user_id">
+        <div v-if = "contacts.verified==null" >
+        </div>
+          <li v-else>
+          
+            <p>Nom: {{contacts.firstname}}</p>
+            <p>Prénom: {{contacts.lastname}}</p>
+            <p>Email : {{contacts.email}}</p>
+          </li>
+      </div>
  
       <!-- <p>{{contacts.firstname}}</p> -->
 
