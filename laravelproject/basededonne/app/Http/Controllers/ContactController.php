@@ -168,7 +168,7 @@ class ContactController extends Controller
 
 
         $contact->verified=1;
-        // $contact->token_verifi->delete();
+        $contact->token_verifi=null;
 
         $contact->save();
      

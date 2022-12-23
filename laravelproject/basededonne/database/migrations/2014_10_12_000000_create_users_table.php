@@ -22,8 +22,8 @@ return new class extends Migration
             // $table->unsignedBigInteger('stipe_id');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-//$client_stripe_id=$customer['id']
-      //$client_stripe_secret=$intent['client_secret']
+        //$client_stripe_id=$customer['id']
+        //$client_stripe_secret=$intent['client_secret']
             $table->rememberToken();
             $table->timestamps();
         });
