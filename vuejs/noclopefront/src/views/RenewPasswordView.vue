@@ -1,7 +1,7 @@
 <template>
     <!-- formulaire de changement de mot de passe -->
     <div class="all">
-        <form @submit.prevent="submitRenewPassword">
+        <form class="form" @submit.prevent="submitRenewPassword">
             <label for="email">Email:
                 <input type="email" v-model="email" name="email" id="email">
             </label>
@@ -22,6 +22,15 @@
 
 <style scoped>
 .all{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 40px;
+  
+}
+
+.form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -51,7 +60,6 @@ label[data-v-45f5edd7]{
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  text-align: center;
 }
 .submit{
   display: flex;
@@ -61,15 +69,13 @@ label[data-v-45f5edd7]{
   flex-direction: row-reverse;
   justify-content: space-around;
 }
-button{
-  margin-top: 20px;
-  padding: 10px;
-  font-size: 1em;
-  background-color: #6CD1BC;
-  color: white;
-  border: 2px solid black;
+button{display: flex;
+  justify-content: space-around;
+  background-color: #6cd1bc;
+  padding: 5px;
   border-radius: 30px;
-  width: 25vh;
+  border: 1px solid black;
+  margin-top: 20px;
   
 }
 </style>
