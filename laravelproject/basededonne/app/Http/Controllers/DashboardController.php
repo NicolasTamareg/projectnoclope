@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cracking;
 use App\Models\Project;
+use App\Models\User;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
@@ -18,8 +19,12 @@ class DashboardController extends Controller
 
     public function getStats()
     {
-        $user_id = auth()->id();
-
+        
+        $user_id = auth()->id();       
+        // if ( auth()->id(1) ) {
+        //  $user_id = User::all('id');
+        // }
+        
         // Le projet de l'utilisateur
         $project = Project::where("user_id", $user_id)->firstOrFail();
         $cigarettes_per_day = $project->numbersmoke;
