@@ -48,7 +48,8 @@ class CrackingController extends Controller
 
         $craques = Cracking::create([
             'numbercigarette' => $request->numbercigarette,
-            'project_id' => $project_id
+            'project_id' => $project_id,
+            'user_id'=> $user_id
         ]);
         $craques->save();
       
