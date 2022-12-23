@@ -74,9 +74,12 @@ export default {
 
 
 <template>
-    <header>
+  <div class="all">
+        <header>
 <h2>Vous avez etait choisi comme ange gardien !</h2>
 </header>
+<img class="angel" src="../views/img/image3.png" alt="">
+
 
 <br>
 <main>
@@ -84,24 +87,88 @@ export default {
 <p>Voulez vous l'aidez a arreter de fumer ?</p>
 
 
-
-  <form @submit.prevent="addToAngel">
+<div class="style">
+   <form @submit.prevent="addToAngel">
       
-  <button type="submit">Accepter</button>
+  <button class="vert" type="submit">Accepter</button>
   
   </form>
 
 
 <form @submit.prevent="DeleteToAngel">
 
-    <button type="submit">Refuser</button>
+    <button class="rouge"  type="submit">Refuser</button>
 
 </form>
+</div>
+ 
 
 
 </main>
+  </div>
+    
 
 
 
 
 </template>
+
+<style scoped>
+
+.all{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #FFFFFF;
+  align-items: center;
+  padding: 200px;
+  text-align: center;
+  border: 1px solid black;
+  height: 40vh;
+
+  font-size: 1.3em;
+}
+.vert{background-color: aquamarine;
+  border-radius: 10px;
+  border: 1px solid black;}
+.rouge{background-color: red;
+  border-radius: 10px;
+  border: 1px solid black;}
+
+  .style{display: flex;
+  justify-content: space-around;}
+
+  .vert:hover {
+  background-color: #6cd1bc;
+  border-radius: 30px;
+
+  color: white;
+}
+.rouge:hover {
+  background-color: #f51111;
+  border-radius: 30px;
+
+  color: white;
+}
+
+button{
+  padding: 5px;
+}
+
+p{padding: 10px;}
+
+.angel{
+  height: 25vh;
+  width: 25vh;
+}
+@media (max-width: 766px) {
+  .all{
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f4f4;
+  border: 1px solid black;
+  padding: 1px;
+}
+  
+}
+</style>
