@@ -17,6 +17,7 @@ return new class extends Migration
             Schema::create('crackings', function (Blueprint $table) {
                 $table->id();
                 $table->integer('numbercigarette');
+                
                 $table->unsignedBigInteger('project_id');
                 
                 $table->timestamps();

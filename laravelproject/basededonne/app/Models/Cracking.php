@@ -13,6 +13,7 @@ class Cracking extends Model
     protected $fillable =[
         'numbercigarette',
         'project_id',
+        'user_id'
         
     ];
 

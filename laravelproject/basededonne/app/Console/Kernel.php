@@ -41,17 +41,17 @@ class Kernel extends ConsoleKernel
                 $iduser=$item['id'];
                 $number_cig_smoked = Cracking::where('user_id', $iduser)
                     ->where('created_at', '>', $date_week)
-                    ->sum('numbercigarettephp artisan schedule:work');
+                    ->sum('numbercigarette');
 
                 $transaction = Operation::where('user_id', $iduser)->get();
                 $project = Project::where('user_id', $iduser)->first();
 
 
 
-                $amount = ($number_day_transac*$project['objective']*$project['pricepack'])/20 -$number_cig_smoked * ($project['price_pack'] / 20); //20 est le nombre de cigarette par paquet
+                $amount = ($number_day_transac*$project['numbersmoke']*$project['pricepack'])/20 -$number_cig_smoked * ($project['pricepack'] / 20); //20 est le nombre de cigarette par paquet
 
                 $transaction = [
-                    'date_transaction' => $date_day, 
+                    
                     'amount' => $amount,
                     'user_id' => $iduser,
                     'project_id' => $project['id'],
