@@ -1,6 +1,7 @@
 <template>
   <!-- formulaire de requete pour mot de passe oublier -->
-<h2>Mot de passe oublier ?</h2>
+  <div class="glob"> 
+    <h2>Mot de passe oublier ?</h2>
     <p>Entre votre email pour revoir un lien pour la réinitialisation de votre mot de passe</p>
 
     <form @submit.prevent="reset">
@@ -12,9 +13,85 @@
     <a href="#" >
     <RouterLink to="/login">Connexion</RouterLink>
     </a>
+ </div>
 
 
 </template>
+<style scoped>
+.glob{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #FFFFFF;
+  align-items: center;
+  padding: 200px;
+  text-align: center;
+  border: 1px solid black;
+  height: 40vh;
+  font-size: 1.3em;
+ 
+}
+
+form{
+  display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+  
+}
+
+
+
+input{
+  
+  display: block;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-align: center;
+}
+
+label[data-v-45f5edd7]{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom: 10px;
+  
+}
+.submit{
+  display: flex;
+  background-color: #6CD1BC;
+  text-align: center;
+  color: white;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+button{display: flex;
+  justify-content: space-around;
+  background-color: #6cd1bc;
+  padding: 5px;
+  border-radius: 30px;
+  border: 1px solid black;
+  
+}
+h2{padding: 10px;}
+p{padding: 10px;}
+
+a{
+  background-color: #6cd1bc;
+  
+  padding: 5px;
+  border-radius: 30px;
+  
+}
+
+ 
+
+</style>
 <script>
 export default {
     data() {
