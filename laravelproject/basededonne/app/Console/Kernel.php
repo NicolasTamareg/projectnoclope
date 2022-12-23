@@ -24,20 +24,20 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             // try { //Création de la transaction dans la base de données
 
-                //Fréquence de prélèvement en jour 
+                //Fréquence de prélèvement
                 $number_day_transac=7;
 
-                //Reccupere les crackings du lundi au lundi
+                //Reccupere le craquage
                 $date_day=now();
                 $date_week = now()->subDay($number_day_transac); //date de 7 jours avant
 
-                //Boucle pour effectuer le prélèvement sur l'ensemble des utilisateurs
+                //Prelevement automatique full user
                 $users = User::all();
                 foreach ($users as $item) {
                     
                
 
-                //permet d'avoir la somme des cigarrettes fumées des 7derniers jours
+                //Recupere les cigarettes fumer dans la semaine
                 $iduser=$item['id'];
                 $number_cig_smoked = Cracking::where('user_id', $iduser)
                     ->where('created_at', '>', $date_week)
@@ -59,7 +59,7 @@ class Kernel extends ConsoleKernel
 
                 $debit =  Operation::create($transaction);
 
-                // try { //Si transaction stripe marche 
+            
 
                     $stripe = new \Stripe\StripeClient(
                         env('STRIPE_SECRET')
@@ -97,24 +97,7 @@ class Kernel extends ConsoleKernel
                 }
 
 
-                //     return response()->json([
-                //         'debit' => $debit,
-                //         'message' => 'Transaction stripe réalisée avec succes'
-                //     ], 200);
-                // }
-                // //Si transaction stripe ne marche pas
-                // catch (\Exception $e) {
-                //     return response()->json([
-                //         'error' => "Erreur lors de la transaction stripe"
-                //     ], 404);
-                // }
-            // }
-            // // Si création de la transaction ne marche pas dans la base de données
-            // catch (\Exception $e) {
-            //     return response()->json([
-            //         'error' => "Erreur lors de la création de la transaction"
-            //     ], 404);
-            // }
+              
         // })->weekly();
             })->everyMinute();
         // })->daily();

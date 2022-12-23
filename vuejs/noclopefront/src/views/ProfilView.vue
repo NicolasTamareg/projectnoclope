@@ -1,249 +1,252 @@
 <script>
 export default {
+
   data() {
     return {
-      userList: {},
-      user: {},
-      result: true,
-      token: "",
-      profile: {},
-      projectUser: {},
-      projectDelete: {},
+      project: "",
+      cigarettes_per_day: "",
+      date_created: "",
+      crakings: "",
+      current_date: "",
+      not_smoked_cigarettes_expectation: "",
+      smoked_cigarettes: "",
+      elapse_days: "",
+      final: "",
+      saved: "",
+      pourcentage: "",
+
     };
   },
 
-  mounted: function () {
-    this.getProfil();
-    this.getProjectUser();
-  },
   methods: {
+    async DashboardProject() {
 
-    async getProfil() {
-      const token = localStorage.getItem("token");
-      const response = await fetch("http://127.0.0.1:8000/api/users/edit", {
+      const token = localStorage.getItem("token")
+      const response = await fetch("http://127.0.0.1:8000/api/dashboard/stats", {
         method: "GET",
         headers: {
-          Accept: "application/json",
-          Authorization: "Bearer " + token,
+
+          "Accept": "application/json",
+          "Authorization": "Bearer " + token,
         },
+
       });
-      // const response = await fetch(
-      //   "http://127.0.0.1:8000/api/users/edit",
-      //   options
-      // );
-
       const data = await response.json();
-      this.user = data.user;
-      console.log(this.user);
-      // console.log("responseBody", responseBody);
-      // this.userList = responseBody;
-    },
-
-    async getProjectUser() {
-      const token = localStorage.getItem("token");
-      const response = await fetch("http://127.0.0.1:8000/api/projects", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer " + token,
-        },
-      });
-      // const response = await fetch(
-      //   "http://127.0.0.1:8000/api/users/edit",
-      //   options
-      // );
-
-      const data = await response.json();
-      this.projectUser = data.projectUser;
-      console.log(this.projectUser);
-      // console.log("responseBody", responseBody);
-      // this.userList = responseBody;
-    },
-
-    async DeleteProject() {
-      const token = localStorage.getItem("token");
-      const response = await fetch("http://127.0.0.1:8000/api/projects", {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer " + token,
-        },
-      });
-      // const response = await fetch(
-      //   "http://127.0.0.1:8000/api/users/edit",
-      //   options
-      // );
-
-      const data = await response.json();
-      this.projectDelete = data.projectDelete;
-      console.log(this.projectDelete);
-      // console.log("responseBody", responseBody);
-      // this.userList = responseBody;
-    },
+      this.project = data.project
+      this.elapse_days = data.elapse_days
+      this.date_created = data.date_created
+      this.current_date = data.current_date
+      this.crakings = data.crakings
+      this.not_smoked_cigarettes_expectation = data.not_smoked_cigarettes_expectation
+      this.smoked_cigarettes = data.smoked_cigarettes
+      this.final = data.final
+      this.saved = data.saved
+      this.pourcentage = data.pourcentage.toFixed(2)
+      console.log(this.saved)
+    }
   },
+  mounted() {
+    this.DashboardProject();
+  }
 };
 
-// components: { ProfilPage },
+
 </script>
+
+
+
 
 <template>
   <div class="all">
-    <div class="links">
-      <a href="/dashboard">Tableau de bord</a>
-      <a href="/craquer"><input type="submit" value="J'ai craqué" /></a>
-      <a href="/ange"
-        ><input type="submit" value="Contacter mes anges gardiens"
-      /></a>
-      <a href="/avance"><input type="submit" value="Demander une avance" /></a>
-    </div>
-    <div class="user-title">
-      <h2>Bonjour {{ user.firstname }} {{ user.lastname }}!</h2>
-    </div>
-
-    <div v-for="projectUser in projectUser">
-      <div class="card">
-        <div class="objectif">
-          <h1>Jour 1</h1>
-
-          <div class="voyage">
-            <h3>Project: <br />{{ projectUser.objective }}</h3>
-          </div>
-
-          <h4>Prix: {{ projectUser.price }}<br /></h4>
-          <div class="progression"></div>
+    <div class="block-1-2">
+      <div class="parent-2">
+      <div class="block2">
+        <p>{{project.objective}}</p>
+       
+      <p>Economies:{{ saved }}€</p>  <p>Objectif:{{ project.price }}€</p> <div class="progressbar-wrapper">
+          <div title="downloaded" class="progressbar jours" :style="'width: ' + pourcentage + '%'">{{ pourcentage }}%
         </div>
-      </div>
-      <div class="buttons">
-        <button @click="DeleteProject">Delete</button>
-      </div>
+    
+    </div>
+    
     </div>
   </div>
+   
+      <div class="dash">
+      <div class="suivie">
+        <p>Mon suivie</p>  <br>
+      <div class="jours">{{ elapse_days.d }} <p>Jours</p>  </div>
+      <div class="non-clope">{{ not_smoked_cigarettes_expectation }} <p> Clopes Non Fumées</p></div>
+      <div class="clope">{{ smoked_cigarettes }} <p> Clope Fumées</p></div>
+ 
+</div>
+
+
+  </div>
+  <div class="btn">
+    
+    <RouterLink to="/craquer"> <button>J'ai craqué</button></RouterLink>
+    <RouterLink to="/ange"> <button>Ajouter un Ange gardien</button></RouterLink>
+  </div>
+  </div>
+
+  <div></div>
+  
+   </div>
+    
+    
+
+
+
 </template>
 
-<style scoped>
-.all {
-  /* background: linear-gradient(to bottom, #69d5bf, #ffffff); */
+<style>
+body{
+  width: auto;
 }
-.card {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+button{
+ background-color: #69D5BF;
+ color: white;
+ border-radius: 10px;
+ width: 100px;
+ 
 }
-.objectif {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  border: solid 1px black;
-  height: 450px;
-  width: fit-content;
-  background-color: white;
-  margin-top: 0.25rem;
-  padding: 10px;
-  border-radius: 8px;
-  border: 2px solid black;
-}
-.voyage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 300px;
-  width: 400px;
-  background-image: url(../views/img/projet.jpg);
-  color: black;
-  font-weight: bold;
-  background-position: center;
-  background-size: cover;
-  margin-top: 0.25rem;
-  padding: 6px;
-  border-radius: 8px;
-  border: 1px solid black;
-  align-self: center;
-}
-.progression {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  width: 90%;
-  background-color: chartreuse;
-  margin-left: 20px;
-  margin-top: 0.25rem;
-  padding: 6px;
-  border-radius: 8px;
-  border: 1px solid black;
-}
-.user-title {
-  display: flex;
-  text-align: center;
-  align-content: center;
-  justify-content: center;
-  padding: 20px;
-}
-.separe {
-  height: 100px;
-}
-h1 {
-  padding: 10px;
-  color: white;
-}
-h2 {
-  padding: 20px;
-  font-size: 2em;
-}
-h4 {
-  padding: 20px;
-  color: white;
-}
-.links {
-  display: flex;
+ 
 
-  padding: 10px;
-  align-self: normal;
-
-  justify-content: space-evenly;
+.btn{
+  display: flex;
+    justify-content: space-around;
 }
-a {
-  font-size: 1.3em;
-  color: black;
 
-  margin-top: 2vh;
-  text-align: center;
-  align-items: center;
+/* Barre */
+ :root {
+  --success: #00b894;
+  --progress: #e17055;
 }
-a:hover {
-  background-color: #6cd1bc;
-  border-radius: 30px;
 
+.progressbar-wrapper {
+  background-color: #dfe6e9;
   color: white;
-}
-button {
-  margin-top: 20px;
-  padding: 15px;
-  font-size: 1em;
-  background-color: #6cd1bc;
-  color: white;
-  border: 2px solid black;
   border-radius: 15px;
-  width: fit-content;
+  width: 80%;
 }
-.buttons {
+
+.progressbar {
+  background-color: var(--progress);
+  color: white;
+  padding: 1rem;
+  text-align: right;
+  font-size: 20px;
+  border-radius: 15px;
+}
+
+.progressbar[title="downloading"] {
+  background-color: var(--progress);
+}
+
+.progressbar[title="downloaded"] {
+  background-color: var(--success);
+}
+
+/* Fin barre */
+.container {
+  display: flex;
+  align-items: center;
+}
+
+ .suivie {
+ 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+} 
+
+.jours {
+  width: 90px;
+    height: 70px;
+  background-color:#ffffffa0;
+  border-radius: 10px;
+  padding-right: 20px;
+  color:#1C3357;
+  
+}
+.non-clope{
+  width: 90px;
+    height: 70px;
+  background-color:#ffffffa0;
+  border-radius: 10px;
+  padding-right: 20px;
+  width: 106px;
+    height: 80px;
+color:#1C3357;
+}
+.clope{
+  width: 90px;;
+    height: 70px;
+  background-color:#ffffffa0;
+  border-radius: 10px;
+  padding-right: 20px;
+  color:#1C3357;
+
+}
+
+.raw {
+  background-color: aqua;
+  width: auto;
+  height: auto;
+  display: flex;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5px;
-}
-@media (max-width: 766px) {
-  .links {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    align-self: normal;
 
-    justify-content: space-evenly;
-  }
+
+}
+
+
+
+
+.block2{
+  background-color: #ffffff9c;
+  width: 40vw;
+  margin-left: 74px;
+  height: 200px;
+  margin-left: 40px;
+  border-radius: 10px;
+  color:#1C3357;
+ 
+}
+.block3{
+  background-color:#ACE7DC;
+  width: 670px;
+  border-radius: 10px;
+
+}
+.block-1-2{
+
+  width: 60vw;
+  height: 500px;
+}
+.parent-2{
+  width: 47vw;
+   
+    background-color:#6CD1BC ;
+    border-radius: 10px;
+    margin-left: 70px;
+    height: 230px;
+}
+.all{
+  display: flex;
+    justify-content: center;
+    margin: 70px;
+}
+.dash{
+  width: 700px;
+  height: 100px;
+  background-color:#ACE7DC;
+  padding-right: 20px;
+  margin: 24px;
+  border-radius: 21px;
 }
 </style>

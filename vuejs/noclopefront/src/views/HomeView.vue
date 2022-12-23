@@ -33,7 +33,7 @@
     <div class="about-me-text">
       <h2>A Propos De Nous</h2>
       <p>nous sommes la seule application qui a pour but d'aider l'utilisateur à arrêter de fumer et de réaliser leur projet .
-notre but est de suivre nos clients tout au long de leur projet les aider à atteindre leurs objectifs tout en diminuant la consommation journalière de cigarette jusqu'a à arrêter définitivement et réduit leur cout sûr et orienté leur argent dans des loisirs qu'il peut des à présent réaliser.</p>
+notre but est de suivre nos clients tout au long de leur projet les aider à atteindre leurs objectifs tout en diminuant la consommation journalière de cigarette .</p>
     </div>
     <img src="../views/img/logo2.png" alt="me">
   </div>
@@ -43,7 +43,7 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
 </template>
 
 <style scoped>
-.main{
+.main {
   display: flex;
   justify-content: center;
   padding: 40px;
@@ -53,19 +53,17 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-
 }
 .intro {
   display: flex;
-  
+
   width: 100vw;
   height: 700px;
 }
-.intro2{
+.intro2 {
   display: flex;
   width: 25vw;
-  height:  60vh;
+  height: 60vh;
   background-image: url(../views/img/logo-principal.png);
   background-position: center;
   background-size: cover;
@@ -83,10 +81,11 @@ h1 {
   text-shadow: rgb(255, 255, 255) 7px 0 3px;
   padding-left: 40px;
 }
-p{
+p {
   text-shadow: rgb(255, 255, 255) 1px 0 10px;
   text-align: center;
   padding-left: 40px;
+  padding: 1px;
 }
 .ab {
   text-align: center;
@@ -94,9 +93,8 @@ p{
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  text-shadow: 2px 2px 3px #6CD1BC;
+  text-shadow: 2px 2px 3px #6cd1bc;
 }
-
 
 .intro h1 {
   font-family: sans-serif;
@@ -123,16 +121,16 @@ p{
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
 }
 
-.achievements{
+.achievements {
   display: flex;
   justify-content: space-around;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    padding: 20px; 
-    width: fit-content;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  padding: 20px;
+  width: fit-content;
 }
 
 .achievements .work {
@@ -141,11 +139,9 @@ p{
   justify-content: center;
   align-items: center;
   padding: 0 40px;
-
 }
 
 .achievements .work i {
- 
   font-size: 50px;
   color: #333333;
   border-radius: 50%;
@@ -170,9 +166,9 @@ p{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 80px;
+
   border-top: 2px solid #eeeeee;
-  border-color: #6CD1BC;
+  border-color: #6cd1bc;
   flex-wrap: wrap;
   width: fit-content;
 }
@@ -197,29 +193,31 @@ p{
 .about-me-text p {
   font-size: 15px;
   color: #585858;
-  margin: 10px 0;}
+  margin: 10px 0;
+}
 
-  @media (max-width: 766px){
 
-    .achievements{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  @media (max-width: 766px) {
+  .achievements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     flex-wrap: wrap;
     flex-direction: row;
-    padding: 20px; 
+    padding: 20px;
     width: fit-content;
-}
+  }
 
-.intro2{
-  display: none;
-};
+  .intro2 {
+    display: none;
+  }
 
-
-.about-me{
-  display: flex;
-  flex-direction: column;
-}
-  
+  .about-me {
+    display: flex;
+    flex-direction: column;
+  }
+  img{ 
+    display: none;
+  }
 }
 </style>
