@@ -7,6 +7,7 @@ use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
+use App\Models\Operation;
 use DateTime;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Support\Facades\Date;
@@ -50,6 +51,15 @@ class AdminController extends Controller
         return response()->json(['users' => $users, "saving_now"=>$saving_now, "final"=>$final, 'pourcentage'=>$pourcentage, "elapse_days"=>$elapse_days]);
     }
     
-}
+    }
+
+    public function gellFullOperation(){
+
+        $operation=Operation::all();
+
+        return response()->json(['message'=>'operation recupere','operation'=>$operation]);
+
+
+    }
 }
 

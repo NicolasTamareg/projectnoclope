@@ -38,6 +38,8 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::get('/admin', [AdminController::class, 'getFullUsers']);
     Route::get('/adminproject', [AdminController::class, 'getFullUsersProject']);
+    Route::get('/adminoperation', [AdminController::class, 'gellFullOperation']);
+
     
     Route::get('/dashboard/stats/admin', [AdminController::class,'getStats']);
 });
