@@ -62,6 +62,9 @@ class UserController extends Controller
           $intent=$stripe->setupIntents->create([
             'customer'=>$customer['id'],
           ]);
+          $user= User::findOrFail($user['id']);
+          $user->stripe_id=$customer['id'];
+          $user->save();
 
           //a mettre dans la table user les deux $ stocker en bdd et recuperer en vue
       //$client_stripe_id=$customer['id']
@@ -73,7 +76,7 @@ class UserController extends Controller
             'mode' => 'setup',
             
             'success_url' => 'http://127.0.0.1:5173/',
-            'cancel_url' => 'http://127.0.0.1:5173/profil',
+            'cancel_url' => 'http://127.0.0.1:5173/profil',//PAGE DE PAIEMENT REFUSE
           ]);
          
           //retenir la payment method pour les debits
