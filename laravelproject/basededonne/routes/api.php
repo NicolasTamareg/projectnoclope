@@ -37,7 +37,7 @@ use Illuminate\Support\Str;
 
     Route::get('/admin', [AdminController::class, 'getFullUsers']);
     Route::get('/adminproject', [AdminController::class, 'getFullUsersProject']);
-    Route::get('/dashboard/stats/admin', [AdminController::class,'getStats']);
+    
 
 //
 

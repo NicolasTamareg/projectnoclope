@@ -1,58 +1,43 @@
 <script>
 export default {
-  name: "App",
-  data() {
-    return {
-        userproject:{},
-      feedbackMessage: "",
-    };
-  },
 
-  methods: {
+data() {
+  return {
+    users:{},
+    saving_now:{},
+    pourcentage:{},
+    final:{},
+    elapse_day:{},
+  };
+},
 
-    //recupere les users
-    async getUsers () {
-      const token = localStorage.getItem("token")
-      const response = await fetch("http://127.0.0.1:8000/api/admin", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Authorization":"Bearer " + token
-        },
-      });
-      const data = await response.json();
-      this.user = data.user;
-      this.feedbackMessage = data.message;
-
-      console.log("message:", this.user)
-    }, 
-    async getFullUserProject () {
-      const token = localStorage.getItem("token")
-      const response = await fetch("http://127.0.0.1:8000/api/adminproject", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Authorization":"Bearer " + token
-        },
-      });
-      const data = await response.json();
-      this.userproject = data.userproject;
-      this.feedbackMessage = data.message;
-
-      console.log("message:",this.userproject)
-    }, 
-      
-  },
-
-  mounted:async function () {
-    // this.getUsers();
-    this.getFullUserProject();
-   } 
-  // mounted() {
-    
-  //   this.getContacts();
-  // },
+methods: {
+  async AdminDashboardProject() {
+  
+    const token = localStorage.getItem("token")
+    const response = await fetch("http://127.0.0.1:8000/api/adminproject", {
+      method: "GET",
+      headers: {
+       
+        "Accept": "application/json",
+        "Authorization": "Bearer " + token,
+      },
+     
+    });
+    const data = await response.json();
+   this.users=data.users
+   this.saving_now=data.saving_now
+   this.pourcentage=data.pourcentage
+   this.final=data.final
+   this.elapse_day=data.elapse_day
+    console.log(this.saving_now)
+  }
+},
+mounted() {
+          this.AdminDashboardProject();
+      }
 };
+
 
 
 </script>
@@ -60,22 +45,28 @@ export default {
 <template>
 <h2>Liste des utilisateurs de l'application</h2>
 
-<table class="customers " v-for = "userproject in userproject">
+<table class="customers " v-for = "users in users">
       <tr>
         <th>nom</th>
-        <th>prenon</th>
+        <th>prenom</th>
         <th>email</th>
-        <th>project</th>
-        <th>prix de project</th>
+        <th>projet</th>
+        <th>prix de projet</th>
         <th>cigarette par jour</th>
       </tr>
       <tr>
-        <td>{{userproject.firstname}}</td>
-        <td>{{userproject.lastname}}</td>
-        <td>{{userproject.email}}</td>
-        <td>{{userproject.objective}}</td>
-        <td>{{userproject.price}}€</td>
-        <td>{{userproject.numbersmoke}}</td>
+        <td>{{users.firstname}}</td>
+        <td>{{users.lastname}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.objective}}</td>
+        <td>{{users.price}}€</td>
+        <td>{{users.numbersmoke}}</td>
+        <td>{{saving_now}}</td>
+        <td> <div class="progressbar-wrapper">
+          <div title="downloaded" class="progressbar jours" :style="'width: ' + pourcentage + '%'">{{ pourcentage }}%
+        </div>
+        </div>
+      </td>
         
       </tr>
       <button>Voir le project</button>
@@ -84,20 +75,9 @@ export default {
 
 <br>
 
-<!-- <div class="grid" v-for = "userproject in userproject">
-  
-   <p> Nom: {{userproject.firstname}}</p>
-   <p> Prénom: {{userproject.lastname}}</p>
-   <p> Email: {{userproject.email}}</p>
-   <p> Project: {{userproject.objective}}</p>
-   <p> Prix du project: {{userproject.price}}€</p>
-   <p> Fume par jour: {{userproject.numbersmoke}} cigarette</p>
 
-    <br>
 
-    <button>Voir le project</button>
-    
-  </div> -->
+
 
 
 
@@ -105,13 +85,34 @@ export default {
 
 <style scoped>
 
-/* .grid {
-  grid-column: 1 / 5;
-  border: 1px solid;
-  display: grid;
-  
+:root {
+  --success: #00b894;
+  --progress: #e17055;
+}
 
-} */
+.progressbar-wrapper {
+  background-color: #dfe6e9;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.progressbar {
+  background-color: var(--progress);
+  color: white;
+  padding: 1rem;
+  text-align: right;
+  font-size: 20px;
+  border-radius: 15px;
+}
+
+.progressbar[title="downloading"] {
+  background-color: var(--progress);
+}
+
+.progressbar[title="downloaded"] {
+  background-color: var(--success);
+}
 h2{
   display: flex;
   justify-content: space-around;
