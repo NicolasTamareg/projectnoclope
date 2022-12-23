@@ -30,17 +30,17 @@ export default {
           <nav class="navbar">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div class="flex h-16 items-center justify-center">
-                <a href=""><img src="../views/img/logo.2.png" alt="" class="logo"><RouterLink  to="/"></RouterLink></a>
+                <a href="#"><RouterLink  to="/"><img src="../views/img/logo-principal.png" alt="" class="logo"></RouterLink></a>
 
                 <div class="flex items-center">
                   <div class="flex-shrink-0">
           
                   </div>
-                  <div class="hidden md:block">
+                  <div class="md:block">
           
                     <div class="ml-10 flex items-baseline space-x-4">
           
-                      <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                      <a href="#" class="hidden md:block text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                         <RouterLink to="/">NO CLOPE</RouterLink>
                       </a>
                       <a href="#"
@@ -67,7 +67,7 @@ export default {
           <nav class="navbar">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div class="flex h-16 items-center justify-center">
-                <a href=""><img src="../views/img/logo-principal.png" alt="" class="logo"><RouterLink  to="/"></RouterLink></a>
+                <a href="#"><RouterLink  to="/"><img src="../views/img/logo-principal.png" alt="" class="logo"></RouterLink></a>
 
                 <div class="flex items-center">
                   <div class="flex-shrink-0">
@@ -103,7 +103,7 @@ export default {
         
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-center">
-       <a href=""><img src="../views/img/logo.2.png" alt="" class="logo"><RouterLink  to="/"></RouterLink></a>
+        <a href="#"><RouterLink  to="/"><img src="../views/img/logo-principal.png" alt="" class="logo"></RouterLink></a>
         <div class="flex items-center">
           <div class="flex-shrink-0">
             
@@ -189,5 +189,11 @@ height: 40px;}
   height: 8vh;
 
 }
+/* @media screen and (min-width: 576px) and (max-width: 767px) {
+.navbar{display: flex; flex-direction: column;}
+
+nav{display: flex; flex-direction: column;}
+
+} */
 </style>
 

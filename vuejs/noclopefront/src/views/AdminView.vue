@@ -69,9 +69,11 @@ mounted() {
       </td>
         
       </tr>
-      <button>Voir le project</button>
+      
+      
+      <button @click="getProjet(userproject.id)">Voir le project</button>
+    
     </table>
-
 
 <br>
 
@@ -142,11 +144,8 @@ button{
 .customers td, .customers th {
   border: 1px solid #ddd;
   padding: 8px;
+ 
 }
-
-
-
-
 
 .customers th {
   padding-top: 12px;

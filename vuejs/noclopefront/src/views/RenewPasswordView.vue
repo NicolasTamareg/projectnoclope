@@ -1,17 +1,17 @@
 <template>
     <!-- formulaire de changement de mot de passe -->
-    <div>
-        <form @submit.prevent="submitRenewPassword">
+    <div class="all">
+        <form class="form" @submit.prevent="submitRenewPassword">
             <label for="email">Email:
                 <input type="email" v-model="email" name="email" id="email">
             </label>
 
             <label for="password">Password:
-                <input type="text" v-model="password" name="password" id="password">
+                <input type="password" v-model="password" name="password" id="password">
             </label>
             
             <label for="confirm_password">Confirm password:
-                <input type="text" v-model="confirmPassword" name="confirm_password" id="confirm_password">
+                <input type="password" v-model="confirmPassword" name="confirm_password" id="confirm_password">
             </label>
 
             <button type="submit">Valider</button>
@@ -19,6 +19,66 @@
         </form>
     </div>
 </template>
+
+<style scoped>
+.all{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 40px;
+  
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 10px;
+  padding: 40px;
+  width: fit-content;
+  text-align: center;
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  max-width: 24rem;
+  
+}
+input{
+  
+  display: block;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-align: center;
+}
+
+label[data-v-45f5edd7]{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+}
+.submit{
+  display: flex;
+  background-color: #6CD1BC;
+  text-align: center;
+  color: white;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+button{display: flex;
+  justify-content: space-around;
+  background-color: #6cd1bc;
+  padding: 5px;
+  border-radius: 30px;
+  border: 1px solid black;
+  margin-top: 20px;
+  
+}
+</style>
 
 <script>
 

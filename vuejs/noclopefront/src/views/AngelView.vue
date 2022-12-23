@@ -95,17 +95,24 @@ export default {
 <template>
   <div class="englobe-all">
     <div class="arround">
-      <h2>Vos anges Gardiens</h2>
 
-      <li v-for = "contacts in contacts" :key="user_id">
-      <p>Nom: {{contacts.firstname}}</p>
-      <p>Prénom: {{contacts.lastname}}</p>
-      <p>Email : {{contacts.email}}</p>
-      </li>
+      <h2>Vos anges Gardiens</h2>
+       <div class="card">
+      <div v-for = "contacts in contacts" :key="user_id">
+        <div v-if = "contacts.verified==null" >
+        </div>
+          <li v-else>
+          
+            <p>Nom: {{contacts.firstname}}</p><br>
+            <p>Prénom: {{contacts.lastname}}</p><br>
+            <p>Email : {{contacts.email}}</p>
+          </li>
+        </div>
+      </div>
  
       <!-- <p>{{contacts.firstname}}</p> -->
 
-      <form @submit.prevent="addToContact">
+      <form class="allo" @submit.prevent="addToContact">
         <label for="">Nouvel Ange-Gardien </label>
 
           <label for="lastname"></label>
@@ -122,14 +129,16 @@ export default {
 
         
       </form>
-
-      <form  @submit.prevent="helpContacts">
+      
+      <form class="lola" @submit.prevent="helpContacts">
         
         <button type="submit">JE VAIS CRAQUER !</button>
       </form>
+      
 
       
     <p>{{ feedbackMessage }}</p>
+
     </div>
 
     
@@ -145,13 +154,13 @@ export default {
   
 }
 
-form{
+.allo{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
   background-color: #FFFFFF;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 20px;
   width: fit-content;
   text-align: center;
@@ -183,7 +192,7 @@ label{
 .englobe-all{
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
+    /* background: linear-gradient(to bottom , #69D5BF, #FFFFFF ); */
     padding: 40px 40px 40px 40px;
 }
 h2 {
@@ -199,11 +208,26 @@ button{
   color: white;
   border: 2px solid black;
   border-radius: 30px;
-  
   width: fit-content;
 }
-.nothing{
-  display: none;
+.card {
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+  min-height: 200px;
+  display: grid;
+  grid-template-rows: 20px 50px 1fr 50px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+  background-color: #ddf8f3;
 }
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+
 
 </style>

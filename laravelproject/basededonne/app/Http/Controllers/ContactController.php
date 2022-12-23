@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Project;
 use App\Models\User;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -93,6 +94,7 @@ class ContactController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
+            'token_verifi'=>$request->token_verifi= rand(1000000, 9000000),
             'user_id'=> $request-> user_id = Auth::user()->id,
         ]);
        
@@ -104,6 +106,7 @@ class ContactController extends Controller
                 'lastname'=>$user->lastname,
                 'firstname'=>$user->firstname,
                 'email'=>$contact->email,
+                'token'=>$contact->token_verifi
         
             );
     
@@ -158,29 +161,30 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function invitation(Request $request)
+    public function addinvitation($token_verifi)
     {
-        //invitation pour un angel 
-        
-     
-        $contact = Contact::findOrFail($request->email);
+        //invitation pour un angel
+        $contact = Contact::where('token_verifi', '=',$token_verifi)->first();
+
 
         $contact->verified=1;
+        $contact->token_verifi=null;
 
         $contact->save();
+     
         
-        
-         
-        
+        return response()->json(['message'=>'Invitation accepter','contact'=>$contact],200);
 
-        // $user_id = Auth::user()->id;
-
-       
-
-        
-
-       
-
-        return response()->json(['message'=>'Contact recupe.','contact'=>$contact],200);
     }
+    public function deleteinvitation($token_verifi)
+    {
+        //invitation pour un angel
+        $contact = Contact::where('token_verifi', '=',$token_verifi)->first();
+        
+        $contact->delete();
+        
+        return response()->json(['message'=>'Contact supprime','contact'=>$contact],200);
+
+    }
+
 }

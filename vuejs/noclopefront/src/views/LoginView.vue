@@ -112,7 +112,7 @@ export default {
   <!-- lien de mot de passe oublier -->
       <p v-if="feedbackMessage">{{feedbackMessage}}</p>
       <RouterLink to="/resetPassword">
-      <p>Mot de passe oublier ?</p>
+      <p>Mot de passe oublié ?</p>
       </RouterLink> 
     </div>
     
@@ -136,7 +136,7 @@ form{
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 40px;
   width: fit-content;
   text-align: center;
@@ -173,11 +173,11 @@ label[data-v-45f5edd7]{
 .englobe-all[data-v-45f5edd7] {
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
+    /* background: linear-gradient(to bottom , #69D5BF, #FFFFFF ); */
     padding: 40px;
 }
 h1 {
-  padding: 20px;
+  padding: 10px;
   font-size: 1.5em;
   color: black;
 }
@@ -191,8 +191,7 @@ button{
   border-radius: 30px;
   width: 20vw;
 }
-@media (max-width: 766px){
-
-
+p{
+  padding: 10px;
 }
 </style> 

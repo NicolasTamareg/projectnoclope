@@ -14,8 +14,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-class AdminController extends Controller
-{
+class AdminController extends Controller{
 
   
     public function getFullUsersProject()
@@ -49,6 +48,8 @@ class AdminController extends Controller
 
         return response()->json(['users' => $users, "saving_now"=>$saving_now, "final"=>$final, 'pourcentage'=>$pourcentage, "elapse_days"=>$elapse_days]);
     }
-    
+   
+
 }
+
 }

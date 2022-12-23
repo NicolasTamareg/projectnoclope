@@ -53,7 +53,7 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
+  
 
 }
 .intro {
@@ -126,12 +126,13 @@ p{
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
 }
 
-.achievements[data-v-b4e148ca]{
+.achievements{
   display: flex;
   justify-content: space-around;
     flex-wrap: nowrap;
     flex-direction: row;
     padding: 20px; 
+    width: fit-content;
 }
 
 .achievements .work {
@@ -140,10 +141,11 @@ p{
   justify-content: center;
   align-items: center;
   padding: 0 40px;
+
 }
 
 .achievements .work i {
-  width: fit-content;
+ 
   font-size: 50px;
   color: #333333;
   border-radius: 50%;
@@ -172,6 +174,7 @@ p{
   border-top: 2px solid #eeeeee;
   border-color: #6CD1BC;
   flex-wrap: wrap;
+  width: fit-content;
 }
 
 .about-me img {
@@ -197,6 +200,16 @@ p{
   margin: 10px 0;}
 
   @media (max-width: 766px){
+
+    .achievements{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 20px; 
+    width: fit-content;
+}
 
 .intro2{
   display: none;

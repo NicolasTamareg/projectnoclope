@@ -34,11 +34,12 @@ use Illuminate\Support\Str;
 
 //Parti Admin
 
+Route::middleware('auth:sanctum')->group(function() {
 
     Route::get('/admin', [AdminController::class, 'getFullUsers']);
     Route::get('/adminproject', [AdminController::class, 'getFullUsersProject']);
     
-
+});
 //
 
 
@@ -76,10 +77,11 @@ Route::delete('/projects', [ProjectController::class,'destroy'])->name('projects
 
 //Fin Route Project
 
+Route::put('/invitation/{token_verifi}', [ContactController::class, 'addinvitation'])->name('contacts.update');
+Route::delete('/deletecontac/{token_verifi}', [ContactController::class, 'deleteinvitation'])->name('contacts.delete');
 
 Route::middleware('auth:sanctum')->group(function() {
     //Routes contacts
-    Route::post('/invitation', [ContactController::class, 'invitation'])->name('contacts.destroy');
     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
     Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create')->where('id', '[0-9]+');
     Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
