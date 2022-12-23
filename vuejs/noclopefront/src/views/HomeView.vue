@@ -53,7 +53,7 @@ notre but est de suivre nos clients tout au long de leur projet les aider à att
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
+  
 
 }
 .intro {

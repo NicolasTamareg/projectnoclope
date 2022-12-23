@@ -36,11 +36,11 @@ export default {
                   <div class="flex-shrink-0">
           
                   </div>
-                  <div class="hidden md:block">
+                  <div class="md:block">
           
                     <div class="ml-10 flex items-baseline space-x-4">
           
-                      <a href="#" class="text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                      <a href="#" class="hidden md:block text-white hover:bg-green-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                         <RouterLink to="/">NO CLOPE</RouterLink>
                       </a>
                       <a href="#"
@@ -189,5 +189,11 @@ height: 40px;}
   height: 8vh;
 
 }
+/* @media screen and (min-width: 576px) and (max-width: 767px) {
+.navbar{display: flex; flex-direction: column;}
+
+nav{display: flex; flex-direction: column;}
+
+} */
 </style>
 

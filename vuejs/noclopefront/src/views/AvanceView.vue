@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 10px;
-  background: linear-gradient(to bottom, #69D5BF, #ACE7DC, #FFFFFF);
+  /* background: linear-gradient(to bottom, #69D5BF, #ACE7DC, #FFFFFF); */
   
   padding: 20px;
   width: 100%;

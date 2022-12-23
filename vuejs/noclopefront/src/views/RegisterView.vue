@@ -110,7 +110,7 @@ form{
   justify-content: space-around;
   padding: 10px;
   background-color: #FFFFFF;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 20px;
   width: fit-content;
   text-align: center;
@@ -142,7 +142,7 @@ label{
 .englobe-all[data-v-bf0653ef] {
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom , #69D5BF, #FFFFFF );
+    /* background: linear-gradient(to bottom , #69D5BF, #FFFFFF ); */
     padding: 40px 40px 40px 40px;
 }
 h1 {

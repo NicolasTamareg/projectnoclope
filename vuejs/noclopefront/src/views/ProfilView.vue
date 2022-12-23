@@ -121,7 +121,7 @@ export default {
 
 <style scoped>
 .all {
-  background: linear-gradient(to bottom, #69d5bf, #ffffff);
+  /* background: linear-gradient(to bottom, #69d5bf, #ffffff); */
 }
 .card {
   padding: 20px;
