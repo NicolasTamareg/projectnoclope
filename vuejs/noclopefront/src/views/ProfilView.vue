@@ -17,6 +17,7 @@ export default {
     this.getProjectUser();
   },
   methods: {
+
     async getProfil() {
       const token = localStorage.getItem("token");
       const response = await fetch("http://127.0.0.1:8000/api/users/edit", {
@@ -150,8 +151,11 @@ export default {
   justify-content: center;
   height: 300px;
   width: 400px;
+  background-image: url(../views/img/projet.jpg);
   color: black;
   font-weight: bold;
+  background-position: center;
+  background-size: cover;
   margin-top: 0.25rem;
   padding: 6px;
   border-radius: 8px;
@@ -183,7 +187,7 @@ export default {
 }
 h1 {
   padding: 10px;
-  color: black;
+  color: white;
 }
 h2 {
   padding: 20px;
@@ -191,7 +195,7 @@ h2 {
 }
 h4 {
   padding: 20px;
-  color: black;
+  color: white;
 }
 .links {
   display: flex;
