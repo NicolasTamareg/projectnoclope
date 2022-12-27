@@ -174,11 +174,12 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 80px;
+  
   border-top: 2px solid #eeeeee;
   border-color: #6cd1bc;
   flex-wrap: wrap;
   width: fit-content;
+  
 }
 
 .about-me img {
